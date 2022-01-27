@@ -8,3 +8,4 @@ class CreateFavorites < ActiveRecord::Migration[6.1]
     end
   end
 end
+# la commande ayant permis de faire ceci est : rails g model favorite user:references favoritable:references{polymorphic}
