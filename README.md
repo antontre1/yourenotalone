@@ -10,6 +10,9 @@ The polymorphic table 'favorites' was created using :
      - has_many :favorites, as: :favoritable // for theme and all other potential tables
 
 Regarding DB:
+
+![Alt text](./app/assets/images/models.png?raw=true "DB_Relations")
+
 - we use one Polymorphic table (favorites). Reminder regarding the way to create a favorite:
     - create users :
     ```bash
