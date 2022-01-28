@@ -1,5 +1,13 @@
 Social Network tool attempt study.
 
+
+DB MODELS :
+
+The polymorphic table 'favorites' was created using :
+ - rails g model favorite user:references details favoritable:references{polymorphic}
+ - User & Theme models we've added :
+     -  has_many :favorites
+
 Regarding DB:
 - we use one Polymorphic table (favorites). Reminder regarding the way to create a favorite:
     1- create users :
@@ -12,4 +20,4 @@ Regarding DB:
         fav2 = Favorite.create(user_id: us1.id, favoritable: us2)
     4- recall favorites :
         Favorite.all
-        us1.
+        us1.favorites (in 'rails c', it's necessary to exit and reenter to have changes takin in account)

@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :articles
   has_many :comments
-  has_many :favorites, as: :favoritable
+  has_many :favorites
 end
