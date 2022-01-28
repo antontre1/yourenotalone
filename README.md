@@ -6,8 +6,9 @@
 <img src="./app/assets/images/models.png" alt="DB_Schema" width="100%"/>
 
 
-The polymorphic table 'favorites' was created using : <br>
+The polymorphic table 'favorites' was created using :
 
+ - command line:
     ```bash
     rails g model favorite user:references details favoritable:references{polymorphic}
     ```
