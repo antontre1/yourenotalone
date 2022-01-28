@@ -7,6 +7,7 @@
 
 
 The polymorphic table 'favorites' was created using : <br>
+
     ```bash
     rails g model favorite user:references details favoritable:references{polymorphic}
     ```
