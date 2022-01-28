@@ -3,13 +3,20 @@
 
 ## DB MODELS :
 
-The polymorphic table 'favorites' was created using :
- - rails g model favorite user:references details favoritable:references{polymorphic}
+<img src="./app/assets/images/models.png" alt="DB_Schema" width="100%"/>
+
+
+The polymorphic table 'favorites' was created using : <br>
+    ```bash
+    rails g model favorite user:references details favoritable:references{polymorphic}
+    ```
  - User & Theme models we've added :
      - has_many :favorites // for user table where there also another one_to_many relation with favorites
      - has_many :favorites, as: :favoritable // for theme and all other potential tables
 
 Regarding DB:
+
+
 - we use one Polymorphic table (favorites). Reminder regarding the way to create a favorite:
     - create users :
     ```bash
