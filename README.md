@@ -3,6 +3,13 @@
 
 ## DB MODELS :
 
+<img src="./app/assets/images/models.png" alt="DB_Schema" width="200px"/>
+
+
+<img src="./app/assets/images/models.png" alt="DB_Schema" width="200"/>
+
+![Alt text](./app/assets/images/models.png?raw=true "DB_Relations")
+
 The polymorphic table 'favorites' was created using :
  - rails g model favorite user:references details favoritable:references{polymorphic}
  - User & Theme models we've added :
@@ -11,7 +18,6 @@ The polymorphic table 'favorites' was created using :
 
 Regarding DB:
 
-![Alt text](./app/assets/images/models.png?raw=true "DB_Relations")
 
 - we use one Polymorphic table (favorites). Reminder regarding the way to create a favorite:
     - create users :
