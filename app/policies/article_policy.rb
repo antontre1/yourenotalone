@@ -1,4 +1,4 @@
-class UserPolicy < ApplicationPolicy
+class ArticlePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -6,7 +6,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show
-    return false
+    return true
   end
 
   def index

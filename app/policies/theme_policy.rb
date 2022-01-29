@@ -5,4 +5,12 @@ class ThemePolicy < ApplicationPolicy
     end
   end
 
+  def show
+    return true
+  end
+
+  def index
+    return true
+  end
+
 end
