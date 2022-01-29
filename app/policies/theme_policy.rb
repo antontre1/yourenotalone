@@ -5,4 +5,8 @@ class ThemePolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    authorize
+  end
+
 end

@@ -1,0 +1,6 @@
+<h1>My Favorites - Themes</h1>
+
+  <% @favorites.where(favoritable_type: "Theme").each do |favorite| %>
+    <h4><%= favorite.favoritable.title %></h4>
+    <p><%= favorite.favoritable.description %></p>
+  <% end %>

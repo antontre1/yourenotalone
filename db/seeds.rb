@@ -30,8 +30,10 @@ Faker::Config.locale = 'fr'
   State3.save
 
 # Create 10 users
+i = 0
 10.times {
-  new_user = User.new(email: Faker::Internet.email,
+  i = i + 1
+  new_user = User.new(email: "monmail#{i}@a.com",
                       password: '123456',
                       username: Faker::Name.name,
                       state: State.all.sample)
