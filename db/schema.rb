@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_29_102723) do
+ActiveRecord::Schema.define(version: 2022_01_29_115507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 2022_01_29_102723) do
 
   create_table "favorites", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "details"
     t.string "favoritable_type", null: false
     t.bigint "favoritable_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -71,6 +70,7 @@ ActiveRecord::Schema.define(version: 2022_01_29_102723) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
     t.bigint "state_id", null: false
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["state_id"], name: "index_users_on_state_id"
@@ -78,12 +78,12 @@ ActiveRecord::Schema.define(version: 2022_01_29_102723) do
 
   create_table "votes", force: :cascade do |t|
     t.integer "reaction"
-    t.bigint "users_id", null: false
-    t.bigint "articles_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "article_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["articles_id"], name: "index_votes_on_articles_id"
-    t.index ["users_id"], name: "index_votes_on_users_id"
+    t.index ["article_id"], name: "index_votes_on_article_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
   add_foreign_key "articles", "themes"
@@ -92,6 +92,6 @@ ActiveRecord::Schema.define(version: 2022_01_29_102723) do
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "users"
   add_foreign_key "users", "states"
-  add_foreign_key "votes", "articles", column: "articles_id"
-  add_foreign_key "votes", "users", column: "users_id"
+  add_foreign_key "votes", "articles"
+  add_foreign_key "votes", "users"
 end
