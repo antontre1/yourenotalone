@@ -1,5 +1,5 @@
 class ThemesController < ApplicationController
   def index
-    @themes = policy_scope(theme)
+    @themes = policy_scope(Theme)
   end
 end

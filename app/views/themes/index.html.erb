@@ -1,7 +1,7 @@
 <h1>List of Themes</h1>
 <div class="cards-themes">
   <% @themes.each do |theme| %>
-    <%= theme.title %>
-    <%= theme.description %>
+    <h3><%= theme.title %></h3>
+    <p><%= theme.description %></p>
   <% end %>
 </div>
