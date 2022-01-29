@@ -6,4 +6,7 @@ class User < ApplicationRecord
   has_many :articles
   has_many :comments
   has_many :favorites
+
+  validates :username, uniqueness: true
+  validates :email, format: { with: /\A.*@.*\.com\z/ }
 end
