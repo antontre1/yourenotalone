@@ -1,4 +1,5 @@
 class Vote < ApplicationRecord
-  belongs_to :users
-  belongs_to :articles
+  belongs_to :user
+  belongs_to :article
+  validates :reaction, presence: true
 end
