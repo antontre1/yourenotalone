@@ -5,6 +5,6 @@ class FavoritesController < ApplicationController
   end
 
   def index_th
-
+    @favorites = policy_scope(Favorite).where(favoritable_type: "Theme")
   end
 end
