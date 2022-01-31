@@ -9,4 +9,8 @@ class ThemePolicy < ApplicationPolicy
     authorize
   end
 
+
+
+
+
 end
