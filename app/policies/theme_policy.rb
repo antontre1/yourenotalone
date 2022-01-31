@@ -13,4 +13,8 @@ class ThemePolicy < ApplicationPolicy
     return true
   end
 
+
+
+
+
 end
