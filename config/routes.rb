@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :themes
+  resources :articles
   resources :favorites
   get '/favorites_th', to: 'favorites#index_th'
 end

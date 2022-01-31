@@ -4,9 +4,13 @@ class ThemePolicy < ApplicationPolicy
       scope.all
     end
   end
+  
+  def show
+    return true
+  end
 
-  def index?
-    authorize
+  def index
+    return true
   end
 
 end
