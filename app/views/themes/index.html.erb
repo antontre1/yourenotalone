@@ -3,5 +3,6 @@
   <% @themes.each do |theme| %>
     <h3><%= theme.title %></h3>
     <p><%= theme.description %></p>
+    <%= link_to "les articles", theme_articles_path(theme.id) %>
   <% end %>
 </div>
