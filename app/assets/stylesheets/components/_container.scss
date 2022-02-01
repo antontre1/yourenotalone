@@ -1,0 +1,38 @@
+.container-general {
+  width: 95%;
+  margin: 0 auto;
+  background-color: orange;
+  margin-top: 0;
+}
+
+.container-title {
+  text-align: center;
+  background-color: pink;
+  margin: 0.5rem;
+  padding: 0.3rem;
+  border-radius: 2rem;
+  word-break: break-all;
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  // this will calculate what 50% of the element width is and will move it across the X-axis. The negative value ensures it moves to the left.
+  transform: translateX(-50%);
+}
+
+
+.container-card {
+
+}
+
+// .container-title {
+//   background-color: pink;
+//   width: 80%;
+//   // color: #676770;
+//   // font-size: 30px;
+//   // font-weight: 300;
+//   text-align: center;
+//   // letter-spacing: 5px;
+//   // text-transform: uppercase;
+//   margin: 1.5rem;
+//   border-radius: 2rem;
+// }
