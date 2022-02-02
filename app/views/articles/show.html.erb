@@ -1,6 +1,5 @@
-
-<h2>
-  <%= @article.title %> - <%= @article.description %></li>
-</h2>
-
-<%= @article.content %>
+<div class="container-general" id="articles-show">
+  <h1 class="container-title"><%= @article.title %></h1>
+  <h2><%= @article.description %></h2>
+  <p><%= @article.content %></p>
+</div>
