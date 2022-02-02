@@ -1,6 +1,8 @@
 <div class="container-general">
   <h2 class="container-title"><span>Thèmes Favoris</span></h2>
 
+  <%= render "shared/card-theme" %>
+
   <div class= "container-cards">
     <% @themes.each do |theme| %>
       <div class="container-card">

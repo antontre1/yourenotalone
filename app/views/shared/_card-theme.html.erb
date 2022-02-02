@@ -1,7 +1,6 @@
  <% @themes.each do |theme| %>
-    <div class="container-card">
-      <%= image_tag "team.jpg", class:"image-card"%>
-      <h3><%= theme.title %></h3>
-      <p><%= theme.description %></p>
+    <div class="cards-list">
+      <%= image_tag "feather.jpg", class:"card"%>
+      <p><%= theme.title %></p>
     </div>
   <% end %>
