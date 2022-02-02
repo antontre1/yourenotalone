@@ -1,10 +1,15 @@
 <div class="container-general">
   <h2 class="container-title"><span>Thèmes Favoris</span></h2>
-  <div class="container-card">
+
+  <div class= "container-cards">
     <% @themes.each do |theme| %>
-      <img src="" alt="">
-      <h3><%= theme.title %></h3>
-      <p><%= theme.description %></p>
+      <div class="container-card">
+        <div class="container-image">
+          <%= image_tag "team.jpg", class:"image-card" %>
+        </div>
+        <h4><%= theme.title %></h4>
+      </div>
     <% end %>
   </div>
+
 </div>

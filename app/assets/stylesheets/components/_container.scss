@@ -1,8 +1,10 @@
 .container-general {
-  width: 95%;
+  width: 97%;
   margin: 0 auto;
-  background-color: orange;
+  // background-color: orange;
   margin-top: 0;
+  border-radius: 0.75rem;
+  padding: 0.5rem;
 }
 
 .container-title {
@@ -19,20 +21,22 @@
   transform: translateX(-50%);
 }
 
-
-.container-card {
-
-}
-
-// .container-title {
-//   background-color: pink;
-//   width: 80%;
-//   // color: #676770;
-//   // font-size: 30px;
-//   // font-weight: 300;
-//   text-align: center;
-//   // letter-spacing: 5px;
-//   // text-transform: uppercase;
-//   margin: 1.5rem;
-//   border-radius: 2rem;
+// .container-cards {
+//   display: flex;
 // }
+.container-card {
+  background-color: powderblue;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #dcebf7;
+  border-radius: 1rem;
+  text-align: center;
+  width: 80%;
+  word-break: break-all;
+  display: block;
+  justify-content: center;
+
+  h4 {
+    padding-top: 0.5rem;
+  }
+}
