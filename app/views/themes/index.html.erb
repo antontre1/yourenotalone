@@ -1,7 +1,7 @@
 <h1>List of Themes</h1>
 <div class="cards-themes">
   <% @themes.each do |theme| %>
-    <h3><%= theme.title %> </h3>
+    <h3><%= theme.title %> </h3> <%= link_to '+Favorite',  create_fav_th_path(theme.id), method: :post  %>
     <p><%= theme.description %> <%= link_to "les articles", theme_articles_path(theme.id) %></p>
   <% end %>
 </div>
