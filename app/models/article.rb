@@ -5,4 +5,5 @@ class Article < ApplicationRecord
   validates :title, :content, presence: true
   validates :title, length: { minimum: 4 }
   validates :content, length: { minimum: 20 }
+  has_one_attached :picture
 end

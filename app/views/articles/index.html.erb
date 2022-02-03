@@ -1,7 +1,10 @@
+<% if @theme %>
+  <h1><%= @theme.title %></h1>
+  <p><%= @theme.description %></p>
+<% end %>
+
+
 <% @articles.each do |article| %>
-
   <h2><%= article.title %> - <%= article.description %></h2>
-
   <%= article.content %>
-
 <% end %>

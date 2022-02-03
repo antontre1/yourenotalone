@@ -3,4 +3,5 @@
  <% @favorites.where(favoritable_type: "Theme").each do |favorite| %>
     <h4><%= favorite.favoritable.title %></h4>
     <p><%= favorite.favoritable.description %></p>
+    <%= link_to("les articles", theme_articles_path(favorite.favoritable)) %>
   <% end %>
