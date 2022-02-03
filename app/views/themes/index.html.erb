@@ -8,7 +8,7 @@
       </div>
       <div class="theme_title title-white">
         <h3><%= theme.title %></h3>
-        <p><%= theme.description %></p>
+        <p><%= theme.description %> <%= link_to "les articles", theme_articles_path(theme.id) %></p>
       </div>
     </div>
   <% end %>

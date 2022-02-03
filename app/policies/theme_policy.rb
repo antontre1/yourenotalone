@@ -4,17 +4,13 @@ class ThemePolicy < ApplicationPolicy
       scope.all
     end
   end
-  
-  def show
+
+  def show?
     return true
   end
 
-  def index
+  def index?
     return true
   end
-
-
-
-
 
 end
