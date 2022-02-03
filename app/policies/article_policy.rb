@@ -5,11 +5,11 @@ class ArticlePolicy < ApplicationPolicy
     end
   end
 
-  def show
+  def show?
     return true
   end
 
-  def index
+  def index?
     return true
   end
 
