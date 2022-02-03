@@ -1,7 +1,7 @@
 .container-general {
   width: 97%;
   margin: 0 auto;
-  // background-color: orange;
+  background-color: orange;
   margin-top: 0;
   border-radius: 0.75rem;
   padding: 0.5rem;
@@ -9,11 +9,10 @@
 
 .container-title {
   text-align: center;
-  // background-color: pink;
+  background-color: pink;
   margin: 0.5rem;
   padding: 0.3rem;
   border-radius: 2rem;
-  word-break: break-all;
   display: inline-block;
   position: relative;
   left: 50%;
@@ -23,22 +22,20 @@
   font-family: 'Lobster', cursive;
 }
 
-// .container-cards {
-//   display: flex;
-// }
-.container-card {
-  background-color: powderblue;
-  margin: 0.5rem;
-  padding: 0.5rem;
-  border: 1px solid #dcebf7;
-  border-radius: 1rem;
-  text-align: center;
-  width: 80%;
-  word-break: break-all;
-  display: block;
-  justify-content: center;
 
-  h4 {
-    padding-top: 0.5rem;
-  }
-}
+// .container-card {
+//   background-color: powderblue;
+//   margin: 0.5rem;
+//   padding: 0.5rem;
+//   border: 1px solid #dcebf7;
+//   border-radius: 1rem;
+//   text-align: center;
+//   width: 80%;
+//   word-break: break-all;
+//   display: block;
+//   justify-content: center;
+
+//   h4 {
+//     padding-top: 0.5rem;
+//   }
+// }
