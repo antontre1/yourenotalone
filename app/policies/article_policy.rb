@@ -5,11 +5,19 @@ class ArticlePolicy < ApplicationPolicy
     end
   end
 
-  def show
+  def show?
     return true
   end
 
-  def index
+  def index?
+    return true
+  end
+
+  def new?
+    return true
+  end
+
+  def create?
     return true
   end
 
