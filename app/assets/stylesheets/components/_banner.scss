@@ -1,0 +1,32 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 175px 0;
+  margin-bottom: 2em;
+  height: 95vh;
+  border-bottom: 5px solid #9E15BF;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .9;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.container h1 {
+  margin-top: 0;
+}
+
+.purple-button {
+  background-color: #9E15BF;
+  color: white;
+}

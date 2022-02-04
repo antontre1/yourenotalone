@@ -1,10 +1,17 @@
-<% if @theme %>
-  <h1><%= @theme.title %></h1>
-  <p><%= @theme.description %></p>
-<% end %>
-
+<div class="container-general">
+  <% if @theme %>
+    <h1 class="container-title"><%= @theme.title %></h1>
+    <p><%= @theme.description %></p>
+  <% end %>
+</div>
 
 <% @articles.each do |article| %>
-  <h2><%= article.title %> - <%= article.description %></h2>
-  <%= article.content %>
+  <div class="card text-white  mb-3 container-general purple" style="max-width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">
+        <%= article.title %>
+      </h5>
+      <p class="card-text"><%= article.description %></p>
+    </div>
+  </div>
 <% end %>

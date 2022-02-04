@@ -11,3 +11,21 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: #B694BF;
+}
+
+a {
+  color: #9E15BF;
+}
+
+a:active {
+  color: #B694BF;
+}
+
+.purple {
+  background-color: #9E15BF;
+}

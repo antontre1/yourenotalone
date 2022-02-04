@@ -1,1 +1,21 @@
-<%= @user.username %>
+<div class="container-general">
+  <div class="container" id="users_show">
+    <div class="row">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/sarahlafer", class: "avatar-big", alt: "avatar-large"%>
+    </div>
+    <div class="row">
+      <div class="pl-5">
+        <%= @user.username %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col">
+      <%= link_to "Thèmes Favoris", themes_path%>
+    </div>
+    <div class="col">
+      Articles favoris
+    </div>
+  </div>
+</div>
