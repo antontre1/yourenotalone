@@ -23,9 +23,9 @@ class FavoritesController < ApplicationController
   end
 
   def create_fav_th
+    @favorite = Favorite.new
     if current_user.favorites.where(favoritable_type: "Theme").where(favoritable_id: params[:id]).count == 0
       @theme = Theme.find(params[:id])
-      @favorite = Favorite.new
       authorize @favorite
       @favorite.user = current_user
       @favorite.favoritable = @theme
