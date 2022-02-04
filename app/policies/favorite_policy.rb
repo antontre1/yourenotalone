@@ -18,7 +18,7 @@ class FavoritePolicy < ApplicationPolicy
     record.user == user || user.admin
   end
 
-  def  create_fav_th?
+  def create_fav_th?
     return true
   end
 
