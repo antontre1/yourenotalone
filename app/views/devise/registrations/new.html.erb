@@ -18,7 +18,10 @@
     <%= f.input :username,
                 required: true,
                 input_html: { autocomplete: "username" }%>
-    <%= f.input :photo, as: :file %>
+
+    <%= f.association :state, prompt: "quel est votre etat actuel", :include_blank => false, :label_method => lambda { |state| "#{state.emotional_state}" } %>
+
+    <%= f.input :picture, as: :file %>
   </div>
 
   <div class="form-actions">

@@ -1,4 +1,4 @@
-<h1>My Favorites - Themes</h1>
+<h1>Mes Themes Favoris</h1>
 
  <% @favorites.where(favoritable_type: "Theme").each do |favorite| %>
     <h4><%= favorite.favoritable.title %></h4>

@@ -3,6 +3,22 @@
 class ApplicationPolicy
   attr_reader :user, :record
 
+  class Scope
+    def initialize(user, scope)
+      @user = user
+      @scope = scope
+    end
+
+    def resolve
+      scope.all
+    end
+
+    private
+
+    attr_reader :user, :scope
+  end
+
+
   def initialize(user, record)
     @user = user
     @record = record
@@ -13,7 +29,7 @@ class ApplicationPolicy
   end
 
   def show?
-    true
+    false
   end
 
   def create?
@@ -36,18 +52,4 @@ class ApplicationPolicy
     false
   end
 
-  class Scope
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
-    def resolve
-      scope.all
-    end
-
-    private
-
-    attr_reader :user, :scope
-  end
 end

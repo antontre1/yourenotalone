@@ -2,6 +2,11 @@
   <div class="container text-center">
     <h1>UrNotAlone & Lupus<strong> apporte des </strong> réponses <strong>à vos questions</strong> !</h1>
     <p>Rejoignez la communauté! </p>
-    <%= link_to "Connexion", '#', class: "btn purple"%>
+    <% if user_signed_in? %>
+    <%= link_to "Entrer", "users/#{current_user.id}", class: "btn purple"%>
+    <% else %>
+    <%= link_to "Connexion", 'users/sign_in', class: "btn purple"%>
+    <% end %>
+
   </div>
 </div>
