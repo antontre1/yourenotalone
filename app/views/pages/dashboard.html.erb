@@ -12,6 +12,10 @@
 
   <div class="row mt-4">
     <div class="col">
+      <% @themes.each do |theme| %>
+        <%= theme.favoritable.title %>
+      <% end %>
+
       <%= link_to "Thèmes Favoris", favorites_th_path%>
     </div>
     <div class="col">
