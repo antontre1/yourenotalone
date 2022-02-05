@@ -3,8 +3,28 @@
   <h2><%= @article.description %></h2>
   <p><%= @article.content %></p>
 
-  <%= link_to("Liste des articles", articles_path) %>
+  <ul>
+    <% if @current_user.votes.where(reaction: 0, article: @article).first %>
+      <%= link_to("Like",article_votes_path(@article, reaction: 0), method: :post)  %>
+    <% else %>
+      <%= link_to("Unlike",article_votes_path(@article, reaction: 0), method: :post)  %>
+    <% end %>
 
+    <% if @current_user.votes.where(reaction: 1, article: @article).first %>
+      <%= link_to("Love",article_votes_path(@article, reaction: 1), method: :post)  %>
+    <% else %>
+      <%= link_to("Unlove",article_votes_path(@article, reaction: 1), method: :post)  %>
+    <% end %>
+
+    <% if @current_user.votes.where(reaction: 2, article: @article).first %>
+      <%= link_to("Care",article_votes_path(@article, reaction: 2), method: :post)  %>
+    <% else %>
+      <%= link_to("Uncare",article_votes_path(@article, reaction: 2), method: :post)  %>
+    <% end %>
+  </ul>
+  <ul>
+    <%= link_to("Liste des articles", articles_path) %>
+  </ul>
   <% if policy(@article).destroy? %>
     <%= link_to("delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }) %>
   <% end %>
