@@ -5,7 +5,13 @@
   <% @themes.each do |theme| %>
     <div class="theme">
       <div class="theme_image">
-        <%= image_tag "https://media.giphy.com/media/10SvWCbt1ytWCc/giphy.gif"%>
+         <img src="
+         <% if (theme.picture.attached?) %>
+            <%= cl_image_path(theme.picture.key) %>
+          <% else %>
+            <%= image_path('frontlorem.jpg') %>
+          <% end %>
+            "/>
       </div>
       <div class="theme_title title-white">
         <h3><%= theme.title %></h3>

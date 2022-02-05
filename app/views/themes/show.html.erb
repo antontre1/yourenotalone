@@ -2,5 +2,12 @@
 <div class="cards-themes">
     <h1><%= @theme.title %></h1>
     <p><%= @theme.description %></p>
+      <img style="height: 100px" src="
+         <% if (@theme.picture.attached?) %>
+            <%= cl_image_path(@theme.picture.key) %>
+          <% else %>
+            <%= image_path('frontlorem.jpg') %>
+          <% end %>
+            "/>
 </div>
 <%= link_to "+ Article", new_article_path %>
