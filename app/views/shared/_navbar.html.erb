@@ -1,42 +1,96 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-bottom">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "purple-butterfly.png" %>
-  <% end %>
+<%# <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-bottom"> %>
+  <%# <%= link_to "#", class: "navbar-brand" do %> %>
+    <%# <%= image_tag "purple-butterfly.png"%> %>
+  <%# <% end %> %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <%# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> %>
 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
+  <%# <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto"> %>
+      <%# <% if user_signed_in? %> %>
+        <%# <li class="nav-item active"> %>
+          <%# <%= link_to "Home", "#", class: "nav-link" %> %>
+        <%# </li>
+        <li class="nav-item"> %>
+          <%# <%= link_to "Messages", "#", class: "nav-link" %> %>
+        <%# </li> %>
+        <%# <li class="nav-item dropdown"> %>
+          <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> %>
+          <%# <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> %>
+            <%# <%= link_to "Action", "#", class: "dropdown-item" %> %>
+            <%# <%= link_to "Another action", "#", class: "dropdown-item" %> %>
+            <%# <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %> %>
+          <%# </div>
+        </li> %>
+      <%# <% else %> %>
+        <%# <li class="nav-item"> %>
+          <%# <%= link_to "Login", new_user_session_path, class: "nav-link" %> %>
+        <%# </li> %>
+      <%# <% end %> %>
+    <%# </ul>
+  </div>
+</div> %>
+
+    <%# <nav class="navbar fixed-bottom navbar-light bg-light">
+      <a class="navbar-brand" href="#">Fixed bottom</a>
+    </nav> %>
+<%#
+  <div class="navbar">
+    <div class="logo"><%= image_tag "Vector.png" %> </div>
+    <%# <div class="logo"><%= image_tag "UserCircle.png"</div>
+    <% <div class="logo"><%= image_tag "MagnifyingGlass.png" %></div>
+  </div> %> %>
+
+<<<<<<< Updated upstream
+#  < <div class="collapse navbar-collapse" id="navbarSupportedContent">
+#     <ul class="navbar-nav mr-auto">
+#       <% if user_signed_in? %> %>
+         <li class="nav-item active">
+#         </li>
+#         <li class="nav-item">
+#           <%= link_to "Messages", "#", class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropup">
+#         <li class="nav-item dropup"> %> %>
 
-          <img class="avatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="
-          <% if (user_signed_in? && current_user.picture.attached?) %>
-            <%= cl_image_path(current_user.picture.key) %>
+         <img class="avatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="
+           <% if (user_signed_in? && current_user.picture.attached?) %>
+           <%= cl_image_path(current_user.picture.key) %>
           <% else %>
             <%= image_path('avatar.png') %>
-          <% end %>
-            "/>
+         <% end %>
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
+          <%= link_to "Action", "#", class: "dropdown-item" %>
+            <%= link_to "Another action", "#", class: "dropdown-item" %> %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %> %>
+         </div>
+        </li> %
+     <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
-      <% end %>
+    <% end
     </ul>
+=======
+  <%# <div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h4 class="text-white">Collapsed content</h4>
+      <span class="text-muted">Toggleable via the navbar brand.</span>
+    </div>
+>>>>>>> Stashed changes
   </div>
+  #   <nav class="navbar navbar-expand-sm fixed-bottom navbar-light bg-light">
+  #   <a class="navbar-brand" href="#">
+  #   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
+  #   </a> %>
+  #   <%= link_to "#", class: "navbar-brand" do
+  #   <%= image_tag "purple-butterfly.png" %>
+     <%# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
 </div>
