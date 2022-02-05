@@ -1,0 +1,14 @@
+<div class="form-inputs">
+<%= simple_form_for [ @theme ] do |f| %>
+    <%= f.input :title,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "titre" }%>
+    <%= f.input :description,
+                required: true,
+                input_html: { autocomplete: "description" } %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, "créer" %>
+  </div>
+<% end %>

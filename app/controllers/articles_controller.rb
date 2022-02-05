@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
     authorize @article
   end
 
-   def create
+  def create
     @article = Article.new(article_params)
     @article.user_id = current_user.id
     if @article.save
@@ -37,7 +37,7 @@ class ArticlesController < ApplicationController
     authorize @article
   end
 
- def update
+  def update
     @article = Article.find(params[:id])
     @article.update(article_params)
     authorize @article
@@ -55,7 +55,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :theme, :description, :content)
+    params.require(:article).permit(:title, :theme_id, :description, :content)
   end
 
 end
