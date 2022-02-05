@@ -5,13 +5,17 @@
   <% end %>
 </div>
 
+<%= link_to("Liste des articles", new_article_path) %>
+
 <% @articles.each do |article| %>
-  <div class="card text-white  mb-3 container-general purple" style="max-width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">
-        <%= article.title %>
-      </h5>
-      <p class="card-text"><%= article.description %></p>
+  <%= link_to article_path(article) do %>
+      <div class="card text-white  mb-3 container-general purple text-decoration-none" style="max-width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= article.title %>
+        </h5>
+        <p class="card-text"><%= article.description %></p>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
