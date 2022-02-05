@@ -21,9 +21,19 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.association :state, prompt: "quel est votre etat actuel", :include_blank => false, :label_method => lambda { |state| "#{state.emotional_state}" } %>
+    <%= f.association :state, :include_blank => false, :label_method => lambda { |state| "#{state.text}" } %>
 
     <%= f.input :picture, as: :file %>
+
+  </div>
+  <div class="registered-avatar">
+      <img class="avatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="
+          <% if (user_signed_in? && current_user.picture.attached?) %>
+            <%= cl_image_path(current_user.picture.key) %>
+          <% else %>
+            <%= image_path('avatar.png') %>
+          <% end %>
+            "/>
   </div>
 
   <div class="form-actions">

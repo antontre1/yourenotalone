@@ -20,10 +20,10 @@ require "open-uri"
 Faker::Config.locale = 'fr'
 
 # Create 4 states
-  State0 = State.new(emotional_state: 0)
-  State1 = State.new(emotional_state: 1)
-  State2 = State.new(emotional_state: 2)
-  State3 = State.new(emotional_state: 3)
+  State0 = State.new(emotional_state: 0, text: "Pas très en forme")
+  State1 = State.new(emotional_state: 1, text: "De bonne humeur")
+  State2 = State.new(emotional_state: 2, text: "En pleine rémission")
+  State3 = State.new(emotional_state: 3, text: "Heureux")
   State0.save
   State1.save
   State2.save
