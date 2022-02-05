@@ -5,12 +5,9 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
-  def show
-    return false
-  end
-
-  def index
+  def show?
     return true
   end
+
 
 end
