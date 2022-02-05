@@ -15,7 +15,9 @@
           <%= article.title %>
         </h5>
         <p class="card-text"><%= article.description %></p>
+
       </div>
     </div>
+     <%= link_to "+Favori",  create_fav_art_path(article.id), method: :post  %>
   <% end %>
 <% end %>

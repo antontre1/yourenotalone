@@ -1,0 +1,7 @@
+<h1>Mes Themes Favoris</h1>
+
+ <% @favorites.where(favoritable_type: "Article").each do |favorite| %>
+    <h4><%= favorite.favoritable.title %></h4>
+    <p><%= favorite.favoritable.description %></p>
+    <%= link_to("-favoris",favorite_path(favorite.id), method: :delete) %>
+  <% end %>
