@@ -9,7 +9,18 @@ class ArticlesController < ApplicationController
       @articles = policy_scope(Article)
     end
 
+<<<<<<< HEAD
    def new
+=======
+  end
+
+  def show
+    @article = Article.find(params[:id])
+    authorize @article
+  end
+
+  def new
+>>>>>>> 853c37894ce54ee4b0476444edadc35cc0f258e0
     @article = Article.new
     authorize @article
   end
