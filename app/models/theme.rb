@@ -5,5 +5,3 @@ class Theme < ApplicationRecord
   validates :title, length: { minimum: 2, maximum: 75 }
   has_one_attached :picture
 end
-
-THEME_LIST = [1,2]
