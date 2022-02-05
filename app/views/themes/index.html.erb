@@ -10,7 +10,7 @@
       <div class="theme_title title-white">
         <h3><%= theme.title %></h3>
         <p><%= theme.description %></p>
-        <%= link_to "+Favorite",  create_fav_th_path(theme.id), method: :post  %>
+        <%= link_to "+Favori",  create_fav_th_path(theme.id), method: :post  %>
         <%= link_to "Les articles", theme_articles_path(theme.id) %>
       </div>
     </div>

@@ -4,5 +4,8 @@ class PagesController < ApplicationController
   def home
   end
 
+  def dashboard
+    @themes = current_user.favorites.where(favoritable_type: "Theme").limit(3)
+  end
 
 end
