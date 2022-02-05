@@ -5,4 +5,23 @@
 
   <%= link_to("Liste des articles", articles_path) %>
 
+  <% if policy(@article).destroy? %>
+    <%= link_to("delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }) %>
+  <% end %>
+
+  <%= simple_form_for [ @article, @comment ] do |f| %>
+    <%= f.input :content, :label => 'Votre commentaire' %>
+    <%= f.submit "Commenter", class: "btn btn-primary" %>
+  <% end %>
+
+  <ul class="list-group">
+    <% @comments.each do |comment| %>
+      <ul><%= comment.created_at.to_datetime.strftime("Printed on %m/%d/%Y") %> - <%= comment.content %> by <%= comment.user.username %>
+        <% if policy(comment).destroy? %>
+          <%= link_to("delete", article_comment_path(@article, comment), method: :delete, data: { confirm: "Are you sure?" }) %>
+        <% end %>
+      </ul>
+    <% end %>
+  </ul>
+
 </div>

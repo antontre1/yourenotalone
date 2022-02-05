@@ -12,6 +12,8 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @comments = @article.comments
+    @comment = Comment.new
     authorize @article
   end
 
@@ -51,11 +53,10 @@ class ArticlesController < ApplicationController
     authorize @article
   end
 
-
   private
 
   def article_params
-    params.require(:article).permit(:title, :theme, :description, :content)
+    params.require(:article).permit(:title, :theme_id, :description, :content)
   end
 
 end
