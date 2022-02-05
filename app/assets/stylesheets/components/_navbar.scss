@@ -1,6 +1,13 @@
+.navbar-icon {
+  font-size: 2rem;
+  color: black !important;
+  border: none;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  height: 70px;
+  background-color: #C396F3;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -17,4 +24,11 @@
   bottom: 0;
   left: 0;
   z-index:1030;
+}
+
+.navbar-collapse {
+  transform: translate(0, calc(-100% - 7.3px)) !important;
+  right: 0;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
 }

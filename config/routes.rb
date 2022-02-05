@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   post '/favorites/:id/create_fav_th', to: 'favorites#create_fav_th', as: 'create_fav_th'
   post '/favorites/:id/create_fav_art', to: 'favorites#create_fav_art', as: 'create_fav_art'
   resources :articles
+  resources :articles do
+    resources :comments, only: [ :new, :create, :index, :destroy ]
+  end
   resources :themes
   resources :themes, only: [:show] do
     get 'articles', to: 'articles#index'
