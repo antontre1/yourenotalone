@@ -2,6 +2,7 @@
   <div class="container text-center">
     <h1>UrNotAlone & Lupus<strong> apporte des </strong> réponses <strong>à vos questions</strong> !</h1>
     <p>Rejoignez la communauté! </p>
-    <%= link_to "Connexion", '#', class: "btn purple"%>
+      <%= link_to "Connexion", dashboard_path(current_user), class: "btn purple"%>
+    <%= link_to "log out", destroy_user_session_path, method: :delete %>
   </div>
 </div>
