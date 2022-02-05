@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :articles
   resources :articles do
     resources :comments, only: [ :new, :create, :index, :destroy ]
+    resources :votes, only: [ :new, :create, :destroy ]
   end
   resources :themes
   resources :themes, only: [:show] do
