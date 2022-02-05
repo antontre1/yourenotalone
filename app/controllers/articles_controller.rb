@@ -12,6 +12,8 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @comments = @article.comments
+    @comment = Comment.new
     authorize @article
   end
 
@@ -50,7 +52,6 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
     authorize @article
   end
-
 
   private
 

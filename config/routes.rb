@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :favorites
   post '/favorites/:id/create_fav_th', to: 'favorites#create_fav_th', as: 'create_fav_th'
-  resources :articles
+  resources :articles do
+    resources :comments, only: [ :new, :create, :index, :destroy ]
+  end
   resources :themes
   resources :themes, only: [:show] do
     get 'articles', to: 'articles#index'
