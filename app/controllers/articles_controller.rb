@@ -8,7 +8,6 @@ class ArticlesController < ApplicationController
     else
       @articles = policy_scope(Article)
     end
-
   end
 
   def show
@@ -18,12 +17,13 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @themes = Theme.all
     authorize @article
   end
 
-  def create
+   def create
     @article = Article.new(article_params)
-    @article.user_id =  current_user.id
+    @article.user_id = current_user.id
     if @article.save
       redirect_to article_path(@article)
     else
@@ -32,10 +32,30 @@ class ArticlesController < ApplicationController
     authorize @article
   end
 
+  def edit
+    @article = Article.find(params[:id])
+    authorize @article
+  end
+
+ def update
+    @article = Article.find(params[:id])
+    @article.update(article_params)
+    authorize @article
+    redirect_to article_path(@article)
+  end
+
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to articles_path
+    authorize @article
+  end
+
+
   private
 
   def article_params
-    params.require(:article).permit(:title, :description, :theme, :content)
+    params.require(:article).permit(:title, :theme, :description, :content)
   end
 
 end
