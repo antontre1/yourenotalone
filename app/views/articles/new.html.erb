@@ -1,0 +1,13 @@
+
+<div class=container>
+
+<%= simple_form_for [ @article ] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :theme %>
+  <%= f.input :content %>
+  <%= f.submit "Soumettre l'article", class: "btn btn-primary" %>
+<% end %>
+
+
+</div>
