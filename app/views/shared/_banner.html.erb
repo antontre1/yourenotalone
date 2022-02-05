@@ -3,7 +3,7 @@
     <h1>UrNotAlone & Lupus<strong> apporte des </strong> réponses <strong>à vos questions</strong> !</h1>
     <p>Rejoignez la communauté! </p>
     <% if user_signed_in? %>
-    <%= link_to "Entrer", "dashboard", class: "btn purple"%>
+    <%= link_to "Accueil", "dashboard", class: "btn purple"%>
     <% else %>
     <%= link_to "Connexion", 'users/sign_in', class: "btn purple"%>
     <% end %>
