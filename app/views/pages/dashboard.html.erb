@@ -1,11 +1,11 @@
 <div class="container-general">
   <div class="container" id="users_show">
     <div class="row">
-      <%= cl_image_tag @user.picture.key, class: "avatar-big", alt: "avatar-large"%>
+      <%= cl_image_tag current_user.picture.key, class: "avatar-big", alt: "avatar-large"%>
     </div>
     <div class="row">
       <div class="pl-5">
-        <%= @user.username %>
+        <%= current_user.username %>
       </div>
     </div>
   </div>
