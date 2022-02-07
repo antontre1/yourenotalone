@@ -1,15 +1,16 @@
 <div class="container pt-3">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4">
-    <%= simple_form_for [ @article ] do |f| %>
-      <%= f.input :title %>
-      <%= f.input :description %>
-      <%= f.association :theme %>
-      <%= f.input :content %>
-      <%= f.submit "Soumettre l'article", class: "btn purple white" %>
-    <% end %>
+    <h1 class="container-title">Créer un article</h1>
+      <%= simple_form_for [ @article ] do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.association :theme %>
+        <%= f.input :content %>
+        <%= f.submit "Soumettre l'article", class: "btn purple white" %>
+      <% end %>
 
-    <%= link_to("Liste des articles", articles_path) %>
+      <%= link_to("Liste des articles", articles_path) %>
     </div>
   </div>
 </div>
