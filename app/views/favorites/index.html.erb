@@ -1,6 +1,8 @@
-<h1>Tous mes Favoris</h1>
+<div class="container-general">
+  <h1 class="container-title">Tous mes Favoris</h1>
 
- <% @favorites_group.each do |key, value| %>
+  <% @favorites_group.each do |key, value| %>
     <h4><%= key %> : <%= value %></h4>
     <br>
   <% end %>
+</div>

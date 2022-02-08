@@ -1,7 +1,13 @@
-<h1>Mes Themes Favoris</h1>
+<div class="container-general">
+  <h1 class="container-title">Mes Articles Favoris</h1>
 
- <% @favorites.where(favoritable_type: "Article").each do |favorite| %>
-    <h4><%= favorite.favoritable.title %></h4>
-    <p><%= favorite.favoritable.description %></p>
-    <%= link_to("-favoris",favorite_path(favorite.id), method: :delete) %>
-  <% end %>
+  <div class="mt-3">
+    <% @favorites.where(favoritable_type: "Article").each do |favorite| %>
+      <div class="card text-white  mb-3 container-general purple text-decoration-none" style="max-width: 18rem;">
+        <h5><%= favorite.favoritable.title %></h5>
+        <p><%= favorite.favoritable.description %></p>
+      </div>
+      <%= link_to("+favoris",favorite_path(favorite.id), method: :delete) %>
+    <% end %>
+  </div>
+</div>

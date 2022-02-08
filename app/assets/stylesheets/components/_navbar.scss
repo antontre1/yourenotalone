@@ -32,3 +32,11 @@
   position: absolute;
   background: rgba(255, 255, 255, 0.2);
 }
+
+ li.nav-item.active{
+  padding-left: 23px;
+}
+
+a.nav-link {
+  color: $purple;
+}
