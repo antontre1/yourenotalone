@@ -1,13 +1,20 @@
-<h1>Theme</h1>
-<div class="cards-themes">
-    <h1><%= @theme.title %></h1>
-    <p><%= @theme.description %></p>
-      <img style="height: 100px" src="
-         <% if (@theme.picture.attached?) %>
-            <%= cl_image_path(@theme.picture.key) %>
-          <% else %>
-            <%= image_path('frontlorem.jpg') %>
-          <% end %>
-            "/>
+<div class="container-general" id="themes-index">
+  <h1 class="container-title"><span>Thème</span></h2>
+
+  <div class="theme">
+    <div class="theme_image">
+        <img src="
+        <% if (@theme.picture.attached?) %>
+          <%= cl_image_path(@theme.picture.key) %>
+        <% else %>
+          <%= image_path('https://media0.giphy.com/media/7OVCzw8yy9IgaLgW1A/giphy.gif?cid=ecf05e47emql5g48hszob2tsddlyzprv39oq2zjpdggr0o0d&rid=giphy.gif&ct=g') %>
+        <% end %>
+          "/>
+    </div>
+    <div class="theme_title title-white">
+      <h3><%= @theme.title %></h3>
+      <p><%= @theme.description %></p>
+      <%= link_to "+ Article", new_article_path %>
+    </div>
+  </div>
 </div>
-<%= link_to "+ Article", new_article_path %>
