@@ -27,17 +27,16 @@
                       hint: "leave it blank if you don't want to change it",
                       required: false,
                       input_html: { autocomplete: "new-password" } %>
+          <%= f.input :biography, as: :text, required: true, input_html: { autocomplete: "Entrez une courte description de vous" } %>
           <%= f.input :password_confirmation,
                       required: false,
                       input_html: { autocomplete: "new-password" } %>
+          <%= f.association :state, :include_blank => false, :label_method => lambda { |state| "#{state.text}" } %>
+          <%= f.input :picture, as: :file %>
           <%= f.input :current_password,
                       hint: "we need your current password to confirm your changes",
                       required: true,
                       input_html: { autocomplete: "current-password" } %>
-          <%= f.association :state, :include_blank => false, :label_method => lambda { |state| "#{state.text}" } %>
-
-          <%= f.input :picture, as: :file %>
-
         </div>
 
 

@@ -15,11 +15,19 @@
       <% @themes.each do |theme| %>
         <%= theme.favoritable.title %>
       <% end %>
-
       <%= link_to "Thèmes Favoris", favorites_th_path%>
     </div>
     <div class="col">
-      Articles favoris
+      <% @articles.each do |article| %>
+      <%= article.favoritable.title %>
+      <% end %>
+      <%= link_to "Articles Favoris", favorites_art_path%>
+    </div>
+    <div class="col">
+      <% @follow_users.each do |follow_user| %>
+      <%= follow_user.favoritable.title %>
+      <% end %>
+      <%= link_to "Users Favoris", favorites_art_path%>
     </div>
   </div>
 </div>
