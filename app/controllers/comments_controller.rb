@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     authorize @comment
   end
 
-   def create
+  def create
     @comment = Comment.new(comment_params)
     @article = Article.find(params[:article_id])
     @comment.article = @article

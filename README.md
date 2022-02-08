@@ -39,3 +39,33 @@ Regarding DB:
         Favorite.all
         us1.favorites (in 'rails c', it's necessary to exit and reenter to have changes takin in account)
     ```
+
+Regarding Devise, User and pundit:
+
+- it was important to add within the favorites controller, specific access to pundit collection policies
+  ```bash
+    after_action :verify_policy_scoped, only: [ :index, :index_th, :index_art ], unless: :skip_pundit?
+    after_action :verify_authorized, except: [ :index, :index_th, :index_art ], unless: :skip_pundit?
+  ```
+- we introduced several new columns in User. User is managed by Devise. So in order to have access to those new colums we had to add specific configuration in the application_controller.rb
+```bash
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: user_params)
+    devise_parameter_sanitizer.permit(:sign_in, keys: user_params)
+    devise_parameter_sanitizer.permit(:account_update, keys: user_params)
+  end
+
+  def user_params
+    %i[ email username picture admin state_id biography ].freeze
+  end
+```
+
+Regarding SimpleForm :
+
+- we have a field (state) from a second table to populate in the User profile, the description to do so is not so clear in the action view tutorial :
+```bash
+   <%= f.association :state, :include_blank => false, :label_method => lambda { |state| "#{state.text}" } %>
+```

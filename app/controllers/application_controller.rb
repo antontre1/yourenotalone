@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_params
-    %i[ email username picture admin state_id ].freeze
+    %i[ email username picture admin state_id biography ].freeze
   end
 
 end
