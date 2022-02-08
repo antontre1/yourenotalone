@@ -1,10 +1,17 @@
-<div class="container-general">
+<div class="container-general" id="themes-index">
   <h1 class="container-title">Mes Themes Favoris</h1>
 
   <% @favorites.where(favoritable_type: "Theme").each do |favorite| %>
-      <h4><%= favorite.favoritable.title %></h4>
-      <p><%= favorite.favoritable.description %></p>
-      <%= link_to("-favoris",favorite_path(favorite.id), method: :delete) %>
-      <%= link_to("les articles", theme_articles_path(favorite.favoritable)) %>
-    <% end %>
+    <div class="theme">
+      <div class="theme_image">
+        <img src="https://media.giphy.com/media/10SvWCbt1ytWCc/giphy.gif" alt="theme_image">
+      </div>
+      <div class="theme_title title-white">
+        <h3><%= favorite.favoritable.title %></h3>
+        <p><%= favorite.favoritable.description %></p>
+        <%= link_to("+Favoris",favorite_path(favorite.id), method: :delete) %>
+        <%= link_to("Les articles", theme_articles_path(favorite.favoritable)) %>
+      </div>
+    </div>
+  <% end %>
 </div>
