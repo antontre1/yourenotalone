@@ -1,35 +1,51 @@
-<div class="container-general">
-  <div class="container" id="users_show">
-    <div class="row">
-      <%= cl_image_tag current_user.picture.key, class: "avatar-big", alt: "avatar-large"%>
-    </div>
-    <div class="row">
-      <div class="pl-5">
-        <%= current_user.username %>
+<div id="page-dashboard">
+  <div class="container-general">
+    <div class="card-profile">
+      <div class="profile-background">
+      </div>
+      <div class="profile-description">
+        <% if current_user.picture.attached? %>
+        <%=  cl_image_tag current_user.picture.key, class: "mon-avatar", alt: "avatar-large" %>
+        <%  else %>
+        <%= image_tag('avatar.png') %>
+        <% end %>
+        <h3><%= current_user.username %></h3>
+        <p><%= current_user.state.text %></p>
       </div>
     </div>
-  </div>
-
-  <div class="row mt-4">
-    <div class="col">
-      <div class="row ml-1">
-        <%= link_to "Thèmes Favoris", favorites_th_path%>
+    <div class="biography">
+      <%= current_user.biography %>
+    </div>
+    <div class="cards-favorites">
+      <div class="favorites-users">
+          <% @follow_users.each do |follow_user| %>
+          <div class="mini-user">
+          <%= follow_user.favoritable.title %>
+          </div>
+          <% end %>
+          <%= link_to "Users Favoris", favorites_art_path%>
       </div>
-      <% @themes.each do |theme| %>
-        <%= theme.favoritable.title %>
-      <% end %>
-    </div>
-    <div class="col">
-      <% @articles.each do |article| %>
-      <%= article.favoritable.title %>
-      <% end %>
-      <%= link_to "Articles Favoris", favorites_art_path%>
-    </div>
-    <div class="col">
-      <% @follow_users.each do |follow_user| %>
-      <%= follow_user.favoritable.title %>
-      <% end %>
-      <%= link_to "Users Favoris", favorites_art_path%>
+      <div class="favorites-th-art">
+        <div class="favorites-title">
+          Mes autres favoris
+        </div>
+        <div class="themes-list">
+          <% @themes.each do |theme| %>
+          <div class="mini-theme">
+            <%= theme.favoritable.title %>
+          </div>
+          <% end %>
+          <%= link_to "Thèmes Favoris", favorites_th_path%>
+        </div>
+        <div class="articles-list">
+          <% @articles.each do |article| %>
+          <div class="mini-articles">
+          <%= article.favoritable.title %>
+          </div>
+          <% end %>
+          <%= link_to "Articles Favoris", favorites_art_path%>
+        </div>
+      </div>
     </div>
   </div>
 </div>

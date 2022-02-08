@@ -1,0 +1,64 @@
+#page-dashboard {
+  *,
+  ::before,
+  ::after {
+    border: 0;
+    padding: 0;
+  }
+
+  .container-general {
+    height: 100vh;
+  }
+  .card-profile {
+    background-color: white;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    margin : 4px;
+  }
+  .profile-background {
+    margin : 4px;
+    border-radius: 4px 4px 0 0;
+    height: 150px;
+    background-size: cover;
+    background-image: url(https://images.unsplash.com/photo-1473116763249-2faaef81ccda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1796&q=80);
+  }
+
+  .profile-description {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    height: 150px;
+  }
+  h3 {
+
+  }
+  .mon-avatar {
+    position: absolute;
+    top: -75px;
+    right: 38%;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+  }
+
+  .biography {
+    background-color: white;
+    display: flex;
+    border-radius: 4px;
+    margin: 4px;
+    height: 250px;
+    padding: 4px;
+  }
+
+  .cards-favorites {
+    background-color: white;
+    border-radius: 4px;
+    height: 100%;
+    margin: 4px;
+    padding: 4px;
+  }
+}
