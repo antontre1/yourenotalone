@@ -1,20 +1,25 @@
-<div id="page-dashboard">
-  <div class="container-general">
+<div id="page-dashboard" class="container-general">
+    <div class="spacer">
+    </div>
     <div class="card-profile">
       <div class="profile-background">
-      </div>
-      <div class="profile-description">
         <% if current_user.picture.attached? %>
         <%=  cl_image_tag current_user.picture.key, class: "mon-avatar", alt: "avatar-large" %>
         <%  else %>
         <%= image_tag('avatar.png') %>
         <% end %>
+        <%= link_to image_tag('details-light.svg'), edit_user_registration_path, class: 'btn-details' %>
+      </div>
+      <div class="profile-description">
         <h3><%= current_user.username %></h3>
         <p><%= current_user.state.text %></p>
       </div>
     </div>
     <div class="biography">
-      <%= current_user.biography %>
+      <p>
+        <%= image_tag 'feather.svg', class: 'feather' %>
+        <%= current_user.biography %>
+      </p>
     </div>
     <div class="cards-favorites">
       <div class="favorites-users">
@@ -47,5 +52,4 @@
         </div>
       </div>
     </div>
-  </div>
 </div>
