@@ -1,10 +1,9 @@
 .container-general {
   width: 97%;
+  height: 100%;
   margin: 0 auto;
-  // background-color: orange;
   margin-top: 0;
   border-radius: 0.75rem;
-  padding: 0.5rem;
 }
 
 .container-title {
@@ -19,5 +18,5 @@
   // this will calculate what 50% of the element width is and will move it across the X-axis. The negative value ensures it moves to the left.
   transform: translateX(-50%);
   color: #CEF0D4;
-  font-family: 'Lobster', cursive;
+  font-family: $headers-font;
 }
