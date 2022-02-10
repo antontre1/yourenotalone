@@ -15,16 +15,30 @@ class ThemesController < ApplicationController
   end
 
   def create
+    @article = Article.new(article_params)
+    if @article.save
+      redirect_to article_path(@article)
+    else
+      render :new
+    end
+    authorize @article
+  end
+
+
+  def create
     @theme = Theme.new(theme_params)
+    if @theme.save
+      redirect_to theme_path(@theme.id)
+    else
+      render :new
+    end
     authorize @theme
-    @theme.save
-    redirect_to theme_path(@theme.id)
   end
 
   private
 
   def theme_params
-    params.require(:theme).permit(:title, :description, :picture )
+    params.require(:theme).permit(:title, :description)
   end
 
 end
