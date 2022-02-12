@@ -8,14 +8,18 @@
 .micro-theme-card {
   display: flex;
   position: relative;
-  border: blue 3px solid;
+  border-radius: 4px;
+  opacity: 0.5;
+  border: $purple-background 2px solid;
 }
 
 
 .micro-theme-card > img {
-  height: 100px;
-  width: 100px;
+  height: 75px;
+  width: 75px;
   object-fit: cover;
+  padding: 4px;
+  opacity: 0.5;
 }
 
 .micro-theme-card > .micro-theme-title {
@@ -26,6 +30,7 @@
 }
 
 .micro-theme-title > h3 {
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-align: center;
+  color: $purple
 }
