@@ -11,7 +11,7 @@
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 28px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .banner p {
@@ -26,6 +26,21 @@
 }
 
 .purple-button {
-  background-color: #9E15BF;
+  background-color: #902CB8;
   color: white;
+}
+
+.strong-title {
+  font-weight: 700;
+}
+
+a.btn.purple.white {
+  width: 97%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+div.container.text-center {
+  margin-top: 8rem;
 }
