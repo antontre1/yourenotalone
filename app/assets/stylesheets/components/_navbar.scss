@@ -8,6 +8,7 @@
   justify-content: space-between;
   height: 70px;
   background-color: #C396F3;
+  z-index: 1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -27,10 +28,12 @@
 }
 
 .navbar-collapse {
-  transform: translate(0, calc(-100% - 7.3px)) !important;
+  transform: translate(0, calc(-100% - 7.3px));
   right: 0;
+  bottom: 11px;
   position: absolute;
-  background: rgba(255, 255, 255, 0.2);
+  z-index: 0;
+  background: rgba(255, 255, 255, 0.95);
 }
 
  li.nav-item.active{
@@ -39,4 +42,8 @@
 
 a.nav-link {
   color: $purple;
+}
+
+.navbar-nav {
+  height: 6vh;
 }

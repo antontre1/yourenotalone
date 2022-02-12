@@ -21,27 +21,37 @@
         <%= current_user.biography %>
       </p>
     </div>
+    <div class="favorites-users">
+        <% @follow_users.each do |follow_user| %>
+        <div class="mini-user">
+        <%= follow_user.favoritable.title %>
+        </div>
+        <% end %>
+        <%= link_to "Users Favoris", favorites_art_path%>
+    </div>
     <div class="cards-favorites">
-      <div class="favorites-users">
-          <% @follow_users.each do |follow_user| %>
-          <div class="mini-user">
-          <%= follow_user.favoritable.username %>
-          <%# user avec username not title %>
-          </div>
-          <% end %>
-          <%= link_to "Users Favoris", favorites_art_path%>
-      </div>
       <div class="favorites-th-art">
         <div class="favorites-title">
           Mes autres favoris
         </div>
-        <div class="themes-list">
-          <% @themes.each do |theme| %>
-          <div class="mini-theme">
-            <%= theme.favoritable.title %>
+        <div class="micro-themes">
+          <div class="micro-themes-list">
+            <% @themes.each do |favorite| %>
+            <div class="micro-theme-card">
+              <img src="
+              <% if (favorite.favoritable.picture.attached?) %>
+                  <%= cl_image_path(favorite.favoritable.picture.key) %>
+                <% else %>
+                  <%= image_path('frontlorem.jpg') %>
+                <% end %>
+                  "/>
+              <div class="micro-theme-title">
+                <h3><%= favorite.favoritable.title %></h3>
+              </div>
+            </div>
+             <% end %>
+             <%= link_to image_tag('details-purple.svg'), favorites_th_path %>
           </div>
-          <% end %>
-          <%= link_to "Thèmes Favoris", favorites_th_path%>
         </div>
         <div class="articles-list">
           <% @articles.each do |article| %>
