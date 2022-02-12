@@ -1,0 +1,13 @@
+<div class="container-general">
+  <h1 class="container-title">Mes Users Favoris</h1>
+
+  <div class="mt-3">
+    <% @favorites.where(favoritable_type: "User").each do |favorite| %>
+      <div class="card text-white  mb-3 container-general purple text-decoration-none" style="max-width: 18rem;">
+        <h5><%= favorite.favoritable.username %></h5>
+        <p><%= favorite.favoritable.biography %></p>
+      </div>
+      <%= link_to("+favoris",favorite_path(favorite.id), method: :delete) %>
+    <% end %>
+  </div>
+</div>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :favorites
   post '/favorites/:id/create_fav_th', to: 'favorites#create_fav_th', as: 'create_fav_th'
   post '/favorites/:id/create_fav_art', to: 'favorites#create_fav_art', as: 'create_fav_art'
+  post '/favorites/:id/create_fav_user', to: 'favorites#create_fav_user', as: 'create_fav_user'
   resources :articles
   resources :articles do
     resources :comments, only: [ :new, :create, :index, :destroy ]
@@ -19,4 +20,5 @@ Rails.application.routes.draw do
   end
   get '/favorites_th', to: 'favorites#index_th'
   get '/favorites_art', to: 'favorites#index_art'
+  get '/favorites_user', to: 'favorites#index_user'
 end

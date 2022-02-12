@@ -14,6 +14,10 @@ class FavoritePolicy < ApplicationPolicy
     return true
   end
 
+  def index_user?
+    return true
+  end
+
   def destroy?
     record.user == user || user.admin
   end
@@ -23,6 +27,10 @@ class FavoritePolicy < ApplicationPolicy
   end
 
   def create_fav_art?
+    return true
+  end
+
+  def create_fav_user?
     return true
   end
 
