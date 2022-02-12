@@ -25,7 +25,8 @@
       <div class="favorites-users">
           <% @follow_users.each do |follow_user| %>
           <div class="mini-user">
-          <%= follow_user.favoritable.title %>
+          <%= follow_user.favoritable.username %>
+          <%# user avec username not title %>
           </div>
           <% end %>
           <%= link_to "Users Favoris", favorites_art_path%>
