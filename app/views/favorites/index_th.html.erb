@@ -1,10 +1,15 @@
 <div class="container-general" id="themes-index">
   <h1 class="container-title">Mes Themes Favoris</h1>
-
   <% @favorites.where(favoritable_type: "Theme").each do |favorite| %>
     <div class="theme">
       <div class="theme_image">
-        <img src="https://media.giphy.com/media/10SvWCbt1ytWCc/giphy.gif" alt="theme_image">
+               <img src="
+         <% if (favorite.favoritable.picture.attached?) %>
+            <%= cl_image_path(favorite.favoritable.picture.key) %>
+          <% else %>
+            <%= image_path('frontlorem.jpg') %>
+          <% end %>
+            "/>
       </div>
       <div class="theme_title title-white">
         <h3><%= favorite.favoritable.title %></h3>

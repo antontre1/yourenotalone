@@ -9,12 +9,13 @@
 
   .card-profile {
     background-color: $purple-background;
-    height: 25%;
+    height: 25vh;
     display: flex;
     flex-direction: column;
     border-radius: 4px;
     margin-top : 0;
   }
+
   .profile-background {
     position: relative;
     margin : 1px;
@@ -40,8 +41,8 @@
   }
   .mon-avatar {
     position: absolute;
-    width: 25%;
-    height: auto;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     top: 22%;
     left: 50%;
@@ -68,14 +69,22 @@
   }
 
   .feather {
-    height: 20%;
-    float: none;
-    margin: 4px;
+    height: 25%;
+    float: left;
+    margin: 6px 4px 0 6px;
     color: $purple-background;
   }
 
+  .favorites-users {
+    height: 25%;
+    border: 1px $purple-background solid;
+    border-radius: 4px;
+    margin: 4px 0;
+    padding: 4px;
+
+  }
+
   .cards-favorites {
-    height: 50%;
     border: 1px $purple-background solid;
     border-radius: 4px;
     margin: 4px 0;
