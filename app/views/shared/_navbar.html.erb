@@ -1,37 +1,31 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-bottom">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <i class="fas fa-home navbar-icon"></i>
-  <% end %>
-
-  <i class="fas fa-search navbar-icon"></i>
-
-  <% if user_signed_in? %>
-    <img class="navbar-avatar avatar-listen"
-    type="button"
-    src="<%= current_user.picture.attached? ? cl_image_path(current_user.picture.key) : image_path('avatar.png') %>"/>
-  <% else %>
-    <i class="fas fa-user avatar-listen" type="button" ></i>
-  <% end %>
-</div>
-<div class="my-navbar-collapse ">
-  <ul class="navbar-nav mr-auto">
-    <% if user_signed_in? %>
-      <li class="nav-item active">
-        <%= link_to 'Profil', dashboard_path, class:"padding-before" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Articles', articles_path, class: "dropdown-item" %>
-      </li>
-      <li class="nav-item">
-       <%= link_to 'Themes', themes_path, class: "dropdown-item" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-      </li>
-    <% else %>
-      <li class="nav-item">
-        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-      </li>
-    <% end %>
-  </ul>
+<div class="my-navbar">
+  <div class="navbar-cover">
+  </div>
+   <%= image_tag "btn-home-home.svg", class: "home-logo" %>
+   <%= image_tag "btn-home-discover.svg", class: "discover-logo" %>
+   <%= image_tag "btn-home-create.svg", class: "create-logo" %>
+   <%= image_tag "btn-home-favorite.svg", class: "favorite-logo" %>
+   <%= image_tag "btn-home-user.svg", class: "me-logo activated-logo" %>
+  <div class="mon_menu">
+    <ul>
+     <% if user_signed_in? %>
+            <li class="nav-item active">
+              <%= link_to 'Profil', dashboard_path, class:"padding-before" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Articles', articles_path, class: "dropdown-item" %>
+            </li>
+            <li class="nav-item">
+            <%= link_to 'Themes', themes_path, class: "dropdown-item" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </li>
+     <% end %>
+    </ul>
+  </div>
 </div>
