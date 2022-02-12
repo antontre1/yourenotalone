@@ -3,6 +3,10 @@
     <i class="fas fa-home navbar-icon"></i>
   <% end %>
 
+  <%= link_to 'Articles', articles_path, class: "navbar-brand" %>
+
+  <%= link_to 'Themes', themes_path, class: "navbar-brand" %>
+
   <i class="fas fa-search navbar-icon"></i>
 
   <% if user_signed_in? %>
@@ -15,7 +19,7 @@
     aria-label="Toggle navigation"
     src="<%= current_user.picture.attached? ? cl_image_path(current_user.picture.key) : image_path('avatar.png') %>"/>
   <% else %>
-    <i class="fas fa-user navbar-icon navbar-toggler" class="" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></i>
+      <i class="fas fa-user navbar-icon navbar-toggler" class="" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></i>
   <% end %>
 </div>
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -30,9 +34,6 @@
     <% else %>
       <li class="nav-item">
         <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-      </li>
-      <li>
-            <p> </p>
       </li>
     <% end %>
   </ul>

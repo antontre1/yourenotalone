@@ -22,9 +22,6 @@
       <%= link_to("Uncare",article_votes_path(@article, reaction: 2), method: :post)  %>
     <% end %>
   </ul>
-  <ul>
-    <%= link_to("Liste des articles", articles_path) %>
-  </ul>
   <% if policy(@article).destroy? %>
     <%= link_to("delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }) %>
   <% end %>

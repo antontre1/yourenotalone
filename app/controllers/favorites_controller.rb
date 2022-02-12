@@ -19,6 +19,11 @@ class FavoritesController < ApplicationController
     # @favorites = Favorite.all
   end
 
+  def index_user
+    # @favorites = FavoritePolicy::Scope.new(current_user, Favorite).resolve
+    @favorites = policy_scope(Favorite)
+    # @favorites = Favorite.all
+  end
 
   def new
     @favorite = Favorite.new
@@ -57,6 +62,19 @@ class FavoritesController < ApplicationController
     redirect_to favorites_art_path
   end
 
+  def create_fav_user
+    @favorite = Favorite.new
+    if current_user.favorites.where(favoritable_type: "User").where(favoritable_id: params[:id]).count == 0
+      @user = User.find(params[:id])
+      authorize @user
+      authorize @favorite
+      @favorite.user = current_user
+      @favorite.favoritable = @user
+      @favorite.save
+    end
+    authorize @favorite
+    redirect_to favorites_user_path
+  end
 
   def destroy
     @favorite = Favorite.find(params[:id])
