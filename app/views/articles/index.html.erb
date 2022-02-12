@@ -11,16 +11,20 @@
     <% @articles.each do |article| %>
       <%= link_to article_path(article) do %>
         <div class="card text-white  mb-3 container-general purple text-decoration-none" style="max-width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">
-              <%= article.title %>
-            </h5>
-            <p class="card-text"><%= article.description %></p>
-          </div>
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= article.title %>
+              </h5>
+              <p class="card-text"><%= article.description %></p>
+            </div>
         </div>
-        <%= link_to "+Favori Article",  create_fav_art_path(article.id), method: :post  %>
-        <%= link_to "+Favori User",  create_fav_user_path(article.id), method: :post  %>
       <% end %>
+      <div class=" mb-3 container-general text-decoration-none" style="max-width: 18rem;">
+        Ajouter en favori
+        <%= link_to "l'article",  create_fav_art_path(article.id), method: :post  %>
+        <%= link_to "le theme",  create_fav_th_path(article.id), method: :post  %>
+        <%= link_to "le rédacteur",  create_fav_user_path(article.id), method: :post  %>
+      </div>
     <% end %>
   </div>
 </div>

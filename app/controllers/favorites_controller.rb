@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
-  after_action :verify_policy_scoped, only: [ :index, :index_th, :index_art ], unless: :skip_pundit?
-  after_action :verify_authorized, except: [ :index, :index_th, :index_art ], unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: [ :index, :index_th, :index_art, :index_user ], unless: :skip_pundit?
+  after_action :verify_authorized, except: [ :index, :index_th, :index_art, :index_user ], unless: :skip_pundit?
 
   def index
     @favorites = policy_scope(Favorite)
@@ -65,8 +65,7 @@ class FavoritesController < ApplicationController
   def create_fav_user
     @favorite = Favorite.new
     if current_user.favorites.where(favoritable_type: "User").where(favoritable_id: params[:id]).count == 0
-      @user = User.find(params[:id])
-      authorize @user
+      @user = Article.find(params[:id]).user
       authorize @favorite
       @favorite.user = current_user
       @favorite.favoritable = @user
