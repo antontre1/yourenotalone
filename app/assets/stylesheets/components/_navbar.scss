@@ -27,14 +27,23 @@
   z-index:1030;
 }
 
-.navbar-collapse {
-  transform: translate(0, calc(-100% - 7.3px));
+.my-navbar-collapse {
+  transform: translateY(145px);
+  transition-property: transform;
+  transition-duration: 0.4s;
+  height: 145px;
   right: 0;
-  bottom: 11px;
+  bottom: 70px;
+  padding: 4px;
   position: absolute;
   z-index: 0;
   background: rgba(255, 255, 255, 0.95);
 }
+
+.scale-1 {
+  transform: scaleY(1);
+}
+
 
  li.nav-item.active{
   padding-left: 23px;
