@@ -1,45 +1,41 @@
-#articles-show {
-  .container-title {
-    text-align: center;
-    // background-color: pink;
-    margin: 0.5rem;
-    padding: 0.3rem;
-    border-radius: 2rem;
-    display: inline-block;
-    position: relative;
+.container-smaller {
+width: 85%;
+height: 100%;
+margin: 0 auto;
+margin-top: 0;
+border-radius: 0.75rem;
+}
+
+#articles-show .container-smaller{
+
+  .container-center {
     left: 50%;
     // this will calculate what 50% of the element width is and will move it across the X-axis. The negative value ensures it moves to the left.
     transform: translateX(-50%);
   }
-  h1 {
+  .title-h1 {
     color: #902CB8;
     font-family: $headers-font;
-    font-size: 42px;
-    font-weight: normal;
-    line-height: 48px;
-    margin: 0 0 50px;
-    text-align: center;
-    text-shadow: 1px 1px 2px #082b34;
   }
 
-  h2 {
+  .title-h2 {
     color: #902CB8;
     opacity: 0.7;
     font-family: $headers-font;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 32px;
-    margin: 0 0 24px;
-    text-shadow: 1px 1px 1px #082b34;
+    font-size: 1.2rem;
+    // font-weight: bold;
+    // line-height: 32px;
+    // margin: 0 0 24px;
+
   }
 
 
-  p {
-    color: black;
-    font-family: $body-font;
-    font-size: 16px;
-    line-height: 24px;
-    margin: 0 0 24px;
-  }
+  // p {
+  //   color: black;
+  //   font-family: $body-font;
+  //   font-size: 16px;
+  //   line-height: 24px;
+  //   margin: 0 0 24px;
+  // }
 
 }
