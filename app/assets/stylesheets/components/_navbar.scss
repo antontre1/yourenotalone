@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // .navbar-lewagon {
 //   justify-content: space-between;
 //   background: white;
@@ -10,6 +11,20 @@
 // .navbar-lewagon .navbar-brand img {
 //   width: 40px;
 // }
+=======
+.navbar-icon {
+  font-size: 2rem;
+  color: white !important;
+  border: none;
+}
+
+.navbar-lewagon {
+  justify-content: space-between;
+  height: 70px;
+  background-color: #C396F3;
+  z-index: 1;
+}
+>>>>>>> c281301bbfdd42944fdda7b1f83d69d885fba1eb
 
 .navbar {
   height: 70px;
@@ -26,4 +41,33 @@
 .logo {
   height: 40px;
   width: 40px;
+}
+
+.sticky-bottom{
+  position: sticky;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index:1030;
+}
+
+.navbar-collapse {
+  transform: translate(0, calc(-100% - 7.3px));
+  right: 0;
+  bottom: 11px;
+  position: absolute;
+  z-index: 0;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+ li.nav-item.active{
+  padding-left: 23px;
+}
+
+a.nav-link {
+  color: $purple;
+}
+
+.navbar-nav {
+  height: 6vh;
 }

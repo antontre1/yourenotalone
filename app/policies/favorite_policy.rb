@@ -22,4 +22,8 @@ class FavoritePolicy < ApplicationPolicy
     return true
   end
 
+  def create_fav_art?
+    return true
+  end
+
 end

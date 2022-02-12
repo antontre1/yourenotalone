@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
-  after_action :verify_policy_scoped, only: [ :index, :index_th ], unless: :skip_pundit?
-  after_action :verify_authorized, except: [ :index, :index_th ], unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: [ :index, :index_th, :index_art ], unless: :skip_pundit?
+  after_action :verify_authorized, except: [ :index, :index_th, :index_art ], unless: :skip_pundit?
 
   def index
     @favorites = policy_scope(Favorite)
@@ -13,6 +13,13 @@ class FavoritesController < ApplicationController
     # @favorites = Favorite.all
   end
 
+  def index_art
+    # @favorites = FavoritePolicy::Scope.new(current_user, Favorite).resolve
+    @favorites = policy_scope(Favorite)
+    # @favorites = Favorite.all
+  end
+
+
   def new
     @favorite = Favorite.new
   end
@@ -21,6 +28,7 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.new(favorite_params)
     redirect_to themes_path
   end
+
 
   def create_fav_th
     @favorite = Favorite.new
@@ -35,6 +43,21 @@ class FavoritesController < ApplicationController
     redirect_to favorites_th_path
   end
 
+
+  def create_fav_art
+    @favorite = Favorite.new
+    if current_user.favorites.where(favoritable_type: "Article").where(favoritable_id: params[:id]).count == 0
+      @article = Article.find(params[:id])
+      authorize @favorite
+      @favorite.user = current_user
+      @favorite.favoritable = @article
+      @favorite.save
+    end
+    authorize @favorite
+    redirect_to favorites_art_path
+  end
+
+
   def destroy
     @favorite = Favorite.find(params[:id])
     authorize @favorite
@@ -46,7 +69,7 @@ class FavoritesController < ApplicationController
 
 private
 
-  def hug_params
+  def favorite_params
     params.require(:favorite).permit(:user_id, :favoritable)
   end
 

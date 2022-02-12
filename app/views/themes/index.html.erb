@@ -1,19 +1,25 @@
 <div class="container-general" id="themes-index">
-  <%= link_to "+ Thème", new_theme_path %>
-  <h2 class="container-title"><span>Les Thèmes</span></h2>
-
+  <h1 class="container-title">Les Thèmes</h1>
+  <div>
+    <%= link_to "+ Créer un thème", new_theme_path %>
+  </div>
   <% @themes.each do |theme| %>
     <div class="theme">
       <div class="theme_image">
-        <%= image_tag "https://media.giphy.com/media/10SvWCbt1ytWCc/giphy.gif"%>
+         <img src="
+         <% if (theme.picture.attached?) %>
+            <%= cl_image_path(theme.picture.key) %>
+          <% else %>
+            <%= image_path('frontlorem.jpg') %>
+          <% end %>
+            "/>
       </div>
       <div class="theme_title title-white">
         <h3><%= theme.title %></h3>
         <p><%= theme.description %></p>
-        <%= link_to "+Favorite",  create_fav_th_path(theme.id), method: :post  %>
+        <%= link_to "+Favori",  create_fav_th_path(theme.id), method: :post  %>
         <%= link_to "Les articles", theme_articles_path(theme.id) %>
       </div>
     </div>
   <% end %>
-
 </div>

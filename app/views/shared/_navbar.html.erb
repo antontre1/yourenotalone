@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%# <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-bottom"> %>
   <%# <%= link_to "#", class: "navbar-brand" do %> %>
     <%# <%= image_tag "purple-butterfly.png"%> %>
@@ -93,4 +94,44 @@
       <span class="navbar-toggler-icon"></span>
     </button>
   </nav>
+=======
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-bottom">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <i class="fas fa-home navbar-icon"></i>
+  <% end %>
+
+  <i class="fas fa-search navbar-icon"></i>
+
+  <% if user_signed_in? %>
+    <img class="navbar-toggler navbar-avatar"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    src="<%= current_user.picture.attached? ? cl_image_path(current_user.picture.key) : image_path('avatar.png') %>"/>
+  <% else %>
+    <i class="fas fa-user navbar-icon navbar-toggler" class="" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></i>
+  <% end %>
+</div>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <% if user_signed_in? %>
+      <li class="nav-item active">
+        <%= link_to 'Profil', dashboard_path, class:"padding-before" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </li>
+      <li>
+            <p> </p>
+      </li>
+    <% end %>
+  </ul>
+>>>>>>> c281301bbfdd42944fdda7b1f83d69d885fba1eb
 </div>

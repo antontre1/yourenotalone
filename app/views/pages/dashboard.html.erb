@@ -1,13 +1,27 @@
-<div class="container-general">
-  <div class="container" id="users_show">
-    <div class="row">
-      <%= cl_image_tag current_user.picture.key, class: "avatar-big", alt: "avatar-large"%>
+<div id="page-dashboard" class="container-general">
+    <div class="spacer">
     </div>
-    <div class="row">
-      <div class="pl-5">
-        <%= current_user.username %>
+    <div class="card-profile">
+      <div class="profile-background">
+        <% if current_user.picture.attached? %>
+        <%=  cl_image_tag current_user.picture.key, class: "mon-avatar", alt: "avatar-large" %>
+        <%  else %>
+        <%= image_tag('avatar.png') %>
+        <% end %>
+        <%= link_to image_tag('details-light.svg'), edit_user_registration_path, class: 'btn-details' %>
+      </div>
+      <div class="profile-description">
+        <h3><%= current_user.username %></h3>
+        <p><%= current_user.state.text %></p>
       </div>
     </div>
+    <div class="biography">
+      <p>
+        <%= image_tag 'feather.svg', class: 'feather' %>
+        <%= current_user.biography %>
+      </p>
+    </div>
+<<<<<<< HEAD
   </div>
 
   <%# <div class="container"> %> %>
@@ -35,9 +49,48 @@
   <div class="row mt-4">
     <div class="col">
       <%= link_to "Thèmes Favoris", favorites_th_path%>
+=======
+    <div class="favorites-users">
+        <% @follow_users.each do |follow_user| %>
+        <div class="mini-user">
+        <%= follow_user.favoritable.title %>
+        </div>
+        <% end %>
+        <%= link_to "Users Favoris", favorites_art_path%>
+>>>>>>> c281301bbfdd42944fdda7b1f83d69d885fba1eb
     </div>
-    <div class="col">
-      Articles favoris
+    <div class="cards-favorites">
+      <div class="favorites-th-art">
+        <div class="favorites-title">
+          Mes autres favoris
+        </div>
+        <div class="micro-themes">
+          <div class="micro-themes-list">
+            <% @themes.each do |favorite| %>
+            <div class="micro-theme-card">
+              <img src="
+              <% if (favorite.favoritable.picture.attached?) %>
+                  <%= cl_image_path(favorite.favoritable.picture.key) %>
+                <% else %>
+                  <%= image_path('frontlorem.jpg') %>
+                <% end %>
+                  "/>
+              <div class="micro-theme-title">
+                <h3><%= favorite.favoritable.title %></h3>
+              </div>
+            </div>
+             <% end %>
+             <%= link_to image_tag('details-purple.svg'), favorites_th_path %>
+          </div>
+        </div>
+        <div class="articles-list">
+          <% @articles.each do |article| %>
+          <div class="mini-articles">
+          <%= article.favoritable.title %>
+          </div>
+          <% end %>
+          <%= link_to "Articles Favoris", favorites_art_path%>
+        </div>
+      </div>
     </div>
-  </div>
 </div>

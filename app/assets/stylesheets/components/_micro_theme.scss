@@ -1,0 +1,31 @@
+.micro-themes-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.micro-theme-card {
+  display: flex;
+  position: relative;
+  border: blue 3px solid;
+}
+
+
+.micro-theme-card > img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
+
+.micro-theme-card > .micro-theme-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.micro-theme-title > h3 {
+  font-size: 1rem;
+  text-align: center;
+}

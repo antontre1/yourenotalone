@@ -1,16 +1,8 @@
-class ArticlePolicy < ApplicationPolicy
+class VotePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
-  end
-
-  def show?
-    return true
-  end
-
-  def index?
-    return true
   end
 
   def new?
@@ -18,14 +10,6 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def create?
-    return true
-  end
-
-  def edit?
-    return true
-  end
-
-  def update?
     return true
   end
 

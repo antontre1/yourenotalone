@@ -13,9 +13,16 @@
 @import "pages/index";
 
 * { box-sizing: border-box; }
+*,
+::before,
+::after {
+  border: 0;
+  padding: 0;
+}
+
 
 body {
-  background-color: #B694BF;
+  background-color: white;
 }
 
 a {
@@ -33,4 +40,8 @@ a:active {
 
 .white {
   color: white;
+}
+
+.div-wrapper {
+  min-height: calc(100vh - 70px);
 }
