@@ -6,23 +6,24 @@
   <i class="fas fa-search navbar-icon"></i>
 
   <% if user_signed_in? %>
-    <img class="navbar-toggler navbar-avatar"
+    <img class="navbar-avatar avatar-listen"
     type="button"
-    data-toggle="collapse"
-    data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
     src="<%= current_user.picture.attached? ? cl_image_path(current_user.picture.key) : image_path('avatar.png') %>"/>
   <% else %>
-    <i class="fas fa-user navbar-icon navbar-toggler" class="" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></i>
+    <i class="fas fa-user avatar-listen" type="button" ></i>
   <% end %>
 </div>
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<div class="my-navbar-collapse ">
   <ul class="navbar-nav mr-auto">
     <% if user_signed_in? %>
       <li class="nav-item active">
         <%= link_to 'Profil', dashboard_path, class:"padding-before" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Articles', articles_path, class: "dropdown-item" %>
+      </li>
+      <li class="nav-item">
+       <%= link_to 'Themes', themes_path, class: "dropdown-item" %>
       </li>
       <li class="nav-item">
         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
@@ -30,9 +31,6 @@
     <% else %>
       <li class="nav-item">
         <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-      </li>
-      <li>
-            <p> </p>
       </li>
     <% end %>
   </ul>
