@@ -1,9 +1,9 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 175px 0;
-  height: calc(100vh - 70px);
-  border-bottom: 5px solid #9E15BF;
+  padding: 10.938rem 0;
+  height: calc(100vh - 4.375rem);
+  border-bottom: 0.31rem solid #9E15BF;
   background-image: linear-gradient(to top, #2C2033, 32%, rgba(0, 0, 0, 0.5), #2029) ,url(https://cdn.pixabay.com/photo/2019/10/06/10/03/team-4529717_960_720.jpg);
 
 }
@@ -11,16 +11,16 @@
 .banner h1 {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 28px;
+  text-shadow: 0.063rem 0.063rem 0.188 rgba(0,0,0,0.2);
+  font-size: 1.75rem;
   font-weight: 500;
 }
 
 .banner p {
-  font-size: 20px;
+  font-size: 1.25rem;
   color: white;
   opacity: .9;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 0.063rem 0.063rem 0.188 rgba(0,0,0,0.2);
 }
 
 .container h1 {
