@@ -1,58 +1,109 @@
-.navbar-icon {
-  font-size: 2rem;
-  color: white !important;
-  border: none;
-}
-
-.navbar-lewagon {
-  justify-content: space-between;
-  height: 70px;
-  background-color: #C396F3;
-  z-index: 1;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
-.sticky-bottom{
+.my-navbar {
+  display: flex;
   position: sticky;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index:1030;
+  z-index: 3;
+  justify-content: space-between ;
+  height: 70px;
+  background-color: white;
+  align-items: center;
+  padding-right: 8px;
 }
 
-.my-navbar-collapse {
-  transform: translateY(145px);
-  transition-property: transform;
-  transition-duration: 0.4s;
-  height: 145px;
-  right: 0;
-  bottom: 70px;
-  padding: 4px;
+.search-logo, .home-logo, .discover-logo {
+  color: white;
+  z-index: 3;
   position: absolute;
-  z-index: 0;
-  background: rgba(255, 255, 255, 0.95);
+}
+
+.discover-logo {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.home-logo {
+  position: absolute;
+  top: 50%;
+  left: 7%;
+  transform: translate(-50%, -50%);
+}
+
+.create-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.favorite-logo {
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+
+
+.navbar-cover {
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  height: 70px;
+  width: 100%;
+}
+
+.me-logo {
+  position: absolute;
+  z-index: 3;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  top: 50%;
+  right: 0%;
+  transform: translate(-50%, -50%);
+}
+
+.home-logo, .create-logo, .favorite-logo {
+  color: $light-gray;
+  z-index: 2;
+}
+
+.activated-logo {
+  color: $purple;
+}
+
+.mon_menu {
+  transform: scale(0) translateY(0px);
+  transition-duration: 0.2s;
+  width: 75px;
+  background-color: white;
+  position: absolute;
+  right: 0;
+  width: 140px;
+  bottom: 0;
+  z-index: -2;
+  padding: 4px 4px 0 4px;
+  text-align: center;
 }
 
 .scale-1 {
-  transform: scaleY(1);
+  transform: scaleY(1) translateY(-70px);
+  transition-duration: 0.2s;
 }
 
+.mon_menu {
+  li {
+    list-style-type: none;
+  }
+}
 
  li.nav-item.active{
-  padding-left: 23px;
+  padding-left: 0.5rem;
 }
 
 a.nav-link {
   color: $purple;
-}
-
-.navbar-nav {
-  height: 6vh;
 }
