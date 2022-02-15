@@ -1,72 +1,12 @@
 #page-dashboard {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 70px);
+
 
   .spacer {
     height: 4px;
   }
 
-  .card-profile {
-    background-color: $purple-background;
-    height: 25vh;
-    display: flex;
-    flex-direction: column;
-    border-radius: 4px;
-    margin-top : 0;
-  }
-
-  .profile-background {
-    position: relative;
-    margin : 1px;
-    border-radius: 4px 4px 0 0;
-    height: 50%;
-    background-size: cover;
-    background-image: url(https://images.unsplash.com/photo-1473116763249-2faaef81ccda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1796&q=80);
-  }
-
-  .profile-description {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    height: 50%;
-    color: white;
-    h3 {
-      font-size: 1.7rem;;
-    }
-    p {
-      font-size: 1rem;
-    }
-  }
-  .mon-avatar {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    top: 22%;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    border: white 1px solid;
-  }
-
-   .btn-details {
-    position: absolute;
-    top: 50%;
-    left: 64%;
-  }
-
-  .biography {
-    background-color: white;
-    display: flex;
-    border-radius: 4px;
-    height: 25%;
-    margin: 4px 0 4px 0;
-    padding: 4px;
-    border: 1px $purple-background solid;
-    text-align: justify;
-    font-size: 1.2rem;
-  }
 
   .feather {
     height: 25%;
@@ -75,14 +15,7 @@
     color: $purple-background;
   }
 
-  .favorites-users {
-    height: 25%;
-    border: 1px $purple-background solid;
-    border-radius: 4px;
-    margin: 4px 0;
-    padding: 4px;
 
-  }
 
   .cards-favorites {
     border: 1px $purple-background solid;
@@ -91,5 +24,9 @@
     padding: 4px;
   }
 
+  .monblock {
+    height: 150px;
+    border: red 3px solid;
+  }
 
 }
