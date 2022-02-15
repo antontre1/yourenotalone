@@ -19,6 +19,8 @@ border-radius: 0.75rem;
     display: flex;
     border-bottom: 1px solid #902CB8;
     margin-bottom: 20px;
+    margin-top: 20px;
+    padding-bottom: 0.5rem;
   }
 
   .avatar-mini {
@@ -37,9 +39,10 @@ border-radius: 0.75rem;
   //   // this will calculate what 50% of the element width is and will move it across the X-axis. The negative value ensures it moves to the left.
   //   transform: translateX(-50%);
   // }
-  .title-h1 {
+  .title-main {
     color: black;
     font-family: $headers-font;
+    font-size: 1.75rem;
   }
 
   .title-h2 {
@@ -47,9 +50,7 @@ border-radius: 0.75rem;
     opacity: 0.7;
     font-family: $headers-font;
     font-size: 1.2rem;
-    // font-weight: bold;
-    // line-height: 32px;
-    // margin: 0 0 24px;
+    margin-bottom: 20px;
 
   }
 
