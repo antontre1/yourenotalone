@@ -6,8 +6,8 @@
     <h2 class="title-main"><%= @article.title %></h2>
     <div class="container-icons d-flex">
       <div>
-        <% if current_user.picture.attached? %>
-          <%=  cl_image_tag current_user.picture.key, height: 50, width: 50 %>
+        <% if @article.user.picture.attached? %>
+          <%=  cl_image_tag @article.user.picture.key, height: 50, width: 50 %>
           <%  else %>
           <%= image_tag('avatar.png', class: "avatar-mini") %>
         <% end %>
@@ -59,13 +59,22 @@
   <% end %>
 
   <ul class="list-group">
-    <% @comments.each do |comment| %>
-      <ul><%= comment.created_at.to_datetime.strftime("Printed on %m/%d/%Y") %> - <%= comment.content %> by <%= comment.user.username %>
-        <% if policy(comment).destroy? %>
-          <%= link_to("delete", article_comment_path(@article, comment), method: :delete, data: { confirm: "Are you sure?" }) %>
-        <% end %>
-      </ul>
-    <% end %>
+    <div>
+      <% @comments.each do |comment| %>
+        <div class="border-comment">
+          <div id="<%= comment.id%>">
+            <%= comment.content %>
+          </div>
+          <div>
+            <ul><%= comment.created_at.to_datetime.strftime("Publié le %m/%d/%Y") %> par <%= comment.user.username %>
+              <% if policy(comment).destroy? %>
+                <%= link_to("supprimer", article_comment_path(@article, comment), method: :delete, data: { confirm: "Are you sure?" }) %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </ul>
 
 </div>
