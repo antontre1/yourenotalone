@@ -1,17 +1,15 @@
 .favorites-users {
   border-bottom: 1px $light-gray solid;
-  margin: 16px 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
 }
 
-.mini-user-title {
-
-}
-
 .mini-user-list {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .mini-user {
@@ -19,6 +17,7 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  flex: 0 0 auto;
   width: 75px;
   height: 100px;
   margin: 8px;
@@ -30,6 +29,7 @@
 }
 
 .user-favorites-title {
+  margin: 8px 0 8px 0;
   span {
     margin-left: 8px;
   }
