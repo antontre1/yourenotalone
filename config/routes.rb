@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   # resources :users, only: [:show]
   get "dashboard", to: "pages#dashboard"
+  get "wall", to: "pages#wall"
+  get "search", to: "pages#search"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :favorites
   post '/favorites/:id/create_fav_th', to: 'favorites#create_fav_th', as: 'create_fav_th'
