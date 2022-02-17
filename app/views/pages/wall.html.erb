@@ -1,0 +1,105 @@
+<div id="page-dashboard" class="container-general">
+    <div class="spacer">
+    </div>
+    <div class="card-profile">
+      <div class="profile-background">
+        <% if current_user.picture.attached? %>
+        <%=  cl_image_tag current_user.picture.key, class: "mon-avatar", alt: "avatar-large" %>
+        <%  else %>
+        <%= image_tag('avatar.png') %>
+        <% end %>
+      </div>
+      <div class="profile-description">
+        <h3><%= current_user.username %></h3>
+        <span><%= current_user.state.text %></span>
+      </div>
+      <div class="follow-details">
+        <div class="following follow-box">
+          <span><%= @follow_users_nb %></span><span class="follow-box-title">suivis</span>
+        </div>
+        <div class="followers  follow-box">
+          <span><%= @follower_users_nb %></span><span class="follow-box-title">suivi par</span>
+        </div>
+        <div class="likes  follow-box">
+          <span><%= @likes %></span><span class="follow-box-title">réactions</span>
+        </div>
+      </div>
+      <div class="edit-zone">
+        <%= link_to "edit profile", edit_user_registration_path, class: 'btn-details' %>
+        <%= link_to image_tag('bookmark-alone.svg', class: 'favorite-icon'), favorites_th_path, class: 'btn-favorite' %>
+      </div>
+      <div class="biography">
+        <p>
+          <%= current_user.biography %>
+        </p>
+      </div>
+    </div>
+    <div class="favorites-users">
+        <div class="user-favorites-title">
+          <%= image_tag('heart.svg') %><span>Les personnes que je suis</span>
+        </div>
+        <div class="mini-user-list">
+        <% @follow_users.each do |follow_user| %>
+          <div class="mini-user">
+            <% if (follow_user.favoritable.picture.attached?) %>
+            <%= cl_image_tag(follow_user.favoritable.picture.key, class: 'avatar-large') %>
+              <% else %>
+            <%= image_tag('avatar.png', class: 'avatar-large') %>
+            <% end %>
+            <span class="mini-user-name"><%= follow_user.favoritable.username %></span>
+          </div>
+          <% end %>
+        </div>
+    </div>
+    <div class="cards-favorites">
+      <div class="favorites-th-art">
+        <div class="favorites-title">
+           <%= image_tag('bookmark-alone-purple.svg') %><span>Mes favoris</span>
+        </div>
+        <div class="micro-themes-list">
+            <% @themes.each do |favorite| %>
+            <a href="<%= theme_path(favorite.favoritable_id) %>">
+            <div class="micro-theme-card" style="background: url(
+              <% if (favorite.favoritable.picture.attached?) %>
+                  <%= cl_image_path(favorite.favoritable.picture.key) %>
+                <% else %>
+                  <%= image_path('frontlorem.jpg') %>
+                <% end %>
+                  ), #F4EAF8; background-repeat: no-repeat; background-size: 80% 4rem; background-position: 50% 10%;">
+              <span><%= favorite.favoritable.title %></span>
+              <div class="counter">
+                <%= image_tag('eye.svg') %>
+                <%= Favorite.where(favoritable_id: favorite.favoritable.id).count %>
+              </div>
+            </div>
+            </a>
+             <% end %>
+             <%= link_to image_tag('details-purple.svg', class: 'details-th'), favorites_th_path %>
+        </div>
+        <div class="articles-list">
+          <% @articles.each do |article| %>
+          <a href="<%= article_path(article.favoritable_id) %>">
+          <div class="mini-articles-card">
+              <div class="art-description">
+                <span class="art-title"><%= article.favoritable.title %></span>
+                <div class="art-th-description">
+                  <span class="art-theme"><%= article.favoritable.theme.title %></span>
+                  <%= link_to image_tag('ellipse.svg', class: 'ellipse-th') %>
+                  <span class="art-created">Il y a <%= TimeDifference.between(article.favoritable.updated_at, Time.now).in_days.round %> jours</span>
+                </div>
+              </div>
+              <% if (article.favoritable.picture.attached?) %>
+                <%= cl_image_tag(article.favoritable.picture.key, class: 'mini-article-img') %>
+              <% else %>
+                <%= image_tag('avatar.png', class: 'mini-article-img') %>
+              <% end %>
+          </div>
+          </a>
+          <% end %>
+          <%= link_to "Articles Favoris", favorites_art_path%>
+        </div>
+      </div>
+    </div>
+
+
+</div>
