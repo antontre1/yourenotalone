@@ -1,0 +1,147 @@
+.favorites-title {
+    margin: 8px 0 8px 0;
+  span {
+    margin-left: 8px;
+  }
+}
+
+.micro-themes-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+
+.micro-theme-card {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  border-radius: 8px;
+  margin-right: 3px;
+  padding: 0 4px;
+  height: 10rem;
+  background-color: $purple-background2;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3px;
+  width: 8rem;
+  height: 12rem;
+  color: $purple2;
+  span {
+    font-size: 0.9rem;
+    margin-top: 2.5rem;
+    margin-left:10%;
+    margin-right: 10%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.micro-theme-card > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 75px;
+  width: 75px;
+  object-fit: cover;
+  padding: 4px;
+  opacity: 0.5;
+  border-radius: 8px;
+}
+
+.counter {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  padding: 0 4px 0 4px;
+  width: 4rem;
+  height: 2rem;
+  background-color: $purple-intense;
+  color: white;
+  img {
+    height: 1.4rem;
+  }
+}
+
+.details-th {
+  filter: brightness(0) saturate(100%) invert(96%) sepia(19%) saturate(710%) hue-rotate(186deg) brightness(95%) contrast(105%);
+}
+
+
+.articles-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-y: auto;
+}
+
+.mini-articles-card {
+  display: flex;
+  position: relative;
+  justify-content: start;
+  align-items: center;
+  height: 6rem;
+  margin-top: 8px;
+  margin-right: 3px;
+  padding: 0 4px;
+  border-top: gray 1px solid;
+  color: $purple2;
+}
+
+.art-description {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.art-title {
+  color: $gray;
+}
+
+.art-content {
+  font-size: 0.6rem;;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.mini-article-img {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translate(0, -50%);
+  border-radius: 15%;
+  height: 75px;
+  width: 75px;
+  object-fit: cover;
+  padding: 4px;
+  opacity: 0.5;
+}
+
+.art-th-description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .art-theme {
+    font-size: 0.6rem;
+    font-weight: 300;
+    margin-right: 8px;
+  }
+  .art-created {
+    font-size: 0.6rem;
+    color: $light-gray;
+    margin-left: 8px;
+  }
+}
