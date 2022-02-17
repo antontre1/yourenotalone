@@ -8,26 +8,48 @@
         <%  else %>
         <%= image_tag('avatar.png') %>
         <% end %>
-        <%= link_to image_tag('details-light.svg'), edit_user_registration_path, class: 'btn-details' %>
       </div>
       <div class="profile-description">
         <h3><%= current_user.username %></h3>
-        <p><%= current_user.state.text %></p>
+        <span><%= current_user.state.text %></span>
+      </div>
+      <div class="follow-details">
+        <div class="following follow-box">
+          <span><%= @follow_users_nb %></span><span class="follow-box-title">suivis</span>
+        </div>
+        <div class="followers  follow-box">
+          <span><%= @follower_users_nb %></span><span class="follow-box-title">suivi par</span>
+        </div>
+        <div class="likes  follow-box">
+          <span><%= @likes %></span><span class="follow-box-title">réactions</span>
+        </div>
+      </div>
+      <div class="edit-zone">
+        <%= link_to "edit profile", edit_user_registration_path, class: 'btn-details' %>
+        <%= link_to image_tag('bookmark-alone.svg', class: 'favorite-icon'), favorites_th_path, class: 'btn-favorite' %>
+      </div>
+      <div class="biography">
+        <p>
+          <%= current_user.biography %>
+        </p>
       </div>
     </div>
-    <div class="biography">
-      <p>
-        <%= image_tag 'feather.svg', class: 'feather' %>
-        <%= current_user.biography %>
-      </p>
-    </div>
     <div class="favorites-users">
-        <% @follow_users.each do |follow_user| %>
-        <div class="mini-user">
-        <%= follow_user.favoritable.username %>
+        <div class="user-favorites-title">
+          <%= image_tag('heart.svg') %><span>Les personnes que je suis</span>
         </div>
-        <% end %>
-        <%= link_to "Users Favoris", favorites_art_path%>
+        <div class="mini-user-list">
+        <% @follow_users.each do |follow_user| %>
+          <div class="mini-user">
+            <% if (follow_user.favoritable.picture.attached?) %>
+            <%= cl_image_tag(follow_user.favoritable.picture.key, class: 'avatar-large') %>
+              <% else %>
+            <%= image_tag('avatar.png', class: 'avatar-large') %>
+            <% end %>
+            <span class="mini-user-name"><%= follow_user.favoritable.username %></span>
+          </div>
+          <% end %>
+        </div>
     </div>
     <div class="cards-favorites">
       <div class="favorites-th-art">
@@ -63,4 +85,6 @@
         </div>
       </div>
     </div>
+
+
 </div>

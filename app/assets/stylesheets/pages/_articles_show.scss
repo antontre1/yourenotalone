@@ -1,21 +1,48 @@
+.photo-container {
+  background-image: url(https://images.unsplash.com/photo-1543932927-a9def13a0e7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y291cGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+}
+
 .container-smaller {
-width: 85%;
+width: 90%;
 height: 100%;
 margin: 0 auto;
 margin-top: 0;
 border-radius: 0.75rem;
 }
 
-#articles-show .container-smaller{
+// #articles-show .container-smaller{
 
-  .container-center {
-    left: 50%;
-    // this will calculate what 50% of the element width is and will move it across the X-axis. The negative value ensures it moves to the left.
-    transform: translateX(-50%);
+  .header-content {
+    display: flex;
+    border-bottom: 1px solid #902CB8;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-bottom: 0.3rem;
   }
-  .title-h1 {
-    color: #902CB8;
+
+  .avatar-mini {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+  }
+
+  .container-icons {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  // .container-center {
+  //   left: 50%;
+  //   // this will calculate what 50% of the element width is and will move it across the X-axis. The negative value ensures it moves to the left.
+  //   transform: translateX(-50%);
+  // }
+  .title-main {
+    color: black;
     font-family: $headers-font;
+    font-size: 1.75rem;
   }
 
   .title-h2 {
@@ -23,19 +50,8 @@ border-radius: 0.75rem;
     opacity: 0.7;
     font-family: $headers-font;
     font-size: 1.2rem;
-    // font-weight: bold;
-    // line-height: 32px;
-    // margin: 0 0 24px;
+    margin-bottom: 20px;
 
   }
 
-
-  // p {
-  //   color: black;
-  //   font-family: $body-font;
-  //   font-size: 16px;
-  //   line-height: 24px;
-  //   margin: 0 0 24px;
-  // }
-
-}
+// }
