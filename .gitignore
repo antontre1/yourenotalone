@@ -36,7 +36,6 @@ yarn-debug.log*
 .yarn-integrity
 # Ignore .env file containing credentials.
 .env*
-CLOUDINARY_URL=cloudinary://162296212487911:AgeIEouVjNpMAT06crb7HyEs0aY@dins73x22
 
 # Ignore Mac and Linux file system files
 *.swp
