@@ -29,6 +29,17 @@ border-radius: 0.75rem;
     border-radius: 50px;
   }
 
+  .image-avatar {
+    position: relative;
+    z-index: 1;
+  }
+
+  .plus-icon {
+    position: absolute;
+    right: 0.6px;
+    z-index: 2;
+  }
+
   .container-icons {
     flex-direction: column;
     justify-content: center;
@@ -56,6 +67,7 @@ border-radius: 0.75rem;
 
   .border-comment {
     border: 1px solid #902CB8;
+    margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 3px;
     padding: 3px;
