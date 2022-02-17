@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @themes = current_user.favorites.where(favoritable_type: "Theme").limit(3)
+    @themes = current_user.favorites.where(favoritable_type: "Theme").limit(10)
     @thems_nb = current_user.favorites.where(favoritable_type: "Theme").count
     @articles = current_user.favorites.where(favoritable_type: "Article").limit(3)
     @articles_nb = current_user.favorites.where(favoritable_type: "Article").count

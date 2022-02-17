@@ -54,32 +54,47 @@
     <div class="cards-favorites">
       <div class="favorites-th-art">
         <div class="favorites-title">
-          Mes autres favoris
+           <%= image_tag('bookmark-alone-purple.svg') %><span>Mes favoris</span>
         </div>
-        <div class="micro-themes">
-          <div class="micro-themes-list">
+        <div class="micro-themes-list">
             <% @themes.each do |favorite| %>
-            <div class="micro-theme-card">
-              <img src="
+            <a href="<%= theme_path(favorite.favoritable_id) %>">
+            <div class="micro-theme-card" style="background: url(
               <% if (favorite.favoritable.picture.attached?) %>
                   <%= cl_image_path(favorite.favoritable.picture.key) %>
                 <% else %>
                   <%= image_path('frontlorem.jpg') %>
                 <% end %>
-                  "/>
-              <div class="micro-theme-title">
-                <h3><%= favorite.favoritable.title %></h3>
+                  ), #F4EAF8; background-repeat: no-repeat; background-size: 80% 4rem; background-position: 50% 10%;">
+              <span><%= favorite.favoritable.title %></span>
+              <div class="counter">
+                <%= image_tag('eye.svg') %>
+                <%= Favorite.where(favoritable_id: favorite.favoritable.id).count %>
               </div>
             </div>
+            </a>
              <% end %>
-             <%= link_to image_tag('details-purple.svg'), favorites_th_path %>
-          </div>
+             <%= link_to image_tag('details-purple.svg', class: 'details-th'), favorites_th_path %>
         </div>
         <div class="articles-list">
           <% @articles.each do |article| %>
-          <div class="mini-articles">
-          <%= article.favoritable.title %>
+          <a href="<%= article_path(article.favoritable_id) %>">
+          <div class="mini-articles-card">
+              <div class="art-description">
+                <span class="art-title"><%= article.favoritable.title %></span>
+                <div class="art-th-description">
+                  <span class="art-theme"><%= article.favoritable.theme.title %></span>
+                  <%= link_to image_tag('ellipse.svg', class: 'ellipse-th') %>
+                  <span class="art-created">Il y a <%= TimeDifference.between(article.favoritable.updated_at, Time.now).in_days.round %> jours</span>
+                </div>
+              </div>
+              <% if (article.favoritable.picture.attached?) %>
+                <%= cl_image_tag(article.favoritable.picture.key, class: 'mini-article-img') %>
+              <% else %>
+                <%= image_tag('avatar.png', class: 'mini-article-img') %>
+              <% end %>
           </div>
+          </a>
           <% end %>
           <%= link_to "Articles Favoris", favorites_art_path%>
         </div>
