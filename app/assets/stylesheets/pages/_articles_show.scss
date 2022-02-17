@@ -1,5 +1,5 @@
 .photo-container {
-  background-image: url(https://images.unsplash.com/photo-1543932927-a9def13a0e7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y291cGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);
+  
   background-size: cover;
   background-position: center;
   height: 50vh;
@@ -36,13 +36,15 @@ border-radius: 0.75rem;
 
   .plus-icon {
     position: absolute;
-    right: 0.6px;
+    right: -4.4px;
+    bottom: 59px;
     z-index: 2;
   }
 
   .container-icons {
     flex-direction: column;
     justify-content: center;
+    position: relative;
   }
 
   // .container-center {
