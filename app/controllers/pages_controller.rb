@@ -16,4 +16,45 @@ class PagesController < ApplicationController
     @likes = Vote.where(user_id: current_user.id).count
   end
 
+  def wall
+    @scope = "Tendances"
+
+    # liste des thèmes trendy
+    @array_ranked_themes = Favorite.where(favoritable_type: "Theme").group("favoritable_id").count.sort_by{|_,v| -v}
+
+    @themes = Array.new
+    @array_ranked_themes.each do |item|
+      @themes << Theme.find(item[0])
+    end
+
+    # liste des articles trendy
+    @array_ranked_articles = Favorite.where(favoritable_type: "Article").group("favoritable_id").count.sort_by{|_,v| -v}
+
+    @articles = Array.new
+    @array_ranked_articles.each do |item|
+      @articles << Article.find(item[0])
+    end
+
+    # liste des users trendy
+    @array_ranked_users = Favorite.where(favoritable_type: "User").group("favoritable_id").count.sort_by{|_,v| -v}
+
+    @users = Array.new
+    @array_ranked_users.each do |item|
+     @users << User.find(item[0])
+    end
+
+  end
+
+  def search
+    @scope = "d'intérêt"
+    if params[:query].present?
+      @themes = Theme.search(params[:query])
+      @articles = Article.search(params[:query])
+      @users = User.search(params[:query])
+      render :wall
+    else
+      redirect_to action: "wall"
+    end
+  end
+
 end

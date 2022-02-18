@@ -1,0 +1,20 @@
+#page-wall {
+  .spacer {
+    height: 4rem;
+  }
+
+
+  .search-bar {
+    height: 6rem;
+
+  }
+
+  .mybar {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .favorites-users {
+    border-bottom: 0;
+  }
+}
