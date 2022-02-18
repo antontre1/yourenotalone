@@ -17,23 +17,29 @@ class PagesController < ApplicationController
   end
 
   def wall
-    # liste des thèmes trendy
     @scope = "Tendances"
-    @list_themes = Favorite.where(favoritable_type: "Theme").group("favoritable_id").count.sort_by{|_,v| -v}
+
+    # liste des thèmes trendy
+    @array_ranked_themes = Favorite.where(favoritable_type: "Theme").group("favoritable_id").count.sort_by{|_,v| -v}
 
     @themes = Array.new
-    @list_themes.each do |item|
+    @array_ranked_themes.each do |item|
       @themes << Theme.find(item[0])
     end
 
+    # liste des articles trendy
+    @array_ranked_articles = Favorite.where(favoritable_type: "Article").group("favoritable_id").count.sort_by{|_,v| -v}
 
-    @articles = current_user.favorites.where(favoritable_type: "Article").limit(3)
+    @articles = Array.new
+    @array_ranked_articles.each do |item|
+      @articles << Article.find(item[0])
+    end
 
     # liste des users trendy
-    @table_ranked_users = Favorite.where(favoritable_type: "User").group("favoritable_id").count.sort_by{|_,v| -v}
+    @array_ranked_users = Favorite.where(favoritable_type: "User").group("favoritable_id").count.sort_by{|_,v| -v}
 
     @users = Array.new
-    @table_ranked_users.each do |item|
+    @array_ranked_users.each do |item|
      @users << User.find(item[0])
     end
 
@@ -42,9 +48,9 @@ class PagesController < ApplicationController
   def search
     @scope = "d'intérêt"
     if params[:query].present?
-      @themes = Theme.where(title: params[:query])
-      @articles = Article.where(title: params[:query])
-      @users = User.where(username: params[:query])
+      @themes = Theme.search(params[:query])
+      @articles = Article.search(params[:query])
+      @users = User.search(params[:query])
       render :wall
     else
       redirect_to action: "wall"

@@ -58,18 +58,18 @@
           <%= image_tag('heart.svg') %><span>Articles <%= @scope %></span>
         </div>
           <% @articles.each do |article| %>
-          <a href="<%= article_path(article.favoritable_id) %>">
+          <a href="<%= article_path(article) %>">
           <div class="mini-articles-card">
               <div class="art-description">
-                <span class="art-title"><%= article.favoritable.title %></span>
+                <span class="art-title"><%= article.title %></span>
                 <div class="art-th-description">
-                  <span class="art-theme"><%= article.favoritable.theme.title %></span>
+                  <span class="art-theme"><%= article.theme.title %></span>
                   <%= link_to image_tag('ellipse.svg', class: 'ellipse-th') %>
-                  <span class="art-created">Il y a <%= TimeDifference.between(article.favoritable.updated_at, Time.now).in_days.round %> jours</span>
+                  <span class="art-created">Il y a <%= TimeDifference.between(article.updated_at, Time.now).in_days.round %> jours</span>
                 </div>
               </div>
-              <% if (article.favoritable.picture.attached?) %>
-                <%= cl_image_tag(article.favoritable.picture.key, class: 'mini-article-img') %>
+              <% if (article.picture.attached?) %>
+                <%= cl_image_tag(article.picture.key, class: 'mini-article-img') %>
               <% else %>
                 <%= image_tag('avatar.png', class: 'mini-article-img') %>
               <% end %>
