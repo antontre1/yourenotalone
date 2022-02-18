@@ -1,20 +1,27 @@
-<div class="photo-container">
-</div>
-
+<% if @article.user.picture.attached? %>
+  <div class="photo-container" style="background-image: url(<%= @article.picture.key %>);">
+  </div>
+<% end %>
 <div class="container-smaller" id="articles-show">
   <div class="header-content">
     <h2 class="title-main"><%= @article.title %></h2>
     <div class="container-icons d-flex">
-      <div>
-        <% if current_user.picture.attached? %>
-          <%=  cl_image_tag current_user.picture.key, height: 50, width: 50 %>
+      <div class="image-avatar">
+        <% if @article.user.picture.attached? %>
+          <%=  cl_image_tag @article.user.picture.key, height: 50, width: 50 %>
           <%  else %>
           <%= image_tag('avatar.png', class: "avatar-mini") %>
         <% end %>
       </div>
-      <div class="d-flex">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#902CB8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+      <div class="plus-icon">
+        <%= link_to create_fav_user_path(@article.id), method: :post do %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#902CB8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+        <% end %>
+      </div>
+      <div class="d-flex justify-content-center">
+        <%= link_to(article_votes_path(@article, reaction: 0), method: :post)  do %>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#902CB8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        <% end %>
       </div>
     </div>
   </div>
@@ -45,27 +52,36 @@
   <ul>
     <%= link_to "Ajouter en favori l'article",  create_fav_art_path(@article.id), method: :post  %>
   </ul>
-  <ul>
-    <%= link_to "Ajouter en favori le rédacteur",  create_fav_user_path(@article.id), method: :post  %>
-  </ul>
+  <%# <ul> %>
+    <%# <%= link_to "Ajouter en favori le rédacteur",  create_fav_user_path(@article.id), method: :post  %>
+  <%# </ul> %>
 
   <% if policy(@article).destroy? %>
     <%= link_to("delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }) %>
   <% end %>
 
+  <ul class="list-group">
+    <div>
+      <% @comments.each do |comment| %>
+        <div class="border-comment">
+          <div id="<%= comment.id%>">
+            <%= comment.content %>
+          </div>
+          <div>
+            <ul><%= comment.created_at.to_datetime.strftime("Publié le %m/%d/%Y") %> par <%= comment.user.username %>
+              <% if policy(comment).destroy? %>
+                <%= link_to("supprimer", article_comment_path(@article, comment), method: :delete, data: { confirm: "Are you sure?" }) %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </ul>
+
   <%= simple_form_for [ @article, @comment ] do |f| %>
     <%= f.input :content, :label => 'Votre commentaire' %>
     <%= f.submit "Commenter", class: "btn purple white" %>
   <% end %>
-
-  <ul class="list-group">
-    <% @comments.each do |comment| %>
-      <ul><%= comment.created_at.to_datetime.strftime("Printed on %m/%d/%Y") %> - <%= comment.content %> by <%= comment.user.username %>
-        <% if policy(comment).destroy? %>
-          <%= link_to("delete", article_comment_path(@article, comment), method: :delete, data: { confirm: "Are you sure?" }) %>
-        <% end %>
-      </ul>
-    <% end %>
-  </ul>
 
 </div>
