@@ -2,34 +2,34 @@
     <div class="spacer">
     </div>
     <div class="search-bar">
-      <%= form_tag search_path, method: :get do %>
+      <%= form_tag search_path, class: 'mybar', method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "découvrir..."
         %>
-      <%= submit_tag "chercher", class: "btn btn-primary" %>
+      <%= submit_tag "chercher", class: "btn purple white" %>
       <% end %>
     </div>
     <div class="cards-favorites">
       <div class="favorites-th-art">
         <div class="favorites-title">
-           <%= image_tag('bookmark-alone-purple.svg') %><span>Thèmes Tendance</span>
+           <%= image_tag('bookmark-alone-purple.svg') %><span>Thèmes <%= @scope %></span>
         </div>
         <div class="micro-themes-list">
-            <% @themes.each do |favorite| %>
-            <a href="<%= theme_path(favorite.favoritable_id) %>">
+            <% @themes.each do |theme| %>
+            <a href="<%= theme_path(theme) %>">
             <div class="micro-theme-card" style="background: url(
-              <% if (favorite.favoritable.picture.attached?) %>
-                  <%= cl_image_path(favorite.favoritable.picture.key) %>
+              <% if (theme.picture.attached?) %>
+                  <%= cl_image_path(theme.picture.key) %>
                 <% else %>
                   <%= image_path('frontlorem.jpg') %>
                 <% end %>
                   ), #F4EAF8; background-repeat: no-repeat; background-size: 80% 4rem; background-position: 50% 10%;">
-              <span><%= favorite.favoritable.title %></span>
+              <span><%= theme.title %></span>
               <div class="counter">
                 <%= image_tag('eye.svg') %>
-                <%= Favorite.where(favoritable_id: favorite.favoritable.id).count %>
+                <%= Favorite.where(favoritable_id: theme.id).count %>
               </div>
             </div>
             </a>
@@ -38,24 +38,24 @@
         </div>
              <div class="favorites-users">
         <div class="user-favorites-title">
-          <%= image_tag('heart.svg') %><span>Personnes Tendances</span>
+          <%= image_tag('heart.svg') %><span>Personnes <%= @scope %></span>
         </div>
         <div class="mini-user-list mini-user-no-border">
-        <% @list_users.each do |one_user| %>
+        <% @users.each do |user| %>
           <div class="mini-user">
-            <% if (one_user.picture.attached?) %>
-            <%= cl_image_tag(one_user.picture.key, class: 'avatar-large') %>
+            <% if (user.picture.attached?) %>
+            <%= cl_image_tag(user.picture.key, class: 'avatar-large') %>
               <% else %>
             <%= image_tag('avatar.png', class: 'avatar-large') %>
             <% end %>
-            <span class="mini-user-name"><%= one_user.username %></span>
+            <span class="mini-user-name"><%= user.username %></span>
           </div>
           <% end %>
         </div>
     </div>
         <div class="articles-list">
             <div class="user-favorites-title">
-          <%= image_tag('heart.svg') %><span>Personnes Tendances</span>
+          <%= image_tag('heart.svg') %><span>Articles <%= @scope %></span>
         </div>
           <% @articles.each do |article| %>
           <a href="<%= article_path(article.favoritable_id) %>">
