@@ -179,6 +179,8 @@ users.each do |user|
 end
 
 puts "favorites created"
-
-
+puts "Ajouter les reindex pour Elastic Search"
+Theme.reindex
+User.reindex
+Article.reindex
 puts "ok seed done"
