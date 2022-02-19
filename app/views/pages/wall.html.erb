@@ -19,6 +19,7 @@
         <div class="micro-themes-list">
             <% @themes.each do |theme| %>
             <a href="<%= theme_path(theme) %>">
+
             <div class="micro-theme-card" style="background: url(
               <% if (theme.picture.attached?) %>
                   <%= cl_image_path(theme.picture.key) %>

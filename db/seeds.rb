@@ -63,13 +63,13 @@ puts "Users created"
   # Theme3.save
 
     Theme1 = Theme.new(title: "Découverte du Lupus", description: "Toutes les questions que peuvent se poser ceux et celles qui découvrent le Lupus")
-  Theme1.save
-
+    file = URI.open('https://images.unsplash.com/photo-1585435557343-3b092031a831?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
+    Theme1.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    Theme1.save
     Article1 = Article.new(title: "Comment reconnaitre une poussée de Lupus ?", content: 'Toutes les questions que peuvent se poser ceux et celles qui découvrent le Lupus', user_id: User.all.sample.id)
     file = URI.open('https://images.unsplash.com/photo-1618311522704-b4ac7f811c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
     Article1.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     Article1.theme = Theme1
-    puts 'toto'
     puts Article1.user
     puts Article1.title
     Article1.save!
@@ -85,6 +85,8 @@ puts "Users created"
     Article3.save!
 
   Theme2 = Theme.new(title: "Alimentation", description: "Posts relatifs à l'alimentation et comment se nourrir avec le Lupus")
+  file = URI.open('https://images.unsplash.com/photo-1546548970-71785318a17b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
+  Theme2.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   Theme2.save
   Article1 = Article.new(title: "Conseil d'alimentation", content: 'Les personnes atteintes de lupus présentent un risque accru de maladie cardiovasculaire.
 
@@ -118,8 +120,12 @@ C’est pourquoi une alimentation bonne pour le coeur est particulièrement impo
     Article5.theme = Theme2
     Article5.save!
   Theme3 = Theme.new(title: "Ma peau et le Lupus", description: "Comment gérer ma peau avec un Lupus cutané")
+  file = URI.open('https://images.unsplash.com/photo-1597826322461-9b11d306d08f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80')
+  Theme3.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   Theme3.save
   Theme4 = Theme.new(title: "Vie de Couple", description: "Comment concilier vie de couple et Lupus")
+  file = URI.open('https://images.unsplash.com/photo-1511405889574-b01de1da5441?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
+  Theme4.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   Theme4.save
     Article1 = Article.new(title: "Comment j'ai annoncé à mon conjoint que je souffre de Lupus", content: 'Je souffre du Lupus depuis près de 4 ans et je n’avais jamais vraiment vécu une relation depuis que j’ai été diagnostiquée.
       Là j’ai rencontré un homme bien il y a maintenant 3 mois et je veux que ça dure. Je sentais que je ne pourrais pas lui cacher plus longtemps ma pathologie, j’ai donc préféré lui annoncer de mon plein gré plutôt qu’il l’apprenne suite à une hospitalisation.
@@ -139,6 +145,8 @@ C’est pourquoi une alimentation bonne pour le coeur est particulièrement impo
   Theme7 = Theme.new(title: "La grossesse et le Lupus", description: "Quels sont les implications du Lupus sur la grossesse? ")
   Theme7.save
   Theme8 = Theme.new(title: "Les traitements", description: "Les traitements contre le Lupus")
+  file = URI.open('https://images.unsplash.com/photo-1585435557343-3b092031a831?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
+  Theme8.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   Theme8.save
 
 puts "articles created"
