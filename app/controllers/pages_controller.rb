@@ -79,14 +79,80 @@ class PagesController < ApplicationController
 
   def search_bookmarks
     @scope = "favoris"
+
     if params[:query].present?
 
-      @themes = Theme.search params[:query], where: {} , fields: [:title, :description]
-      @articles = Article.search(params[:query])
-      @users = User.search(params[:query])
-      render :wall
-    else
-      redirect_to action: "bookmarks"
+      # search on favorites themes only, in three steps :
+      # 1 - obtain all themes favorites
+      # 2 - obtain all themes with searched keyword
+      # 3 - cross those two lists to only retain correct favorites themes researched
+
+      array_ranked_themes = current_user.favorites.where(favoritable_type: "Theme")
+      themes_fav = Array.new
+      selectid = Array.new
+      array_ranked_themes.each do |item|
+        themes_fav << item.favoritable
+      end
+      themes_fav.each { |item| selectid << item.id }
+      themes_req = Theme.search params[:query], where: {} , fields: [:title, :description]
+
+      @themes = themes_req.select do |theme|
+        selectid.include?(theme.id)
+      end
+
+      # search on favorites users
+
+      array_ranked_users = current_user.favorites.where(favoritable_type: "User")
+      users_fav = Array.new
+      selectid_users = Array.new
+      array_ranked_users.each do |item|
+        users_fav << item.favoritable
+      end
+      users_fav.each { |item| selectid_users << item.id }
+      users_req = User.search params[:query], where: {} , fields: [:username]
+
+      @users = users_req.select do |item|
+        selectid_users.include?(item.id)
+      end
+
+      # search on favorites articles
+
+      array_ranked_articles = current_user.favorites.where(favoritable_type: "Article")
+      articles_fav = Array.new
+      selectid = Array.new
+      array_ranked_articles.each do |item|
+        articles_fav << item.favoritable
+      end
+      articles_fav.each { |item| selectid << item.id }
+      articles_req = Array.new
+
+      articles_req = Article.search params[:query], fields: [:title, :description, :content]
+
+      # en cours de dev : il faut réussir à fusionner les résultats selon les deux recherches:
+      #
+      # if (Article.search params[:query], fields: [:title, :description, :content])[0]
+      #   articles_req = Article.search params[:query], fields: [:title, :description, :content]
+      # end
+
+      # (Article.search where: {user_id: selectid_users}).each do |item|
+      #   articles_req << item
+      # end
+
+      @articles = articles_req.select do |item|
+        selectid.include?(item.id)
+      end
+
+
+      render :bookmarks
+
+    #   @themes.select do |theme|
+    #     @theme_favtheme.id
+
+
+    #   @articles = Article.search(params[:query])
+    #   @users = User.search(params[:query])
+    # else
+    #   redirect_to action: "bookmarks"
     end
   end
 end

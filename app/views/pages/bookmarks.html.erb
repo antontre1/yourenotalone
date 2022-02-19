@@ -2,7 +2,7 @@
     <div class="spacer">
     </div>
     <div class="search-bar">
-      <%= form_tag search_path, class: 'mybar', method: :get do %>
+      <%= form_tag search_bookmarks_path, class: 'mybar', method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
