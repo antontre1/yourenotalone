@@ -28,9 +28,22 @@ border-radius: 0.75rem;
     border-radius: 50px;
   }
 
+  .image-avatar {
+    position: relative;
+    z-index: 1;
+  }
+
+  .plus-icon {
+    position: absolute;
+    right: -4.4px;
+    bottom: 59px;
+    z-index: 2;
+  }
+
   .container-icons {
     flex-direction: column;
     justify-content: center;
+    position: relative;
   }
 
   // .container-center {
@@ -51,6 +64,14 @@ border-radius: 0.75rem;
     font-size: 1.2rem;
     margin-bottom: 20px;
 
+  }
+
+  .border-comment {
+    border: 1px solid #902CB8;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    padding: 3px;
   }
 
 // }
