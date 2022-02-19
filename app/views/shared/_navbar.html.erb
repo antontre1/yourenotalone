@@ -1,16 +1,18 @@
 <div class="my-navbar">
   <div class="navbar-cover">
   </div>
-    <%= link_to root_path do %>
+    <%= link_to wall_path do %>
       <%= image_tag "btn-home-home.svg", class: "home-logo" %>
     <% end %>
-    <%= link_to root_path do %>
+    <%= link_to wall_path do %>
       <%= image_tag "btn-home-discover.svg", class: "discover-logo" %>
     <% end %>
-    <%= link_to root_path do %>
+    <%= link_to new_article_path do %>
       <%= image_tag "btn-home-create.svg", class: "create-logo" %>
     <% end %>
-    <%= image_tag "btn-home-favorite.svg", class: "favorite-logo" %>
+    <%= link_to favorites_art_path do %>
+      <%= image_tag "btn-home-favorite.svg", class: "favorite-logo" %>
+    <% end %>
     <%= image_tag "btn-home-user.svg", class: "me-logo activated-logo" %>
   <div class="mon_menu">
     <ul>
