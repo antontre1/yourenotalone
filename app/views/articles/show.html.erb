@@ -7,7 +7,7 @@
     <div class="container-icons d-flex">
       <div class="image-avatar">
         <% if @article.user.picture.attached? %>
-          <%=  cl_image_tag @article.user.picture.key, height: 50, width: 50 %>
+          <%=  cl_image_tag @article.user.picture.key, height: 50, width: 50, class: "user-img-circle" %>
           <% else %>
           <%= image_tag('avatar.png', class: "avatar-mini") %>
         <% end %>
@@ -30,9 +30,9 @@
 
         <%= link_to(create_fav_art_path(@article.id), method: :post) do %>
           <% if @current_user.favorites.find_by(favoritable: @article)%>
-            <i class="fas fa-heart"></i>
+            <i class="fas fa-bookmark"></i>
           <% else %>
-            <i class="far fa-heart"></i>
+            <i class="far fa-bookmark"></i>
           <% end %>
         <% end %>
 
