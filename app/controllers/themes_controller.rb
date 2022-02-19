@@ -16,7 +16,7 @@ class ThemesController < ApplicationController
 
   def create
     @theme = Theme.new(theme_params)
-    if @theme.save
+    if @theme.save!
       redirect_to theme_path(@theme.id)
     else
       render :new
