@@ -35,13 +35,15 @@ border-radius: 0.75rem;
   }
 
 .plus-icon {
-    position: absolute;
-    right: -13.4px;
-    bottom: 86px;
+    position: relative;
+    height: 0;
+    bottom: 60px;
+    right: -41px;
     z-index: 2;
-  }
+    width: 0;
+}
 
-.container-icons {
+  .container-icons {
     flex-direction: column;
     justify-content: space-evenly;
     position: relative;
@@ -84,4 +86,5 @@ border-radius: 0.75rem;
     display: flex;
     justify-content: space-evenly;
   }
+
 // }
