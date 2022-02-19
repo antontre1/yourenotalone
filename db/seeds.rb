@@ -88,5 +88,8 @@ users.each do |user|
   new_favorite_article = Favorite.new(user: user, favoritable: Article.all.sample)
   new_favorite_article.save
 end
-
+puts "Ajouter les reindex pour Elastic Search"
+Theme.reindex
+User.reindex
+Article.reindex
 puts "ok seed done"
