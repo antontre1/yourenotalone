@@ -40,7 +40,7 @@ class PagesController < ApplicationController
 
     @users = Array.new
     @array_ranked_users.each do |item|
-     @users << User.find(item[0])
+      @users << User.find(item[0])
     end
 
   end
@@ -57,4 +57,35 @@ class PagesController < ApplicationController
     end
   end
 
+  def bookmarks
+    @array_ranked_themes = current_user.favorites.where(favoritable_type: "Theme")
+    @themes = Array.new
+    @array_ranked_themes.each do |item|
+      @themes << item.favoritable
+    end
+
+    @array_ranked_articles = current_user.favorites.where(favoritable_type: "Article")
+    @articles = Array.new
+    @array_ranked_articles.each do |item|
+      @articles << item.favoritable
+    end
+
+    @array_ranked_users = current_user.favorites.where(favoritable_type: "User")
+    @users = Array.new
+    @array_ranked_users.each do |item|
+      @users << item.favoritable
+    end
+  end
+
+  def search_bookmarks
+    @scope = "favoris"
+    if params[:query].present?
+      @themes = Theme.search(params[:query])
+      @articles = Article.search(params[:query])
+      @users = User.search(params[:query])
+      render :wall
+    else
+      redirect_to action: "bookmarks"
+    end
+  end
 end
