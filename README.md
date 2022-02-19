@@ -90,8 +90,8 @@ end
 - we recommend to use the google chrome plugin : "ElasticSearch Head"
 Enter the Elastic DB address : http://localhost:9200/ (or your remote)
 it gives you ability to have an overview of your Elasticsearch DB. For example go to
-<img align="center" src="./app/assets/images/ElasticHead1.png" alt="Elastic setting" width="75%"/>
 <div align="center">
+  <img src="./app/assets/images/ElasticHead1.png" alt="Elastic setting" width="75%"/>
   <img  src="./app/assets/images/ElasticHead2.png" alt="Elastic setting" width="75%"/>
 </div>
 
