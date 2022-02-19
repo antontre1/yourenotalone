@@ -145,7 +145,7 @@
     margin-right: 8px;
     margin-bottom: 0px;
     padding-bottom: 0px;
-  }
+}
 
 .shot-theme {
     font-size: 0.6rem;
@@ -153,6 +153,9 @@
     margin-right: 8px;
     color: gray;
     align-self: flex-end;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
   }
   .art-created {
     font-size: 0.6rem;
