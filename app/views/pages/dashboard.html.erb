@@ -36,7 +36,10 @@
     </div>
     <div class="favorites-users">
         <div class="user-favorites-title">
-          <%= image_tag('heart.svg') %><span>Les personnes que je suis</span>
+          <div class="user-favorites-title-col">
+            <%= image_tag('heart.svg') %><span>Les personnes que je suis</span>
+          </div>
+          <%= link_to "tous", favorites_art_path %>
         </div>
         <div class="mini-user-list">
         <% @follow_users.each do |follow_user| %>
@@ -54,7 +57,11 @@
     <div class="cards-favorites">
       <div class="favorites-th-art">
         <div class="favorites-title">
-           <%= image_tag('bookmark-alone-purple.svg') %><span>Mes favoris</span>
+          <div class="favorite-title-col">
+            <%= image_tag('bookmark-alone-purple.svg') %>
+            <span>Mes favoris</span>
+          </div>
+          <%= link_to "tous", favorites_th_path %>
         </div>
         <div class="micro-themes-list">
             <% @themes.each do |favorite| %>
@@ -96,7 +103,9 @@
           </div>
           </a>
           <% end %>
-          <%= link_to "Articles Favoris", favorites_art_path%>
+          <div class="articles-link-all">
+            <%= link_to "tous", favorites_art_path%>
+          </div>
         </div>
       </div>
     </div>

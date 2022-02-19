@@ -29,8 +29,14 @@
 }
 
 .user-favorites-title {
+  display: flex;
+  justify-content: space-between;
   margin: 8px 0 8px 0;
   span {
     margin-left: 8px;
+  }
+  .user-favorites-title-col {
+    display: flex;
+    flex-direction: row;
   }
 }
