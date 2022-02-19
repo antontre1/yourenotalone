@@ -69,3 +69,38 @@ Regarding SimpleForm :
 ```bash
    <%= f.association :state, :include_blank => false, :label_method => lambda { |state| "#{state.text}" } %>
 ```
+
+
+ElasticSearch:
+
+- we have to install ElasticSearch on our server (see doc for mac, pc, heroku..)
+- add searchkick gem
+
+
+- once installed, need to add in each indexes models : searchkick specific parameters (cf https://github.com/ankane/searchkick)
+
+Searchable Fields
+By default, all string fields are searchable (can be used in fields option). Speed up indexing and reduce index size by only making some fields searchable.
+```bash
+class Product < ApplicationRecord
+  searchkick searchable: [:name]
+end
+```
+
+
+- in order to avoid disk storage issue (by default needs 85% free space)
+```bash
+  PUT /_cluster/settings
+{
+    "transient": {
+        "cluster.routing.allocation.disk.threshold_enabled": false
+    }
+}
+```
+- after this step, Elasticsearch won’t remove the write block on indices. In order to achieve that, the following API needs to be hit:
+```bash
+PUT _all/_settings
+{
+    "index.blocks.read_only_allow_delete": null
+}
+```

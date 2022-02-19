@@ -1,5 +1,5 @@
 class Theme < ApplicationRecord
-  searchkick
+  searchkick searchable: [:title, :description]
   has_many :articles
   has_many :favorites, as: :favoritable
 
