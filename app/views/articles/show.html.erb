@@ -1,7 +1,6 @@
-<% if @article.user.picture.attached? %>
-  <div class="photo-container" style="background-image: url(<%= @article.picture.key %>);">
-  </div>
-<% end %>
+<div class="photo-container" style="background-image: url('<%= @article.picture.attached? ? cl_image_path(@article.picture.key) : 'https://images.unsplash.com/photo-1543932927-a9def13a0e7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y291cGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60' %>'">
+</div>
+
 <div class="container-smaller" id="articles-show">
   <div class="header-content">
     <h2 class="title-main"><%= @article.title %></h2>
