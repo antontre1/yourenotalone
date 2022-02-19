@@ -8,6 +8,12 @@ class ArticlesController < ApplicationController
     else
       @articles = policy_scope(Article)
     end
+
+    @array_ranked_articles = Favorite.where(favoritable_type: "Article").group("favoritable_id").count.sort_by{|_,v| -v}
+    @articles_ordered = Array.new
+    @array_ranked_articles.each do |item|
+      @articles_ordered << Article.find(item[0])
+    end
   end
 
   def show
@@ -52,6 +58,7 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
     authorize @article
   end
+
 
   private
 
