@@ -1,8 +1,13 @@
 .favorites-title {
+    display: flex;
+    justify-content: space-between;
     margin: 8px 0 8px 0;
-  span {
-    margin-left: 8px;
+  .favorite-title-col {
+    span {
+      margin-left: 8px;
+    }
   }
+
 }
 
 .micro-themes-list {
@@ -157,10 +162,16 @@
   }
 }
 
+
 #titre{
 vertical-align: middle;
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
+.articles-link-all {
+  display: flex;
+  justify-content: right;
+  margin: 8px 0 8px 0;
 }
