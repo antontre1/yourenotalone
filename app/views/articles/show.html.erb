@@ -7,7 +7,7 @@
     <div class="container-icons d-flex">
       <div class="image-avatar">
         <% if @article.user.picture.attached? %>
-          <%=  cl_image_tag @article.user.picture.key, height: 50, width: 50 %>
+          <%=  cl_image_tag @article.user.picture.key, height: 50, width: 50, class: "user-img-circle" %>
           <% else %>
           <%= image_tag('avatar.png', class: "avatar-mini") %>
         <% end %>
@@ -17,28 +17,31 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#902CB8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
         <% end %>
       </div>
-      <div class="d-flex justify-content-center">
+      <div class="sub-container-icons">
+
         <%= link_to(article_votes_path(@article, reaction: 1), method: :post)  do %>
-          <% if (@current_user.votes.where(article: @article).first && @current_user.votes.where(article: @article).last.reaction == 1)%>
-            <svg xmlns="http://www.w3.org/2000/svg" width=" 24" height="24" viewBox="0 0 24 24" fill="none" stroke="#902CB8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+
+          <% if (@current_user.votes.find_by(article: @article))%>
+            <i class="fas fa-heart"></i>
           <% else %>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#902CB8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <i class="far fa-heart"></i>
           <% end %>
         <% end %>
+
+        <%= link_to(create_fav_art_path(@article.id), method: :post) do %>
+          <% if @current_user.favorites.find_by(favoritable: @article)%>
+            <i class="fas fa-bookmark"></i>
+          <% else %>
+            <i class="far fa-bookmark"></i>
+          <% end %>
+        <% end %>
+
       </div>
     </div>
   </div>
 
   <h2 class="title-h2"><%= @article.description %></h2>
   <p><%= @article.content %></p>
-
-
-  <ul>
-    <%= link_to "Ajouter en favori l'article",  create_fav_art_path(@article.id), method: :post  %>
-  </ul>
-  <%# <ul> %>
-    <%# <%= link_to "Ajouter en favori le rédacteur",  create_fav_user_path(@article.id), method: :post  %>
-  <%# </ul> %>
 
   <% if policy(@article).destroy? %>
     <%= link_to("delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }) %>
