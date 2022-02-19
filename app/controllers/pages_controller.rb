@@ -80,7 +80,8 @@ class PagesController < ApplicationController
   def search_bookmarks
     @scope = "favoris"
     if params[:query].present?
-      @themes = Theme.search(params[:query])
+
+      @themes = Theme.search params[:query], where: {} , fields: [:title, :description]
       @articles = Article.search(params[:query])
       @users = User.search(params[:query])
       render :wall
