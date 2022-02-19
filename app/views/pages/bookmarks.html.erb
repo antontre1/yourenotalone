@@ -1,4 +1,4 @@
-<div id="page-wall" class="container-general">
+ <div id="page-wall" class="container-general">
     <div class="spacer">
     </div>
     <div class="search-bar">
@@ -6,7 +6,7 @@
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "découvrir..."
+          placeholder: "rechercher favoris..."
         %>
       <%= submit_tag "chercher", class: "btn purple white" %>
       <% end %>
@@ -14,7 +14,11 @@
     <div class="cards-favorites">
       <div class="favorites-th-art">
         <div class="favorites-title">
-           <%= image_tag('bookmark-alone-purple.svg') %><span>Thèmes <%= @scope %></span>
+          <div class="favorite-title-col">
+           <%= image_tag('bookmark-alone-purple.svg') %>
+           <span>Thèmes <%= @scope %></span>
+          </div>
+          <%= link_to "tous", favorites_th_path %>
         </div>
         <div class="micro-themes-list">
             <% @themes.each do |theme| %>
@@ -38,7 +42,10 @@
         </div>
              <div class="favorites-users">
         <div class="user-favorites-title">
-          <%= image_tag('heart.svg') %><span>Personnes <%= @scope %></span>
+          <div class="user-favorites-title-col">
+            <%= image_tag('heart.svg') %><span>Personnes <%= @scope %></span>
+          </div>
+          <%= link_to "tous", favorites_art_path %>
         </div>
         <div class="mini-user-list mini-user-no-border">
         <% @users.each do |user| %>
@@ -54,9 +61,15 @@
         </div>
     </div>
         <div class="articles-list">
-            <div class="user-favorites-title">
-          <%= image_tag('heart.svg') %><span>Articles <%= @scope %></span>
-        </div>
+          <div class="user-favorites-title">
+            <div class="user-favorites-title-col">
+              <%= image_tag('heart.svg') %>
+              <span>Articles <%= @scope %></span>
+            </div>
+            <div class="articles-link-all">
+              <%= link_to "tous", favorites_art_path%>
+            </div>
+          </div>
           <% @articles.each do |article| %>
           <a href="<%= article_path(article) %>">
           <div class="mini-articles-card">
@@ -76,8 +89,11 @@
           </div>
           </a>
           <% end %>
-          <%= link_to "Articles Favoris", favorites_art_path%>
+
         </div>
       </div>
     </div>
+
+
+
 </div>

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
   get "wall", to: "pages#wall"
   get "search", to: "pages#search"
+  get "search_bookmarks", to: "pages#search_bookmarks"
+  get "bookmarks", to: "pages#bookmarks"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :favorites
   post '/favorites/:id/create_fav_th', to: 'favorites#create_fav_th', as: 'create_fav_th'
