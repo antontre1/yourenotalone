@@ -77,15 +77,15 @@ ElasticSearch:
 - add searchkick gem
 
 
-- once installed, need to add in each indexes models : searchkick specific parameters (cf https://github.com/ankane/searchkick)
+- once installed, need to add in each models a link to elasticsearch thanks to searchkick : searchkick specific parameters (cf https://github.com/ankane/searchkick)
 
-Searchable Fields
-By default, all string fields are searchable (can be used in fields option). Speed up indexing and reduce index size by only making some fields searchable.
-```bash
-class Product < ApplicationRecord
-  searchkick searchable: [:name]
-end
-```
+  Searchable Fields
+  By default, all string fields are searchable (can be used in fields option). Speed up indexing and reduce index size by only making some fields searchable.
+  ```bash
+  class Product < ApplicationRecord
+    searchkick searchable: [:name]
+  end
+  ```
 
 - we recommend to use the google chrome plugin : "ElasticSearch Head"
 Enter the Elastic DB address : http://localhost:9200/ (or your remote)
@@ -95,7 +95,7 @@ it gives you ability to have an overview of your Elasticsearch DB. For example g
   <img  src="./app/assets/images/ElasticHead2.png" alt="Elastic setting" width="75%"/>
 </div>
 
-- in order to avoid disk storage issue (by default needs 85% free space)
+- in order to avoid disk storage issue (by default needs 15% free space)
 ```bash
   PUT /_cluster/settings
 {
