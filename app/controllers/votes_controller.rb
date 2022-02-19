@@ -12,6 +12,7 @@ class VotesController < ApplicationController
     @vote = current_user.votes.where(reaction: params[:reaction].to_i, article: @article).first
     if @vote
       @vote.destroy
+      redirect_to article_path(@article)
     else
       @vote = Vote.new
       @vote.reaction = params[:reaction].to_i
