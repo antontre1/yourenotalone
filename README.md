@@ -87,6 +87,12 @@ class Product < ApplicationRecord
 end
 ```
 
+- we recommend to use the google chrome plugin : "ElasticSearch Head"
+Enter the Elastic DB address : http://localhost:9200/ (or your remote)
+it gives you ability to have an overview of your Elasticsearch DB. For example go to
+<img src="./app/assets/images/ElasticHead1.png" alt="Elastic setting" width="50%"/>
+
+<img src="./app/assets/images/ElasticHead2.png" alt="Elastic setting" width="50%"/>
 
 - in order to avoid disk storage issue (by default needs 85% free space)
 ```bash
@@ -104,3 +110,4 @@ PUT _all/_settings
     "index.blocks.read_only_allow_delete": null
 }
 ```
+<img src="./app/assets/images/postman-elastic1.png" alt="Elastic setting" width="100%"/>
