@@ -6,25 +6,75 @@
   <% end %>
   </div>
 
-  <%= link_to("Créer un article", new_article_path) %>
-  <div class="mt-3">
-    <% @articles.each do |article| %>
-      <%= link_to article_path(article) do %>
-        <div class="card text-dark mb-3 container-general light-purple text-decoration-none" style="max-width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">
-                <%= article.title %>
-              </h5>
-              <p class="card-text"><%= article.description %></p>
-            </div>
+<div>
+  <a id="titre" >Articles Uarenotalone</a>
+</div>
+    <div class="spacer">
+    </div>
+    <div class="search-bar">
+      <%= form_tag search_path, class: 'mybar', method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Découvrir..."
+        %>
+        <% end %>
+    </div>
+
+<div class="cards-favorites">
+      <div class="favorites-th-art">
+        <div class="favorites-title">
+           <%= image_tag('heart.svg') %><span>Articles les plus populaires <%= @scope %></span>
         </div>
-      <% end %>
-      <div class=" mb-3 container-general text-decoration-none" style="max-width: 18rem;">
-        Ajouter en favori
-        <%= link_to "l'article",  create_fav_art_path(article.id), method: :post  %>
-        <%= link_to "le theme",  create_fav_th_path(article.id), method: :post  %>
-        <%= link_to "le rédacteur",  create_fav_user_path(article.id), method: :post  %>
+        <div class="micro-themes-list">
+            <% @articles_ordered.each do |article| %>
+            <a href="<%= article_path(article) %>">
+            <div class="micro-theme-card" style="background: url(
+              <% if (article.picture.attached?) %>
+                  <%= cl_image_path(article.picture.key) %>
+                <% else %>
+                  <%= image_path('frontlorem.jpg') %>
+                <% end %>
+                  ), #F4EAF8; background-repeat: no-repeat; background-size: 80% 4rem; background-position: 50% 10%;">
+              <span><%= article.title %></span>
+              <div class="counter">
+                <%= image_tag('eye.svg') %>
+                <%= Favorite.where(favoritable_id: article.id).count %>
+              </div>
+            </div>
+            </a>
+             <% end %>
+             <%= link_to image_tag('details-purple.svg', class: 'details-th'), favorites_art_path %>
+        </div>
+
+    <div class="articles-list">
+        <div class="user-favorites-title">
+          <%= image_tag('bookmark-alone-purple.svg') %><span> Tous les articles <%= @scope %></span>
+        </div>
+          <% @articles.each do |article| %>
+          <a href="<%= article_path(article) %>">
+          <div class="mini-articles-card">
+              <div class="art-description">
+                <span class="art-title"><%= article.title %></span>
+                <div class="art-th-description">
+                  <span class="shot-theme"><%= article.content.truncate_words(4) %></span><br/>
+                  <span class="art-theme"><%= article.theme.title %></span>
+                  <%= link_to image_tag('ellipse.svg', class: 'ellipse-th') %>
+                  <span class="art-created">Il y a <%= TimeDifference.between(article.updated_at, Time.now).in_days.round %> jours</span>
+                </div>
+              </div>
+              <% if (article.picture.attached?) %>
+                <%= cl_image_tag(article.picture.key, class: 'mini-article-img') %>
+              <% else %>
+                <%= image_tag('avatar.png', class: 'mini-article-img') %>
+              <% end %>
+          </div>
+          </a>
+          <% end %>
+          <%= link_to "Articles Favoris", favorites_art_path%>
+        </div>
       </div>
-    <% end %>
-  </div>
+
+  <%= link_to("Créer un article", new_article_path) %>
+
 </div>

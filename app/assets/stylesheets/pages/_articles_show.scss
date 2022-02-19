@@ -31,18 +31,19 @@ border-radius: 0.75rem;
   .image-avatar {
     position: relative;
     z-index: 1;
+    border-radius: 50px;
   }
 
-  .plus-icon {
+.plus-icon {
     position: absolute;
-    right: -4.4px;
-    bottom: 59px;
+    right: -13.4px;
+    bottom: 86px;
     z-index: 2;
   }
 
-  .container-icons {
+.container-icons {
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     position: relative;
   }
 
@@ -74,4 +75,13 @@ border-radius: 0.75rem;
     padding: 3px;
   }
 
+  .user-img-circle {
+    border-radius: 100px;
+  }
+
+
+  .sub-container-icons {
+    display: flex;
+    justify-content: space-evenly;
+  }
 // }

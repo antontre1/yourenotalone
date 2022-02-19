@@ -143,12 +143,31 @@
     font-size: 0.6rem;
     font-weight: 300;
     margin-right: 8px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+.shot-theme {
+    font-size: 0.6rem;
+    font-weight: 300;
+    margin-right: 8px;
+    color: gray;
+    align-self: flex-end;
   }
   .art-created {
     font-size: 0.6rem;
     color: $light-gray;
     margin-left: 8px;
+    align-self: flex-end;
   }
+}
+
+
+#titre{
+vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .articles-link-all {
