@@ -11,11 +11,14 @@
   <div class="mini-user-list mini-user-no-border">
     <% users.each do |user| %>
     <div class="mini-user">
-      <% if (user.picture.attached?) %>
-      <%= cl_image_tag(user.picture.key, class: 'avatar-large') %>
-        <% else %>
-      <%= image_tag('avatar.png', class: 'avatar-large') %>
+      <%= link_to profiles_path(user.id) do %>
+        <% if (user.picture.attached?) %>
+        <%= cl_image_tag(user.picture.key, class: 'avatar-large') %>
+          <% else %>
+        <%= image_tag('avatar.png', class: 'avatar-large') %>
+        <% end %>
       <% end %>
+
       <span class="mini-user-name"><%= user.username %></span>
     </div>
     <% end %>

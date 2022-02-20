@@ -1,10 +1,10 @@
 <div class="container pt-3 ">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4">
-      <h2>Edit <%= resource_name.to_s.humanize %></h2>
+      <h3>Mise à jour de mon profil</h3>
 
       <div class="registered-avatar">
-            <img class="avatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="
+            <img class="mon-avatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="
                 <% if (user_signed_in? && current_user.picture.attached?) %>
                   <%= cl_image_path(current_user.picture.key) %>
                 <% else %>
@@ -24,17 +24,17 @@
           <% end %>
 
           <%= f.input :password,
-                      hint: "leave it blank if you don't want to change it",
+                      hint: "Laissez vide si vous ne voulez pas le changer",
                       required: false,
-                      input_html: { autocomplete: "new-password" } %>
+                      input_html: { autocomplete: "nvx mdp" } %>
           <%= f.input :biography, as: :text, required: true, input_html: { autocomplete: "Entrez une courte description de vous" } %>
           <%= f.input :password_confirmation,
                       required: false,
-                      input_html: { autocomplete: "new-password" } %>
+                      input_html: { autocomplete: "nvx mdp" } %>
           <%= f.association :state, :include_blank => false, :label_method => lambda { |state| "#{state.text}" } %>
           <%= f.input :picture, as: :file %>
           <%= f.input :current_password,
-                      hint: "we need your current password to confirm your changes",
+                      hint: "Nous avonc besoin de votre ancien mdp pour tout changement",
                       required: true,
                       input_html: { autocomplete: "current-password" } %>
         </div>

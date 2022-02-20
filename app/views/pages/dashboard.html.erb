@@ -1,39 +1,7 @@
 <div id="page-dashboard" class="container-general">
     <div class="spacer">
     </div>
-    <div class="card-profile">
-      <div class="profile-background">
-        <% if current_user.picture.attached? %>
-        <%=  cl_image_tag current_user.picture.key, class: "mon-avatar", alt: "avatar-large" %>
-        <%  else %>
-        <%= image_tag('avatar.png') %>
-        <% end %>
-      </div>
-      <div class="profile-description">
-        <h3><%= current_user.username %></h3>
-        <span><%= current_user.state.text %></span>
-      </div>
-      <div class="follow-details">
-        <div class="following follow-box">
-          <span><%= @follow_users_nb %></span><span class="follow-box-title">suivis</span>
-        </div>
-        <div class="followers  follow-box">
-          <span><%= @follower_users_nb %></span><span class="follow-box-title">suivi par</span>
-        </div>
-        <div class="likes  follow-box">
-          <span><%= @likes %></span><span class="follow-box-title">réactions</span>
-        </div>
-      </div>
-      <div class="edit-zone">
-        <%= link_to "edit profile", edit_user_registration_path, class: 'btn-details' %>
-        <%= link_to image_tag('bookmark-alone.svg', class: 'favorite-icon'), favorites_th_path, class: 'btn-favorite' %>
-      </div>
-      <div class="biography">
-        <p>
-          <%= current_user.biography %>
-        </p>
-      </div>
-    </div>
+    <%= render partial: "shared/user_profile", locals: { user: @user_profile, follow_users_nb: @follow_users_nb, follower_users_nb: @follower_users_nb, likes: @likes } %>
     <%= render partial: "shared/users_list", locals: { users: @users, scope: @scope, add_arrow: false} %>
     <div class="cards-favorites">
       <div class="favorites-th-art">
