@@ -1,11 +1,17 @@
 .favorites-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0 8px 0;
+  span {
+    margin-left: 8px;
+  }
+  .user-favorites-title-col {
     display: flex;
-    justify-content: space-between;
-    margin: 8px 0 8px 0;
-  .favorite-title-col {
-    span {
-      margin-left: 8px;
-    }
+    flex-direction: row;
+  }
+  img {
+    height: 1.5rem;
   }
 
 }
@@ -88,6 +94,8 @@
   flex-direction: column;
   flex-wrap: nowrap;
   overflow-y: auto;
+  margin: 1.5rem 0 0 0;
+
 }
 
 .mini-articles-card {
@@ -96,17 +104,15 @@
   justify-content: start;
   align-items: center;
   height: 6rem;
-  margin-top: 8px;
   margin-right: 3px;
   padding: 0 4px;
-  border-top: gray 1px solid;
+  border-bottom: $light-gray2 1px solid;
   color: $purple2;
 }
 
 .art-description {
   display: flex;
   flex-direction: column;
-  width: 70%;
 }
 
 .art-title {

@@ -6,18 +6,50 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @themes = current_user.favorites.where(favoritable_type: "Theme").limit(10)
-    @thems_nb = current_user.favorites.where(favoritable_type: "Theme").count
-    @articles = current_user.favorites.where(favoritable_type: "Article").limit(3)
-    @articles_nb = current_user.favorites.where(favoritable_type: "Article").count
-    @follow_users = current_user.favorites.where(favoritable_type: "User").limit(10)
+    @scope = "que je suis"
+    @currentpath = search_bookmarks_path
+    @likes = Vote.where(user_id: current_user.id).count
+
+
+    # liste des users que je suis
+    array_ranked_users = current_user.favorites.where(favoritable_type: "User").group("favoritable_id").count.sort_by{|_,v| -v}
+
+    @users = Array.new
+    array_ranked_users.each do |item|
+      @users << User.find(item[0])
+    end
+
     @follow_users_nb = current_user.favorites.where(favoritable_type: "User").count
     @follower_users_nb = Favorite.where(favoritable_type: "User", favoritable_id: current_user.id).count
-    @likes = Vote.where(user_id: current_user.id).count
+
+    # liste de mes themes
+
+    array_ranked_themes = current_user.favorites.where(favoritable_type: "Theme")
+    @themes = Array.new
+    array_ranked_themes.each do |item|
+      @themes << item.favoritable
+    end
+
+
+    @thems_nb = current_user.favorites.where(favoritable_type: "Theme").count
+
+    # liste des articles suivis
+
+    array_ranked_articles = current_user.favorites.where(favoritable_type: "Article")
+    @articles = Array.new
+    array_ranked_articles.each do |item|
+      @articles << item.favoritable
+    end
+
+    @articles_nb = current_user.favorites.where(favoritable_type: "Article").count
+
+
   end
 
   def wall
     @scope = "Tendances"
+    @placeholder_value= "ex: que faire avec le soleil..."
+    @currentpath = search_path
 
     # liste des thèmes trendy
     @array_ranked_themes = Favorite.where(favoritable_type: "Theme").group("favoritable_id").count.sort_by{|_,v| -v}
@@ -47,6 +79,9 @@ class PagesController < ApplicationController
 
   def search
     @scope = "d'intérêt"
+    @placeholder_value= "ex: faire avec le soleil..."
+    @currentpath = search_path
+
     if params[:query].present?
       @themes = Theme.search(params[:query])
       @articles = Article.search(params[:query])
@@ -58,6 +93,11 @@ class PagesController < ApplicationController
   end
 
   def bookmarks
+    @scope = "d'intérêt"
+    @placeholder_value= "rechercher dans mes favoris..."
+    @currentpath = search_bookmarks_path
+
+
     @array_ranked_themes = current_user.favorites.where(favoritable_type: "Theme")
     @themes = Array.new
     @array_ranked_themes.each do |item|
@@ -79,6 +119,7 @@ class PagesController < ApplicationController
 
   def search_bookmarks
     @scope = "favoris"
+    @currentpath = search_bookmarks_path
 
     if params[:query].present?
 
@@ -142,8 +183,10 @@ class PagesController < ApplicationController
         selectid.include?(item.id)
       end
 
-
       render :bookmarks
+
+    else
+
 
     #   @themes.select do |theme|
     #     @theme_favtheme.id
@@ -152,7 +195,7 @@ class PagesController < ApplicationController
     #   @articles = Article.search(params[:query])
     #   @users = User.search(params[:query])
     # else
-    #   redirect_to action: "bookmarks"
+      redirect_to action: "bookmarks"
     end
   end
 end
