@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     @currentpath = search_bookmarks_path
     @likes = Vote.where(user_id: current_user.id).count
 
+    @user_profile = current_user
 
     # liste des users que je suis
     array_ranked_users = current_user.favorites.where(favoritable_type: "User").group("favoritable_id").count.sort_by{|_,v| -v}
@@ -178,7 +179,6 @@ class PagesController < ApplicationController
       # (Article.search where: {user_id: selectid_users}).each do |item|
       #   articles_req << item
       # end
-
       @articles = articles_req.select do |item|
         selectid.include?(item.id)
       end
@@ -186,16 +186,16 @@ class PagesController < ApplicationController
       render :bookmarks
 
     else
-
-
-    #   @themes.select do |theme|
-    #     @theme_favtheme.id
-
-
-    #   @articles = Article.search(params[:query])
-    #   @users = User.search(params[:query])
-    # else
       redirect_to action: "bookmarks"
     end
   end
+
+  def pub_profile
+
+    @user = User.find(params[:id])
+    @follow_users_nb = @user.favorites.where(favoritable_type: "User").count
+    @follower_users_nb = Favorite.where(favoritable_type: "User", favoritable_id: @user.id).count
+    @likes = Vote.where(user_id: @user.id).count
+  end
+
 end

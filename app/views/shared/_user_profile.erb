@@ -1,0 +1,42 @@
+ <div class="card-profile">
+  <div class="profile-background">
+    <% if user.picture.attached? %>
+    <%=  cl_image_tag user.picture.key, class: "mon-avatar", alt: "avatar-large" %>
+    <%  else %>
+    <%= image_tag('avatar.png', class: "mon-avatar")%>
+    <% end %>
+  </div>
+  <div class="profile-description">
+    <h3><%= user.username %></h3>
+    <span><%= user.state.text %></span>
+  </div>
+  <div class="follow-details">
+    <div class="following follow-box">
+      <span><%= follow_users_nb %></span><span class="follow-box-title">suivis</span>
+    </div>
+    <div class="followers  follow-box">
+      <span><%= follower_users_nb %></span><span class="follow-box-title">suivi par</span>
+    </div>
+    <% if user == current_user %>
+    <div class="likes  follow-box">
+      <span><%= likes %></span><span class="follow-box-title">réactions</span>
+    </div>
+    <% end %>
+  </div>
+  <% if user == current_user %>
+  <div class="edit-zone">
+    <%= link_to "edit profile", edit_user_registration_path, class: 'btn-details' %>
+    <%= link_to image_tag('bookmark-alone.svg', class: 'favorite-icon'), favorites_th_path, class: 'btn-favorite' %>
+  </div>
+  <% end %>
+  <div class="biography">
+    <p>
+      <% if user.biography %>
+        <%= user.biography %>
+      <% else %>
+        Je suis une personne qui partagera quelques mots plus tard sur qui je suis...
+      <% end %>
+
+    </p>
+  </div>
+</div>
