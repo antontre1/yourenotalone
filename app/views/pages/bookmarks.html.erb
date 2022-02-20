@@ -4,53 +4,8 @@
      <%= render partial: "shared/form_searchbar", locals: {placeholder_value: @placeholder_value, currentpath: @currentpath} %>
     <div class="cards-favorites">
       <div class="favorites-th-art">
-        <div class="favorites-title">
-          <div class="favorite-title-col">
-           <%= image_tag('bookmark-alone-purple.svg') %>
-           <span>Thèmes <%= @scope %></span>
-          </div>
-          <%= link_to  image_tag('arrow-double-fat.svg'), favorites_th_path %>
-        </div>
-        <div class="micro-themes-list">
-            <% @themes.each do |theme| %>
-            <a href="<%= theme_path(theme) %>">
-            <div class="micro-theme-card" style="background: url(
-              <% if (theme.picture.attached?) %>
-                  <%= cl_image_path(theme.picture.key) %>
-                <% else %>
-                  <%= image_path('frontlorem.jpg') %>
-                <% end %>
-                  ), #F4EAF8; background-repeat: no-repeat; background-size: 80% 4rem; background-position: 50% 10%;">
-              <span><%= theme.title %></span>
-              <div class="counter">
-                <%= image_tag('eye.svg') %>
-                <%= Favorite.where(favoritable_id: theme.id).count %>
-              </div>
-            </div>
-            </a>
-             <% end %>
-        </div>
-             <div class="favorites-users">
-        <div class="favorites-title">
-          <div class="favorites-title-col">
-            <%= image_tag('heart.svg') %>
-            <span>Personnes <%= @scope %></span>
-          </div>
-          <%= link_to image_tag('arrow-double-fat.svg'), favorites_art_path %>
-        </div>
-        <div class="mini-user-list mini-user-no-border">
-        <% @users.each do |user| %>
-          <div class="mini-user">
-            <% if (user.picture.attached?) %>
-            <%= cl_image_tag(user.picture.key, class: 'avatar-large') %>
-              <% else %>
-            <%= image_tag('avatar.png', class: 'avatar-large') %>
-            <% end %>
-            <span class="mini-user-name"><%= user.username %></span>
-          </div>
-          <% end %>
-        </div>
-    </div>
+        <%= render partial: "shared/micro_theme_list", locals: { themes: @themes, scope: @scope, add_arrow: true, arrowthemepath: favorites_th_path } %>
+        <%= render partial: "shared/users_list", locals: { users: @users, scope: @scope, add_arrow: true, arrowthemepath: favorites_th_path} %>
         <div class="articles-list">
           <div class="favorites-title">
             <div class="favorites-title-col">
