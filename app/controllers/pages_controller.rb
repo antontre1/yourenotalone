@@ -6,11 +6,23 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @scope = "que je suis"
+    @currentpath = search_bookmarks_path
+
+
+    # liste des users trendy
+    array_ranked_users = current_user.favorites.where(favoritable_type: "User").group("favoritable_id").count.sort_by{|_,v| -v}
+
+    @users = Array.new
+    array_ranked_users.each do |item|
+      @users << User.find(item[0])
+    end
+
     @themes = current_user.favorites.where(favoritable_type: "Theme").limit(10)
     @thems_nb = current_user.favorites.where(favoritable_type: "Theme").count
     @articles = current_user.favorites.where(favoritable_type: "Article").limit(3)
     @articles_nb = current_user.favorites.where(favoritable_type: "Article").count
-    @follow_users = current_user.favorites.where(favoritable_type: "User").limit(10)
+    # @follow_users = current_user.favorites.where(favoritable_type: "User").limit(10)
     @follow_users_nb = current_user.favorites.where(favoritable_type: "User").count
     @follower_users_nb = Favorite.where(favoritable_type: "User", favoritable_id: current_user.id).count
     @likes = Vote.where(user_id: current_user.id).count

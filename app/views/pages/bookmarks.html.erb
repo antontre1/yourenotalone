@@ -6,40 +6,7 @@
       <div class="favorites-th-art">
         <%= render partial: "shared/micro_theme_list", locals: { themes: @themes, scope: @scope, add_arrow: true, arrowthemepath: favorites_th_path } %>
         <%= render partial: "shared/users_list", locals: { users: @users, scope: @scope, add_arrow: true, arrowthemepath: favorites_th_path} %>
-        <div class="articles-list">
-          <div class="favorites-title">
-            <div class="favorites-title-col">
-              <%= image_tag('heart.svg') %>
-              <span>Articles <%= @scope %></span>
-            </div>
-            <div class="articles-link-all">
-              <%= link_to  image_tag('arrow-double-fat.svg'), favorites_art_path%>
-            </div>
-          </div>
-          <% @articles.each do |article| %>
-          <a href="<%= article_path(article) %>">
-          <div class="mini-articles-card">
-              <div class="art-description">
-                <span class="art-title"><%= article.title %></span>
-                <div class="art-th-description">
-                  <span class="art-theme"><%= article.theme.title %></span>
-                  <%= link_to image_tag('ellipse.svg', class: 'ellipse-th') %>
-                  <span class="art-created">Il y a <%= TimeDifference.between(article.updated_at, Time.now).in_days.round %> jours</span>
-                </div>
-              </div>
-              <% if (article.picture.attached?) %>
-                <%= cl_image_tag(article.picture.key, class: 'mini-article-img') %>
-              <% else %>
-                <%= image_tag('avatar.png', class: 'mini-article-img') %>
-              <% end %>
-          </div>
-          </a>
-          <% end %>
-
-        </div>
+        <%= render partial: "shared/articles_list", locals: { articles: @articles, scope: @scope, add_arrow: true, arrowthemepath: favorites_art_path} %>
       </div>
     </div>
-
-
-
 </div>

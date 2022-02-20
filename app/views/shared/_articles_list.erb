@@ -4,6 +4,9 @@
       <%= image_tag('article-purple.svg') %>
       <span>Articles <%= scope %></span>
     </div>
+    <% if add_arrow %>
+      <%= link_to image_tag('arrow-double-fat.svg'), arrowthemepath %>
+    <% end %>
   </div>
   <% articles.each do |article| %>
   <div class="mini-articles-card">

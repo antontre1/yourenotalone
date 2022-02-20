@@ -34,27 +34,7 @@
         </p>
       </div>
     </div>
-    <div class="favorites-users">
-        <div class="user-favorites-title">
-          <div class="user-favorites-title-col">
-            <%= image_tag('heart.svg') %>
-            <span>Les personnes que je suis</span>
-          </div>
-          <%= link_to "tous", favorites_art_path %>
-        </div>
-        <div class="mini-user-list">
-        <% @follow_users.each do |follow_user| %>
-          <div class="mini-user">
-            <% if (follow_user.favoritable.picture.attached?) %>
-            <%= cl_image_tag(follow_user.favoritable.picture.key, class: 'avatar-large') %>
-              <% else %>
-            <%= image_tag('avatar.png', class: 'avatar-large') %>
-            <% end %>
-            <span class="mini-user-name"><%= follow_user.favoritable.username %></span>
-          </div>
-          <% end %>
-        </div>
-    </div>
+    <%= render partial: "shared/users_list", locals: { users: @users, scope: @scope, add_arrow: false} %>
     <div class="cards-favorites">
       <div class="favorites-th-art">
         <div class="favorites-title">
