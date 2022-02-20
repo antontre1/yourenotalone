@@ -1,0 +1,28 @@
+ <div class="articles-list">
+  <div class="favorites-title">
+    <div class="favorites-title-col">
+      <%= image_tag('article-purple.svg') %>
+      <span>Articles <%= scope %></span>
+    </div>
+  </div>
+  <% articles.each do |article| %>
+  <div class="mini-articles-card">
+    <a href=<%= article_path(article) %>>
+          <div class="art-description">
+            <span class="art-title"><%= article.title %></span>
+            <div class="art-th-description">
+              <span class="art-theme"><%= article.theme.title %></span>
+              <%= image_tag('ellipse.svg', class: 'ellipse-th') %>
+              <span class="art-created">Il y a <%= TimeDifference.between(article.updated_at, Time.now).in_days.round %> jours</span>
+            </div>
+          </div>
+          <% if (article.picture.attached?) %>
+            <%= cl_image_tag(article.picture.key, class: 'mini-article-img') %>
+          <% else %>
+            <%= image_tag('avatar.png', class: 'mini-article-img') %>
+          <% end %>
+    </a>
+  </div>
+  <% end %>
+  <%= link_to "Articles Favoris", favorites_art_path%>
+</div>

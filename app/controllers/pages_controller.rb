@@ -18,6 +18,8 @@ class PagesController < ApplicationController
 
   def wall
     @scope = "Tendances"
+    @placeholder_value= "ex: faire avec le soleil..."
+    @currentpath = search_path
 
     # liste des thèmes trendy
     @array_ranked_themes = Favorite.where(favoritable_type: "Theme").group("favoritable_id").count.sort_by{|_,v| -v}
@@ -47,6 +49,9 @@ class PagesController < ApplicationController
 
   def search
     @scope = "d'intérêt"
+    @placeholder_value= "ex: faire avec le soleil..."
+    @currentpath = search_path
+
     if params[:query].present?
       @themes = Theme.search(params[:query])
       @articles = Article.search(params[:query])
@@ -58,6 +63,11 @@ class PagesController < ApplicationController
   end
 
   def bookmarks
+    @scope = "d'intérêt"
+    @placeholder_value= "rechercher dans mes favoris..."
+    @currentpath = search_bookmarks_path
+
+
     @array_ranked_themes = current_user.favorites.where(favoritable_type: "Theme")
     @themes = Array.new
     @array_ranked_themes.each do |item|
@@ -79,6 +89,7 @@ class PagesController < ApplicationController
 
   def search_bookmarks
     @scope = "favoris"
+    @currentpath = search_bookmarks_path
 
     if params[:query].present?
 
@@ -142,8 +153,10 @@ class PagesController < ApplicationController
         selectid.include?(item.id)
       end
 
-
       render :bookmarks
+
+    else
+
 
     #   @themes.select do |theme|
     #     @theme_favtheme.id
@@ -152,7 +165,7 @@ class PagesController < ApplicationController
     #   @articles = Article.search(params[:query])
     #   @users = User.search(params[:query])
     # else
-    #   redirect_to action: "bookmarks"
+      redirect_to action: "bookmarks"
     end
   end
 end

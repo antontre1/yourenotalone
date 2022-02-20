@@ -1,83 +1,12 @@
 <div id="page-wall" class="container-general">
     <div class="spacer">
     </div>
-    <div class="search-bar">
-      <%= form_tag search_path, class: 'mybar', method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "découvrir..."
-        %>
-      <%= submit_tag "chercher", class: "btn purple white" %>
-      <% end %>
-    </div>
+     <%= render partial: "shared/form_searchbar", locals: {placeholder_value: @placeholder_value, currentpath: @currentpath} %>
     <div class="cards-favorites">
       <div class="favorites-th-art">
-        <div class="favorites-title">
-           <%= image_tag('bookmark-alone-purple.svg') %><span>Thèmes <%= @scope %></span>
-        </div>
-        <div class="micro-themes-list">
-            <% @themes.each do |theme| %>
-            <a href="<%= theme_path(theme) %>">
-            <div class="micro-theme-card" style="background: url(
-              <% if (theme.picture.attached?) %>
-                  <%= cl_image_path(theme.picture.key) %>
-                <% else %>
-                  <%= image_path('frontlorem.jpg') %>
-                <% end %>
-                  ), #F4EAF8; background-repeat: no-repeat; background-size: 80% 4rem; background-position: 50% 10%;">
-              <span><%= theme.title %></span>
-              <div class="counter">
-                <%= image_tag('eye.svg') %>
-                <%= Favorite.where(favoritable_id: theme.id).count %>
-              </div>
-            </div>
-            </a>
-             <% end %>
-             <%= link_to image_tag('details-purple.svg', class: 'details-th'), favorites_th_path %>
-        </div>
-             <div class="favorites-users">
-        <div class="user-favorites-title">
-          <%= image_tag('heart.svg') %><span>Personnes <%= @scope %></span>
-        </div>
-        <div class="mini-user-list mini-user-no-border">
-        <% @users.each do |user| %>
-          <div class="mini-user">
-            <% if (user.picture.attached?) %>
-            <%= cl_image_tag(user.picture.key, class: 'avatar-large') %>
-              <% else %>
-            <%= image_tag('avatar.png', class: 'avatar-large') %>
-            <% end %>
-            <span class="mini-user-name"><%= user.username %></span>
-          </div>
-          <% end %>
-        </div>
-    </div>
-        <div class="articles-list">
-            <div class="user-favorites-title">
-          <%= image_tag('heart.svg') %><span>Articles <%= @scope %></span>
-        </div>
-          <% @articles.each do |article| %>
-          <a href="<%= article_path(article) %>">
-          <div class="mini-articles-card">
-              <div class="art-description">
-                <span class="art-title"><%= article.title %></span>
-                <div class="art-th-description">
-                  <span class="art-theme"><%= article.theme.title %></span>
-                  <%= link_to image_tag('ellipse.svg', class: 'ellipse-th') %>
-                  <span class="art-created">Il y a <%= TimeDifference.between(article.updated_at, Time.now).in_days.round %> jours</span>
-                </div>
-              </div>
-              <% if (article.picture.attached?) %>
-                <%= cl_image_tag(article.picture.key, class: 'mini-article-img') %>
-              <% else %>
-                <%= image_tag('avatar.png', class: 'mini-article-img') %>
-              <% end %>
-          </div>
-          </a>
-          <% end %>
-          <%= link_to "Articles Favoris", favorites_art_path%>
-        </div>
+        <%= render partial: "shared/micro_theme_list", locals: { themes: @themes, scope: @scope } %>
+        <%= render partial: "shared/users_list", locals: { users: @users, scope: @scope} %>
+        <%= render partial: "shared/articles_list", locals: { articles: @articles, scope: @scope} %>
       </div>
     </div>
 </div>

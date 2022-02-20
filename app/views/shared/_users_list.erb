@@ -1,0 +1,20 @@
+ <div class="favorites-users">
+  <div class="favorites-title">
+    <div class="favorites-title-col">
+      <%= image_tag('heart.svg') %>
+      <span>Personnes <%= scope %></span>
+    </div>
+  </div>
+  <div class="mini-user-list mini-user-no-border">
+    <% users.each do |user| %>
+    <div class="mini-user">
+      <% if (user.picture.attached?) %>
+      <%= cl_image_tag(user.picture.key, class: 'avatar-large') %>
+        <% else %>
+      <%= image_tag('avatar.png', class: 'avatar-large') %>
+      <% end %>
+      <span class="mini-user-name"><%= user.username %></span>
+    </div>
+    <% end %>
+  </div>
+</div>

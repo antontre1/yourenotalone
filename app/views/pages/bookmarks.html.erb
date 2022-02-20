@@ -1,16 +1,7 @@
  <div id="page-wall" class="container-general">
     <div class="spacer">
     </div>
-    <div class="search-bar">
-      <%= form_tag search_bookmarks_path, class: 'mybar', method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "rechercher favoris..."
-        %>
-      <%= submit_tag "chercher", class: "btn purple white" %>
-      <% end %>
-    </div>
+     <%= render partial: "shared/form_searchbar", locals: {placeholder_value: @placeholder_value, currentpath: @currentpath} %>
     <div class="cards-favorites">
       <div class="favorites-th-art">
         <div class="favorites-title">
@@ -18,7 +9,7 @@
            <%= image_tag('bookmark-alone-purple.svg') %>
            <span>Thèmes <%= @scope %></span>
           </div>
-          <%= link_to "tous", favorites_th_path %>
+          <%= link_to  image_tag('arrow-double-fat.svg'), favorites_th_path %>
         </div>
         <div class="micro-themes-list">
             <% @themes.each do |theme| %>
@@ -38,14 +29,14 @@
             </div>
             </a>
              <% end %>
-             <%= link_to image_tag('details-purple.svg', class: 'details-th'), favorites_th_path %>
         </div>
              <div class="favorites-users">
-        <div class="user-favorites-title">
-          <div class="user-favorites-title-col">
-            <%= image_tag('heart.svg') %><span>Personnes <%= @scope %></span>
+        <div class="favorites-title">
+          <div class="favorites-title-col">
+            <%= image_tag('heart.svg') %>
+            <span>Personnes <%= @scope %></span>
           </div>
-          <%= link_to "tous", favorites_art_path %>
+          <%= link_to image_tag('arrow-double-fat.svg'), favorites_art_path %>
         </div>
         <div class="mini-user-list mini-user-no-border">
         <% @users.each do |user| %>
@@ -61,13 +52,13 @@
         </div>
     </div>
         <div class="articles-list">
-          <div class="user-favorites-title">
-            <div class="user-favorites-title-col">
+          <div class="favorites-title">
+            <div class="favorites-title-col">
               <%= image_tag('heart.svg') %>
               <span>Articles <%= @scope %></span>
             </div>
             <div class="articles-link-all">
-              <%= link_to "tous", favorites_art_path%>
+              <%= link_to  image_tag('arrow-double-fat.svg'), favorites_art_path%>
             </div>
           </div>
           <% @articles.each do |article| %>

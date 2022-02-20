@@ -3,15 +3,34 @@
     height: 4rem;
   }
 
+  .cards-favorites {
+    margin-top: 3rem;
+  }
 
   .search-bar {
-    height: 6rem;
-
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    .submit-box {
+      width: 10%;
+      background: $purple;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 4px 4px 0;
+    }
+    .form-control {
+      width: 90%;
+      border-radius: 4px 0 0 4px;
+    }
   }
 
   .mybar {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
   }
 
   .favorites-users {
