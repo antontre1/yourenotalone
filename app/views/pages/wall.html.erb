@@ -4,9 +4,9 @@
      <%= render partial: "shared/form_searchbar", locals: {placeholder_value: @placeholder_value, currentpath: @currentpath} %>
     <div class="cards-favorites">
       <div class="favorites-th-art">
-        <%= render partial: "shared/micro_theme_list", locals: { themes: @themes, scope: @scope } %>
-        <%= render partial: "shared/users_list", locals: { users: @users, scope: @scope} %>
-        <%= render partial: "shared/articles_list", locals: { articles: @articles, scope: @scope} %>
+        <%= render partial: "shared/micro_theme_list", locals: { themes: @themes, scope: @scope, add_arrow: false} %>
+        <%= render partial: "shared/users_list", locals: { users: @users, scope: @scope, add_arrow: false} %>
+        <%= render partial: "shared/articles_list", locals: { articles: @articles, scope: @scope, add_arrow: false} %>
       </div>
     </div>
 </div>
