@@ -191,11 +191,18 @@ class PagesController < ApplicationController
   end
 
   def pub_profile
-
     @user = User.find(params[:id])
-    @follow_users_nb = @user.favorites.where(favoritable_type: "User").count
-    @follower_users_nb = Favorite.where(favoritable_type: "User", favoritable_id: @user.id).count
-    @likes = Vote.where(user_id: @user.id).count
+    if !current_user.favorites.where(favoritable_type: "User", favoritable_id: @user.id).empty?
+      @star = "active"
+    else
+      @star = "inactive"
+    end
+      @follow_users_nb = @user.favorites.where(favoritable_type: "User").count
+      @follower_users_nb = Favorite.where(favoritable_type: "User", favoritable_id: @user.id).count
+      @likes = Vote.where(user_id: @user.id).count
+    # else
+      # redirect_to action: "dashboard"
+    # end
   end
 
 end
