@@ -1,0 +1,54 @@
+<div class="favorites-title">
+  <div class="favorites-title-col">
+    <%= image_tag('article-new.svg') %>
+    <span><%= scope %></span>
+  </div>
+</div>
+<div class="article-cards">
+  <% articles.each do |article| %>
+  <div class="article-card">
+    <div class="article-card-image"  style="background: url(
+          <% if (article.picture.attached?) %>
+              <%= cl_image_path(article.picture.key) %>
+            <% else %>
+              <%= image_path('frontlorem.jpg') %>
+            <% end %>
+              ), #F4EAF8; background-repeat: no-repeat; background-size: 100%; background-position: 50% 50%;">
+    </div>
+    <div class="article-card-title art-title">
+      <%= article.title %>
+    </div>
+    <div class="article-card-details">
+      <% if avatar_visible == true %>
+      <div class="article-card-details-avatar">
+        <div class="">
+          <%= link_to profiles_path(article.user.id) do %>
+            <% if (article.user.picture.attached?) %>
+            <%= cl_image_tag(article.user.picture.key, class: 'avatar-small') %>
+              <% else %>
+            <%= image_tag('avatar.png', class: 'avatar-small') %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="article-card-details-name">
+          <span class="mini-user-name"><%= article.user.username %></span>
+        </div>
+      </div>
+      <% end %>
+      <div class="article-card-details-theme art-theme">
+        <%= article.theme.title %>
+      </div>
+      <div class="article-card-details-rounded">
+         <%= image_tag('ellipse.svg', class: 'ellipse-th') %>
+      </div>
+      <div class="article-card-details-time art-created">
+          <% if TimeDifference.between(article.updated_at, Time.now).in_days.round >0 %>
+            Il y a <%= TimeDifference.between(article.updated_at, Time.now).in_days.round %> jours
+          <% else %>
+            aujourd'hui
+          <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

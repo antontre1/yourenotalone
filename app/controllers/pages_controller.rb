@@ -191,6 +191,8 @@ class PagesController < ApplicationController
   end
 
   def pub_profile
+    @scope = "d'intérêts"
+    @scope_last = "Derniers articles"
     @user = User.find(params[:id])
     if !current_user.favorites.where(favoritable_type: "User", favoritable_id: @user.id).empty?
       @star = "active"
@@ -203,6 +205,16 @@ class PagesController < ApplicationController
     # else
       # redirect_to action: "dashboard"
     # end
+      @articles_last = @user.articles.order(created_at: :desc)
+      # liste des articles trendy
+          @array_ranked_articles = @user.favorites.where(favoritable_type: "Article").group("favoritable_id").count.sort_by{|_,v| -v}
+          @articles_popular = Array.new
+          @array_ranked_articles.each do |item|
+            @articles_popular << Article.find(item[0])
+          end
+          if @articles_popular.empty?
+            @no_favorites = "#{@user.username} n'a pas encore d'article suivi..."
+          end
   end
 
   def toggle_fav
