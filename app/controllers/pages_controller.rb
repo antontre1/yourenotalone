@@ -207,10 +207,12 @@ class PagesController < ApplicationController
     # end
       @articles_last = @user.articles.order(created_at: :desc)
       # liste des articles trendy
-          @array_ranked_articles = @user.favorites.where(favoritable_type: "Article").group("favoritable_id").count.sort_by{|_,v| -v}
+          @array_ranked_articles = Favorite.where(favoritable_type: "Article").group("favoritable_id").count.sort_by{|_,v| -v}
           @articles_popular = Array.new
           @array_ranked_articles.each do |item|
-            @articles_popular << Article.find(item[0])
+            if Article.find(item[0]).user == @user
+              @articles_popular << Article.find(item[0])
+            end
           end
           if @articles_popular.empty?
             @no_favorites = "#{@user.username} n'a pas encore d'article suivi..."
