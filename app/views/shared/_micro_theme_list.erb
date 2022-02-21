@@ -3,9 +3,9 @@
       <%= image_tag('bookmark-alone-purple.svg') %>
       <span>Thèmes <%= scope %></span>
     </div>
-  <% if add_arrow %>
-    <%= link_to  image_tag('arrow-double-fat.svg'), arrowthemepath %>
-  <% end %>
+    <% if add_arrow %>
+      <%= link_to  image_tag('arrow-double-fat.svg'), arrowthemepath %>
+    <% end %>
   </div>
  <div class="micro-themes-list">
   <% themes.each do |theme| %>

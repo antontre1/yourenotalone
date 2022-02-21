@@ -16,7 +16,13 @@
             <div class="art-th-description">
               <span class="art-theme"><%= article.theme.title %></span>
               <%= image_tag('ellipse.svg', class: 'ellipse-th') %>
-              <span class="art-created">Il y a <%= TimeDifference.between(article.updated_at, Time.now).in_days.round %> jours</span>
+              <span class="art-created">
+                <% if TimeDifference.between(article.updated_at, Time.now).in_days.round >0 %>
+                    Il y a <%= TimeDifference.between(article.updated_at, Time.now).in_days.round %> jours
+                <% else %>
+                    aujourd'hui
+                <% end %>
+              </span>
             </div>
           </div>
           <% if (article.picture.attached?) %>
@@ -27,5 +33,7 @@
     </a>
   </div>
   <% end %>
-  <%= link_to "Articles Favoris", favorites_art_path%>
+</div>
+<div class="no-favorites">
+  <%= @no_favorites %>
 </div>

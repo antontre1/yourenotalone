@@ -1,0 +1,48 @@
+.article-cards {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  .art-created {
+  font-size: 0.6rem;
+  color: $light-gray;
+  margin-left: 8px;
+}
+
+  .art-theme {
+  font-size: 0.6rem;
+  font-weight: 300;
+  margin-right: 8px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+
+}
+
+.article-card {
+    display: flex;
+    flex-direction: column;
+    margin: 16px 8px;
+}
+
+.article-card-image {
+  height: 8rem;
+  width: 16rem;
+}
+
+.article-card-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+.article-card-details-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4px 8px 0 0;
+}
