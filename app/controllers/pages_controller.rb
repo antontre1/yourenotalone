@@ -205,4 +205,13 @@ class PagesController < ApplicationController
     # end
   end
 
+  def toggle_fav
+    if current_user.favorites.where(favoritable_type: "User", favoritable_id: params[:id]).empty?
+      Favorite.create(user_id: current_user.id , favoritable: User.find(params[:id]) )
+    else
+      current_user.favorites.where(favoritable_type: "User", favoritable_id: params[:id])[0].destroy
+    end
+    redirect_to action: :pub_profile
+  end
+
 end

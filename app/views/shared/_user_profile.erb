@@ -17,11 +17,11 @@
     <% case star %>
     <% when  "active" %>
       <div class="likes  follow-box">
-        <%= image_tag('star-full.svg', class: "markup-star")%>
+        <%= link_to  image_tag('star-full.svg', class: "markup-star"), profiles_path(user), method: :patch %>
       </div>
     <% when "inactive" %>
       <div class="likes  follow-box">
-        <%= image_tag('star-empty.svg', class: "markup-star")%>
+        <%= link_to image_tag('star-empty.svg', class: "markup-star"), profiles_path(user), method: :patch %>
       </div>
     <% end %>
     <div class="followers  follow-box">

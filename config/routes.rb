@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get "/search", to: "pages#search"
   get "/search_bookmarks", to: "pages#search_bookmarks"
   get "/bookmarks", to: "pages#bookmarks"
-  get "profiles/:id", to: "pages#pub_profile", as: 'profiles'
+  get "/profiles/:id", to: "pages#pub_profile", as: 'profiles'
+  patch "/profiles/:id", to: "pages#toggle_fav"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :favorites
   post '/favorites/:id/create_fav_th', to: 'favorites#create_fav_th', as: 'create_fav_th'
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
   end
   resources :themes
   resources :themes, only: [:show] do
-    get 'articles', to: 'articles#index'
+    get '/articles', to: 'articles#index'
   end
   get '/favorites_th', to: 'favorites#index_th'
   get '/favorites_art', to: 'favorites#index_art'
