@@ -1,7 +1,7 @@
 <div id="page-dashboard" class="container-general">
     <div class="spacer">
     </div>
-    <%= render partial: "shared/user_profile", locals: { user: @user_profile, follow_users_nb: @follow_users_nb, follower_users_nb: @follower_users_nb, likes: @likes } %>
+    <%= render partial: "shared/user_profile", locals: { user: @user_profile, follow_users_nb: @follow_users_nb, follower_users_nb: @follower_users_nb, likes: @likes, star: false } %>
     <%= render partial: "shared/users_list", locals: { users: @users, scope: @scope, add_arrow: false} %>
     <div class="cards-favorites">
       <div class="favorites-th-art">
