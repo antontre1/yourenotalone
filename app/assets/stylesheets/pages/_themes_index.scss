@@ -1,65 +1,102 @@
-.container-title {
-  text-align: center;
-  // background-color: pink;
-  margin: 0.5rem;
-  padding: 0.3rem;
-  border-radius: 2rem;
-  display: inline-block;
-  position: relative;
-  left: 50%;
-  // this will calculate what 50% of the element width is and will move it across the X-axis. The negative value ensures it moves to the left.
-  transform: translateX(-50%);
-  font-family: $headers-font;
+#themes-index {
+  .spacer {
+    height: 4rem;
+  }
+
+  .search-bar {
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    .submit-box {
+      width: 10%;
+      background: $purple;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 4px 4px 0;
+  }
+    .form-control {
+      width: 90%;
+      border-radius: 4px 0 0 4px;
+    }
+  }
+
+  .mybar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .themes-all {
+    margin-left: 8px;
+    margin-top: 8px;
+  }
 }
 
-.theme {
-  margin: 30px auto;
-  width: 300px;
-  height: 300px;
-  border-radius: 40px;
-  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
-  cursor: pointer;
-  transition: 0.4s;
-}
-
-.theme .theme_image {
-  width: inherit;
-  height: inherit;
-  border-radius: 40px;
-}
-
-.theme .theme_image img {
-  width: inherit;
-  height: inherit;
-  border-radius: 40px;
-  object-fit: cover;
-}
-
-.theme .theme_title {
-  text-align: center;
-  border-radius: 0px 0px 40px 40px;
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 20px;
-  margin-top: -240px;
-  height: 40px;
-}
-
-// .theme:hover {
-//   transform: scale(0.9, 0.9);
-//   box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
-//     -5px -5px 30px 15px rgba(0,0,0,0.22);
+// .container-title {
+//   text-align: center;
+//   // background-color: pink;
+//   margin: 0.5rem;
+//   padding: 0.3rem;
+//   border-radius: 2rem;
+//   display: inline-block;
+//   position: relative;
+//   left: 50%;
+//   // this will calculate what 50% of the element width is and will move it across the X-axis. The negative value ensures it moves to the left.
+//   transform: translateX(-50%);
+//   font-family: $headers-font;
 // }
 
-// .title-white {
-//   color: white;
+// .theme {
+//   margin: 30px auto;
+//   width: 300px;
+//   height: 300px;
+//   border-radius: 40px;
+//   box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+//   cursor: pointer;
+//   transition: 0.4s;
 // }
 
-.title-black {
-  color: black;
-}
+// .theme .theme_image {
+//   width: inherit;
+//   height: inherit;
+//   border-radius: 40px;
+// }
 
-.white-azure {
-  color: azure;
-  text-decoration: underline;
-}
+// .theme .theme_image img {
+//   width: inherit;
+//   height: inherit;
+//   border-radius: 40px;
+//   object-fit: cover;
+// }
+
+// .theme .theme_title {
+//   text-align: center;
+//   border-radius: 0px 0px 40px 40px;
+//   font-family: sans-serif;
+//   font-weight: bold;
+//   font-size: 20px;
+//   margin-top: -240px;
+//   height: 40px;
+// }
+
+// // .theme:hover {
+// //   transform: scale(0.9, 0.9);
+// //   box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
+// //     -5px -5px 30px 15px rgba(0,0,0,0.22);
+// // }
+
+// // .title-white {
+// //   color: white;
+// // }
+
+// .title-black {
+//   color: black;
+// }
+
+// .white-azure {
+//   color: azure;
+//   text-decoration: underline;
+// }

@@ -1,25 +1,6 @@
-<div class="container-general" id="themes-index">
-  <h1 class="container-title">Les Thèmes</h1>
-  <div>
-    <%= link_to "+ Créer un thème", new_theme_path %>
+<div id="themes-index" class="container-general">
+  <div class="spacer">
   </div>
-  <% @themes.each do |theme| %>
-    <div class="theme">
-      <div class="theme_image">
-         <img src="
-         <% if (theme.picture.attached?) %>
-            <%= cl_image_path(theme.picture.key) %>
-          <% else %>
-            <%= image_path('watercolor.png') %>
-          <% end %>
-            "/>
-      </div>
-      <div class="theme_title">
-        <h3><%= theme.title %></h3>
-        <p><%= theme.description %></p>
-        <%= link_to "+Favori",  create_fav_th_path(theme.id), class:"white-azure", method: :post  %>
-        <%= link_to "Les articles", theme_articles_path(theme.id), class:"white-azure" %>
-      </div>
-    </div>
-  <% end %>
+  <%= render partial: "shared/form_searchbar", locals: {placeholder_value: @placeholder_value, currentpath: @currentpath} %>
+  <%= render partial: "shared/macro_theme_list", locals: { themes: @themes, scope: @scope, add_arrow: false} %>
 </div>
