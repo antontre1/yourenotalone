@@ -1,18 +1,25 @@
 class ArticlesController < ApplicationController
 
   def index
-    if params[:theme_id]
-      @articles = policy_scope(Article).where(theme_id: params[:theme_id])
-      @theme = Theme.find(params[:theme_id])
-      authorize @theme
-    else
-      @articles = policy_scope(Article)
-    end
+    @placeholder_value = "ex: article sur 'comment annoncer'..."
+    @scope_popular = "Articles les plus populaires"
+    @scope_
+    @current_path = search_path
+
+    # if params[:theme_id]
+    #   @articles = policy_scope(Article).where(theme_id: params[:theme_id])
+    #   @theme = Theme.find(params[:theme_id])
+    #   authorize @theme
+    # else
+    #   @articles = policy_scope(Article)
+    # end
+
+    @articles_last = policy_scope(Article).all.order(created_at: :desc).limit(50)
 
     @array_ranked_articles = Favorite.where(favoritable_type: "Article").group("favoritable_id").count.sort_by{|_,v| -v}
-    @articles_ordered = Array.new
+    @articles_popular = Array.new
     @array_ranked_articles.each do |item|
-      @articles_ordered << Article.find(item[0])
+      @articles_popular << Article.find(item[0])
     end
   end
 
