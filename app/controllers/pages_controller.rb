@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @article = Article.new
     @scope = "que je suis"
     @currentpath = search_bookmarks_path
     @likes = Vote.where(user_id: current_user.id).count
@@ -51,6 +52,7 @@ class PagesController < ApplicationController
     @scope = "Tendances"
     @placeholder_value= "ex: que faire avec le soleil..."
     @currentpath = search_path
+    @article = Article.new
 
     # liste des thèmes trendy
     @array_ranked_themes = Favorite.where(favoritable_type: "Theme").group("favoritable_id").count.sort_by{|_,v| -v}
@@ -97,6 +99,7 @@ class PagesController < ApplicationController
     @scope = "en favoris"
     @placeholder_value= "rechercher dans mes favoris..."
     @currentpath = search_bookmarks_path
+    @article = Article.new
 
 
     @array_ranked_themes = current_user.favorites.where(favoritable_type: "Theme")
@@ -191,6 +194,7 @@ class PagesController < ApplicationController
   end
 
   def pub_profile
+    @article = Article.new
     @scope = "d'intérêts"
     @scope_last = "Derniers articles"
     @user = User.find(params[:id])
@@ -227,5 +231,6 @@ class PagesController < ApplicationController
     end
     redirect_to action: :pub_profile
   end
+
 
 end

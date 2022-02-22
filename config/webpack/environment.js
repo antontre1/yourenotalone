@@ -11,4 +11,11 @@ environment.plugins.prepend('Provide',
     Popper: ['popper.js', 'default']
   })
 );
+// found on tutorial, aiming to give some more possibilities with modals
+// environment.plugins.prepend('Provide',
+//   new webpack.ProvidePlugin({
+//     $: 'jquery/src/jquery',
+//     jQuery: 'jquery/src/jquery'
+//   })
+// )
 module.exports = environment
