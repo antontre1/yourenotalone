@@ -45,9 +45,9 @@
   // background-color: $purple-background2;
   justify-content: center;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   width: 16rem;
-  height: 14rem;
+  height: 17rem;
   color: $purple2;
 
   span {
@@ -101,6 +101,27 @@
   padding: 4px;
   opacity: 0.5;
   border-radius: 8px;
+}
+
+.counter-macro {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  padding: 0 4px 0 4px;
+  width: 4rem;
+  height: 2rem;
+  background-color: $purple-intense;
+  color: white;
+  img {
+    height: 1.4rem;
+  }
 }
 
 .counter {

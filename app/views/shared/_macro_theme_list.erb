@@ -1,6 +1,6 @@
   <div class="themes-title-all">
     <div class="favorites-title-col">
-      <span>Tous les thèmes <%= scope %></span>
+      <span><strong>Tous les thèmes</strong><%= scope %></span>
     </div>
     <% if add_arrow %>
       <%= link_to  image_tag('arrow-double-fat.svg'), arrowthemepath %>
@@ -15,9 +15,9 @@
           <% else %>
             <%= image_path('frontlorem.jpg') %>
           <% end %>
-            ); background-repeat: no-repeat; background-size: 100% 45%; background-position: 50% 0%;">
-        <span><%= theme.title %></span>
-        <div class="counter">
+            ); background-repeat: no-repeat; background-size: 100% 50%; background-position: 50% 0%;">
+        <span class="font-title"><%= theme.title %></span>
+        <div class="counter-macro">
           <%= image_tag('eye.svg') %>
           <%= Favorite.where(favoritable_id: theme.id).count %>
         </div>
