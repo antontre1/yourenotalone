@@ -6,38 +6,6 @@
       <div class="favorites-th-art">
         <%= render partial: "shared/articles_med_list", locals: { articles: @articles_last, avatar_visible: true, scope: @scope_pop} %>
         <%= render partial: "shared/articles_list", locals: { articles: @articles_popular, scope: @scope_last, add_arrow: false, arrowthemepath: favorites_art_path} %>
-        <%
-=begin%>
- <div class="articles-list">
-          <div class="user-favorites-title">
-            <%= image_tag('bookmark-alone-purple.svg') %><span> Tous les articles <%= @scope %></span>
-            </div>
-              <% @articles.each do |article| %>
-              <a href="<%= article_path(article) %>">
-              <div class="mini-articles-card">
-                  <div class="art-description">
-                    <span class="art-title"><%= article.title %></span>
-                    <div class="art-th-description">
-                      <span class="shot-theme"><%= article.content.truncate_words(4) %></span><br/>
-                      <span class="art-theme"><%= article.theme.title %></span>
-                      <%= link_to image_tag('ellipse.svg', class: 'ellipse-th') %>
-                      <span class="art-created">Il y a <%= TimeDifference.between(article.updated_at, Time.now).in_days.round %> jours</span>
-                    </div>
-                  </div>
-                  <% if (article.picture.attached?) %>
-                    <%= cl_image_tag(article.picture.key, class: 'mini-article-img') %>
-                  <% else %>
-                    <%= image_tag('avatar.png', class: 'mini-article-img') %>
-                  <% end %>
-              </div>
-              </a>
-              <% end %>
-              <%= link_to "Articles Favoris", favorites_art_path%>
-            </div>
-          </div>
-        </div>
-<%
-=end%>
       </div>
   </div>
 </div>
