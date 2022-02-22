@@ -1,0 +1,13 @@
+#modal_article {
+  top: 5%;
+  .modal-content {
+    border-radius: 8px;
+  }
+  .button-div {
+    display: flex;
+    justify-content: right;
+  }
+  #article_content {
+    height: 12rem;
+  }
+}

@@ -1,5 +1,8 @@
-<div class="spacer">
+<div id="page-bookmarks" class="container-general">
+  <div class="spacer">
+  </div>
+  <%= render partial: "shared/user_profile", locals: { user: @user, follow_users_nb: @follow_users_nb, follower_users_nb: @follower_users_nb, likes: @likes, star: @star } %>
+  <%= render partial: "shared/articles_med_list", locals: { articles: @articles_last, avatar_visible: false, scope: @scope_last} %>
+  <%= render partial: "shared/articles_list", locals: { articles: @articles_popular, scope: @scope, add_arrow: false} %>
+  <%= render partial: "shared/modal_article_new", locals: { article: @article } %>
 </div>
-<%= render partial: "shared/user_profile", locals: { user: @user, follow_users_nb: @follow_users_nb, follower_users_nb: @follower_users_nb, likes: @likes, star: @star } %>
-<%= render partial: "shared/articles_med_list", locals: { articles: @articles_last, avatar_visible: false, scope: @scope_last} %>
-<%= render partial: "shared/articles_list", locals: { articles: @articles_popular, scope: @scope, add_arrow: false} %>
