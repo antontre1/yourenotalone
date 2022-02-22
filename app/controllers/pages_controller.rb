@@ -94,7 +94,7 @@ class PagesController < ApplicationController
   end
 
   def bookmarks
-    @scope = "d'intérêt"
+    @scope = "en favoris"
     @placeholder_value= "rechercher dans mes favoris..."
     @currentpath = search_bookmarks_path
 

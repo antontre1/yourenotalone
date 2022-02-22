@@ -30,16 +30,18 @@
   flex: 0 0 auto;
   display: flex;
   border-radius: 8px;
+  border: 2px $purple-background2 solid;
   margin-right: 3px;
   padding: 0 4px;
   height: 10rem;
-  background-color: $purple-background2;
+  // background-color: $purple-background2;
   justify-content: center;
   align-items: center;
-  margin-right: 3px;
+  margin-right: 8px;
   width: 8rem;
   height: 12rem;
   color: $purple2;
+
   span {
     font-size: 0.9rem;
     margin-top: 2.5rem;
