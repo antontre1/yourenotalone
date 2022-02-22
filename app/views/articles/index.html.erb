@@ -4,8 +4,8 @@
   <%= render partial: "shared/form_searchbar", locals: {placeholder_value: @placeholder_value, currentpath: @currentpath} %>
   <div class="cards-favorites">
       <div class="favorites-th-art">
-        <%= render partial: "shared/articles_med_list", locals: { articles: @articles_last, avatar_visible: true, scope: @scope_pop} %>
-        <%= render partial: "shared/articles_list", locals: { articles: @articles_popular, scope: @scope_last, add_arrow: false, arrowthemepath: favorites_art_path} %>
+        <%= render partial: "shared/articles_med_list", locals: { articles: @articles_last, avatar_visible: true, scope: @scope_last } %>
+        <%= render partial: "shared/articles_list", locals: { articles: @articles_popular, scope: @scope_popular, add_arrow: false, arrowthemepath: favorites_art_path} %>
       </div>
   </div>
 </div>
