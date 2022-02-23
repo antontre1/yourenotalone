@@ -38,13 +38,14 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    # @article = Article.new(title: article_params[:title], content: article_params[:content])
     @article.user_id = current_user.id
+    authorize @article
     if @article.save
       redirect_to article_path(@article)
     else
       render :new
     end
-    authorize @article
   end
 
   def edit
@@ -70,7 +71,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :theme_id, :description, :content, :picture)
+    params.require(:article).permit(:title, :theme_id, :content, :picture)
   end
 
 end
