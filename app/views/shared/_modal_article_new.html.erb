@@ -12,8 +12,13 @@
           <%= f.input :title, label: "Titre" %>
           <%= f.association :theme, label: "Thème" %>
           <%= f.input :content, label: "Message", placeholder: "ce que vous voulez partager..." %>
-          <%= f.input :picture, as: :file %>
           <div class="button-div">
+            <label for="file-input">
+                <%= image_tag('image-icon-purple.svg', class: 'image-icon') %>
+            </label>
+            <input type="file" name="article[picture]" id="file-input" style="
+              display: none;
+          "/>
             <%= f.submit "Publier", class: "btn purple white" %>
           </div>
         <% end %>

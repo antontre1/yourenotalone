@@ -7,17 +7,19 @@
 <div class="article-cards">
   <% articles.each do |article| %>
   <div class="article-card">
-    <div class="article-card-image"  style="background: url(
-          <% if (article.picture.attached?) %>
-              <%= cl_image_path(article.picture.key) %>
-            <% else %>
-              <%= image_path('frontlorem.jpg') %>
-            <% end %>
-              ), #F4EAF8; background-repeat: no-repeat; background-size: 100%; background-position: 50% 50%;">
-    </div>
-    <div class="article-card-title art-title">
-      <%= article.title %>
-    </div>
+    <a href=<%= article_path(article) %>>
+      <div class="article-card-image"  style="background: url(
+            <% if (article.picture.attached?) %>
+                <%= cl_image_path(article.picture.key) %>
+              <% else %>
+                <%= image_path('frontlorem.jpg') %>
+              <% end %>
+                ), #F4EAF8; background-repeat: no-repeat; background-size: 100%; background-position: 50% 50%;">
+      </div>
+      <div class="article-card-title art-title">
+        <%= article.title %>
+      </div>
+    </a>
     <div class="article-card-details">
       <% if avatar_visible == true %>
       <div class="article-card-details-avatar">
