@@ -84,12 +84,13 @@ class PagesController < ApplicationController
     @scope = "d'intérêt"
     @placeholder_value= "ex: faire avec le soleil..."
     @currentpath = search_path
-
-    if params[:query].present?
-      @themes = Theme.search(params[:query])
-      @articles = Article.search(params[:query])
-      @users = User.search(params[:query])
-      render :wall
+    @article = Article.new
+    query = params[:query]
+    if query.present?
+      @themes = Theme.search(query)
+      @articles = Article.search(query)
+      @users = User.search(query)
+      render :wall, locals: { article: @article }
     else
       redirect_to action: "wall"
     end

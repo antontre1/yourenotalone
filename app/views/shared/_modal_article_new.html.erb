@@ -1,3 +1,4 @@
+<%= csrf_meta_tags %>
 <div class="modal fade" id="modal_article" tabindex="-1" aria-labelledby="modal_articleLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -12,15 +13,8 @@
           <%= f.input :title, label: "Titre" %>
           <%= f.association :theme, label: "Thème" %>
           <%= f.input :content, label: "Message", placeholder: "ce que vous voulez partager..." %>
-          <div class="button-div">
-            <label for="file-input">
-                <%= image_tag('image-icon-purple.svg', class: 'image-icon') %>
-            </label>
-            <input type="file" name="article[picture]" id="file-input" style="
-              display: none;
-          "/>
-            <%= f.submit "Publier", class: "btn purple white" %>
-          </div>
+          <%= f.input :picture, as: :file %>
+          <%= f.submit "Publier", class: "btn purple white" %>
         <% end %>
       </div>
     </div>
