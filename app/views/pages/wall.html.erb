@@ -1,12 +1,15 @@
-<div id="page-wall" class="container-general">
-    <div class="spacer">
-    </div>
-     <%= render partial: "shared/form_searchbar", locals: {placeholder_value: @placeholder_value, currentpath: @currentpath} %>
-    <div class="cards-favorites">
-      <div class="favorites-th-art">
-        <%= render partial: "shared/micro_theme_list", locals: { themes: @themes, scope: @scope, add_arrow: false} %>
-        <%= render partial: "shared/users_list", locals: { users: @users, scope: @scope, add_arrow: false} %>
-        <%= render partial: "shared/articles_list", locals: { articles: @articles, scope: @scope, add_arrow: false} %>
+<div id="page-bookmarks" class="container-general">
+  <div id="page-wall" class="container-general">
+      <div class="spacer">
       </div>
-    </div>
+      <%= render partial: "shared/form_searchbar", locals: {placeholder_value: @placeholder_value, currentpath: @currentpath} %>
+      <div class="cards-favorites">
+        <div class="favorites-th-art">
+          <%= render partial: "shared/micro_theme_list", locals: { themes: @themes, scope: @scope, add_arrow: false} %>
+          <%= render partial: "shared/users_list", locals: { users: @users, scope: @scope, add_arrow: false} %>
+          <%= render partial: "shared/articles_list", locals: { articles: @articles, scope: @scope, add_arrow: false} %>
+        </div>
+      </div>
+  </div>
+  <%= render partial: "shared/modal_article_new", locals: { article: @article } %>
 </div>

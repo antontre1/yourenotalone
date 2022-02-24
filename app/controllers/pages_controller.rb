@@ -6,6 +6,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @me_active = "activated-logo"
+    @article = Article.new
     @scope = "que je suis"
     @currentpath = search_bookmarks_path
     @likes = Vote.where(user_id: current_user.id).count
@@ -48,9 +50,11 @@ class PagesController < ApplicationController
   end
 
   def wall
+    @discover_active = "activated-logo"
     @scope = "Tendances"
     @placeholder_value= "ex: que faire avec le soleil..."
     @currentpath = search_path
+    @article = Article.new
 
     # liste des thèmes trendy
     @array_ranked_themes = Favorite.where(favoritable_type: "Theme").group("favoritable_id").count.sort_by{|_,v| -v}
@@ -82,21 +86,24 @@ class PagesController < ApplicationController
     @scope = "d'intérêt"
     @placeholder_value= "ex: faire avec le soleil..."
     @currentpath = search_path
-
-    if params[:query].present?
-      @themes = Theme.search(params[:query])
-      @articles = Article.search(params[:query])
-      @users = User.search(params[:query])
-      render :wall
+    @article = Article.new
+    query = params[:query]
+    if query.present?
+      @themes = Theme.search(query)
+      @articles = Article.search(query)
+      @users = User.search(query)
+      render :wall, locals: { article: @article }
     else
       redirect_to action: "wall"
     end
   end
 
   def bookmarks
+    @favorite_active = "activated-logo"
     @scope = "en favoris"
     @placeholder_value= "rechercher dans mes favoris..."
     @currentpath = search_bookmarks_path
+    @article = Article.new
 
 
     @array_ranked_themes = current_user.favorites.where(favoritable_type: "Theme")
@@ -116,11 +123,13 @@ class PagesController < ApplicationController
     @array_ranked_users.each do |item|
       @users << item.favoritable
     end
+
   end
 
   def search_bookmarks
     @scope = "favoris"
     @currentpath = search_bookmarks_path
+    @article = Article.new
 
     if params[:query].present?
 
@@ -191,8 +200,9 @@ class PagesController < ApplicationController
   end
 
   def pub_profile
+    @article = Article.new
     @scope = "d'intérêts"
-    @scope_last = "Derniers articles"
+    @scope_last = "récents"
     @user = User.find(params[:id])
     if !current_user.favorites.where(favoritable_type: "User", favoritable_id: @user.id).empty?
       @star = "active"
@@ -227,5 +237,6 @@ class PagesController < ApplicationController
     end
     redirect_to action: :pub_profile
   end
+
 
 end

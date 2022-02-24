@@ -17,6 +17,6 @@
       <%= yield %>
     </div>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/navbar' unless @disable_nav %>
+    <%= render 'shared/navbar', locals: {  home_active: @home_active } unless @disable_nav %>
   </body>
 </html>

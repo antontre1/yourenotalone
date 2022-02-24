@@ -2,32 +2,24 @@
   <div class="navbar-cover">
   </div>
     <%= link_to wall_path do %>
-      <%= image_tag "btn-home-home.svg", class: "home-logo" %>
+      <%= image_tag "btn-home-home.svg", class: "home-logo #{@home_active}" %>
     <% end %>
     <%= link_to wall_path do %>
-      <%= image_tag "btn-home-discover.svg", class: "discover-logo" %>
+      <%= image_tag "btn-home-discover.svg", class: "discover-logo  #{@discover_active}" %>
     <% end %>
-    <%= link_to new_article_path do %>
-      <%= image_tag "btn-home-create.svg", class: "create-logo" %>
-    <% end %>
+      <%= image_tag "btn-home-create.svg", class: "create-logo", data: { toggle: "modal", target: "#modal_article", whatever: "@getbootstrap" } %>
     <%= link_to bookmarks_path do %>
-      <%= image_tag "btn-home-favorite.svg", class: "favorite-logo" %>
+      <%= image_tag "btn-home-favorite.svg", class: "favorite-logo  #{@favorite_active}" %>
     <% end %>
-    <%= image_tag "btn-home-user.svg", class: "me-logo activated-logo" %>
+    <%= image_tag "btn-home-user.svg", class: "me-logo #{@me_active}" %>
   <div class="mon_menu">
     <ul>
      <% if user_signed_in? %>
-            <li class="nav-item active">
+            <li class="nav-item">
               <%= link_to 'Profil', dashboard_path, class:"padding-before" %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Articles', articles_path, class: "dropdown-item" %>
-            </li>
-            <li class="nav-item">
-            <%= link_to 'Themes', themes_path, class: "dropdown-item" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item log-out-item" %>
             </li>
           <% else %>
             <li class="nav-item">
