@@ -5,7 +5,7 @@
   }
   .button-div {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
   }
   #article_content {
@@ -18,5 +18,28 @@
     display: flex;
     align-items: center;
     margin: 0;
+  }
+
+  .file, .optional > label {
+    height: 2.8rem;
+    width: 2.8rem;
+    font-size: 0;
+    background-image: url('image-icon-purple.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .file.optional.article_picture {
+    margin: auto auto;
+  }
+
+  .modal-submit {
+    border: white 4px solid;
+    color: white;
+    background-color: $purple-intense2;
+    height: 2.8rem;
+    width: 5.6rem;
+    border-radius: 10px;
   }
 }
