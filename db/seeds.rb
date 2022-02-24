@@ -63,7 +63,9 @@ puts "Users created"
   # Theme3.save
 
     Theme1 = Theme.new(title: "Découverte du Lupus", description: "Toutes les questions que peuvent se poser ceux et celles qui découvrent le Lupus")
-  Theme1.save
+      file = URI.open('https://images.unsplash.com/photo-1596510743279-b354a760e5d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80')
+      Theme1.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+      Theme1.save
 
     Article1 = Article.new(title: "Comment reconnaitre une poussée de Lupus ?", content: 'Toutes les questions que peuvent se poser ceux et celles qui découvrent le Lupus', user_id: User.all.sample.id)
     file = URI.open('https://images.unsplash.com/photo-1618311522704-b4ac7f811c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
@@ -85,7 +87,9 @@ puts "Users created"
     Article3.save!
 
   Theme2 = Theme.new(title: "Alimentation", description: "Posts relatifs à l'alimentation et comment se nourrir avec le Lupus")
-  Theme2.save
+    file = URI.open('https://images.unsplash.com/photo-1546548970-71785318a17b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
+    Theme2.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    Theme2.save
   Article1 = Article.new(title: "Conseil d'alimentation", content: 'Les personnes atteintes de lupus présentent un risque accru de maladie cardiovasculaire.
 
 C’est pourquoi une alimentation bonne pour le coeur est particulièrement importante. S’inspirer du régime alimentaire méditerranéenne est idéal.
@@ -100,9 +104,13 @@ C’est pourquoi une alimentation bonne pour le coeur est particulièrement impo
     Article1.theme = Theme2
     Article1.save!
     Article2 = Article.new(title: "Comment gérer la perte de poids liée au Lupus ? ", content: 'Il est fréquent que le lupus fasse perdre l appétit, sachant aussi que les ulcères buccaux ne sont pas rares. Il est néanmoins important de manger suffisamment pour maintenir un poids de forme. Si vos médicaments provoquent des maux d’estomac, fractionnez les repas, mangez chaque fois des petites quantités d’aliments faciles à digérer et évitez les plats trop épicés ou acides. Les conseils d’un diététicien seront utiles.', user_id: User.all.sample.id)
+    file = URI.open('https://images.unsplash.com/photo-1447688812233-3dbfff862778?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=691&q=80')
+    Article3.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     Article2.theme = Theme2
     Article2.save!
     Article3 = Article.new(title: "Comment gérer les prises de poids liée au Lupus ?", content: 'Les stéroïdes, habituellement prescrit dans ce cas, peuvent faire grossir. Pour compenser, évitez les boissons alcoolisées, limitez les sucreries et veillez à faire suffisamment d’exercice pour maintenir votre poids de forme. Les enfants doivent faire particulièrement attention aux excès.', user_id: User.all.sample.id)
+    file = URI.open('https://images.unsplash.com/photo-1591384640699-9a85bd036da2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
+    Article3.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     Article3.theme = Theme2
     Article3.save!
     Article4 = Article.new(title: "Quels sont les aliments à éviter?", content: 'En principe, vous pouvez manger de tout. Il y a cependant deux produits que vous devriez éviter.
@@ -118,9 +126,13 @@ C’est pourquoi une alimentation bonne pour le coeur est particulièrement impo
     Article5.theme = Theme2
     Article5.save!
   Theme3 = Theme.new(title: "Ma peau et le Lupus", description: "Comment gérer ma peau avec un Lupus cutané")
-  Theme3.save
+    file = URI.open('https://images.unsplash.com/photo-1597826322461-9b11d306d08f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80')
+    Theme3.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    Theme3.save
   Theme4 = Theme.new(title: "Vie de Couple", description: "Comment concilier vie de couple et Lupus")
-  Theme4.save
+    file = URI.open('https://images.unsplash.com/photo-1511405889574-b01de1da5441?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
+    Theme4.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    Theme4.save
     Article1 = Article.new(title: "Comment j'ai annoncé à mon conjoint que je souffre de Lupus", content: 'Je souffre du Lupus depuis près de 4 ans et je n’avais jamais vraiment vécu une relation depuis que j’ai été diagnostiquée.
       Là j’ai rencontré un homme bien il y a maintenant 3 mois et je veux que ça dure. Je sentais que je ne pourrais pas lui cacher plus longtemps ma pathologie, j’ai donc préféré lui annoncer de mon plein gré plutôt qu’il l’apprenne suite à une hospitalisation.
       J’ai pris mon courage à 2 mains et je lui ai annoncé… Il a été extrêmement compréhensif et m’a déclaré que son amour pour moi était plus fort que le Lupus !
@@ -130,15 +142,23 @@ C’est pourquoi une alimentation bonne pour le coeur est particulièrement impo
     Article1.theme = Theme4
     Article1.save!
   Theme5 = Theme.new(title: "Lupus Masculin", description: "Le Lupus chez les hommes")
+  file = URI.open('https://images.unsplash.com/photo-1440133197387-5a6020d5ace2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
+  Theme5.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   Theme5.save
   Theme6 = Theme.new(title: "Lupus et les Reins", description: "Comment vivre un Lupus à atteinte Rénale")
+  file = URI.open('https://images.unsplash.com/photo-1610363776668-76acbd134a6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80')
+  Theme6.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   Theme6.save
     Article1 = Article.new(title: "Quels sont les symptômes d'un Lupus à atteinte Rénale?", content: 'Elle est présente chez 30 à 40% des patients. Elle consiste en une inflammation des glomérules du rein (glomérulonéphrite). Le glomérule est la partie du rein contenant le filtre qui nettoie le sang. Différentes formes d’atteintes sont possibles, des formes non graves sans aucune conséquence aux formes graves pouvant évoluer vers la destruction plus ou moins rapide du rein (une insuffisance rénale). L’atteinte rénale doit toujours être recherchée car elle n’est pas ressentie par le patient alors qu’un diagnostic précoce permet d’améliorer fortement les chances de guérison. L’inflammation élargit les mailles du filtre et un peu de sang passe dans les urines. Cette présence de sang se détecte à l’examen des urines par une bandelette urinaire dont les résultats sont obtenus en une minute, mais pour des résultats plus précis, une analyse des urines au laboratoire doit être demandée. Seront recherchées dans les urines : la présence de protéines d’origine sanguine (protéinurie), la présence de globules rouges (hématurie) ou de globules blancs d’origine sanguine (leucocyturie). La présence d’une protéinurie ou d’une hématurie justifie une ponction-biopsie rénale pour préciser le degré d’inflammation du glomérule ce qui conditionnera la prise en charge thérapeutique qui va de la simple surveillance à un traitement par fortes doses de corticoïdes et d’immunosuppresseurs.', user_id: User.all.sample.id)
     Article1.theme = Theme6
     Article1.save!
   Theme7 = Theme.new(title: "La grossesse et le Lupus", description: "Quels sont les implications du Lupus sur la grossesse? ")
+  file = URI.open('https://images.unsplash.com/photo-1544784179-ae1535e9f013?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=799&q=80')
+  Theme7.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   Theme7.save
   Theme8 = Theme.new(title: "Les traitements", description: "Les traitements contre le Lupus")
+  file = URI.open('https://images.unsplash.com/photo-1585435557343-3b092031a831?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
+  Theme8.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   Theme8.save
 
 puts "articles created"
