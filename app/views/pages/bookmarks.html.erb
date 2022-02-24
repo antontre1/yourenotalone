@@ -9,5 +9,5 @@
       <%= render partial: "shared/articles_list", locals: { articles: @articles, scope: @scope, add_arrow: true, arrowthemepath: favorites_art_path} %>
     </div>
   </div>
-  <%= render partial: "shared/modal_article_new", locals: { article: @article } %>
+  <%= render partial: "shared/modal_article_new", locals: { article: @article, themes_list: @themes_list } %>
 </div>

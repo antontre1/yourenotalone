@@ -14,6 +14,10 @@ class PagesController < ApplicationController
 
     @user_profile = current_user
 
+    # liste des articles écrits par moi
+    @articles_last = current_user.articles.order(created_at: :desc)
+    @scope_last = "récents"
+
     # liste des users que je suis
     array_ranked_users = current_user.favorites.where(favoritable_type: "User").group("favoritable_id").count.sort_by{|_,v| -v}
 
@@ -31,6 +35,12 @@ class PagesController < ApplicationController
     @themes = Array.new
     array_ranked_themes.each do |item|
       @themes << item.favoritable
+    end
+
+    @themes_list = Array.new
+    themes_all = Theme.all
+    themes_all.each do |item|
+      @themes_list << item.title
     end
 
 
@@ -62,6 +72,12 @@ class PagesController < ApplicationController
     @themes = Array.new
     @array_ranked_themes.each do |item|
       @themes << Theme.find(item[0])
+    end
+
+    @themes_list = Array.new
+    themes_all = Theme.all
+    themes_all.each do |item|
+      @themes_list << item.title
     end
 
     # liste des articles trendy
@@ -110,6 +126,12 @@ class PagesController < ApplicationController
     @themes = Array.new
     @array_ranked_themes.each do |item|
       @themes << item.favoritable
+    end
+
+    @themes_list = Array.new
+    themes_all = Theme.all
+    themes_all.each do |item|
+      @themes_list << item.title
     end
 
     @array_ranked_articles = current_user.favorites.where(favoritable_type: "Article")
@@ -204,6 +226,14 @@ class PagesController < ApplicationController
     @scope = "d'intérêts"
     @scope_last = "récents"
     @user = User.find(params[:id])
+
+
+    @themes_list = Array.new
+    themes_all = Theme.all
+    themes_all.each do |item|
+      @themes_list << item.title
+    end
+
     if !current_user.favorites.where(favoritable_type: "User", favoritable_id: @user.id).empty?
       @star = "active"
     else
