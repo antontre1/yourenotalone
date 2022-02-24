@@ -8,7 +8,7 @@
     <% end %>
   </div>
  <div class="macro-themes-list">
-  <% themes.each do |theme| %>
+  <% @themes.each do |theme| %>
     <a href="<%= theme_path(theme) %>">
       <div class="macro-theme-card" style="background: url(
         <% if (theme.picture.attached?) %>
