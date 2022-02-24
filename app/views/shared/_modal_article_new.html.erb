@@ -13,8 +13,12 @@
           <%= f.input :title, label: "Titre" %>
           <%= f.association :theme, label: "Thème" %>
           <%= f.input :content, label: "Message", placeholder: "ce que vous voulez partager..." %>
-          <%= f.input :picture, as: :file %>
-          <%= f.submit "Publier", class: "btn purple white" %>
+           <div class="button-div">
+              <label for="file-input">
+              <%= f.input :picture, input_html: { style: 'display: none;' }, as: :file %>
+              </label>
+              <%= f.submit  "OK",  class: "modal-submit" %>
+            </div>
         <% end %>
       </div>
     </div>
