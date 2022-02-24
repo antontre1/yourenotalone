@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @me_active = "activated-logo"
     @article = Article.new
     @scope = "que je suis"
     @currentpath = search_bookmarks_path
@@ -49,6 +50,7 @@ class PagesController < ApplicationController
   end
 
   def wall
+    @discover_active = "activated-logo"
     @scope = "Tendances"
     @placeholder_value= "ex: que faire avec le soleil..."
     @currentpath = search_path
@@ -97,6 +99,7 @@ class PagesController < ApplicationController
   end
 
   def bookmarks
+    @favorite_active = "activated-logo"
     @scope = "en favoris"
     @placeholder_value= "rechercher dans mes favoris..."
     @currentpath = search_bookmarks_path
@@ -199,7 +202,7 @@ class PagesController < ApplicationController
   def pub_profile
     @article = Article.new
     @scope = "d'intérêts"
-    @scope_last = "Derniers articles"
+    @scope_last = "récents"
     @user = User.find(params[:id])
     if !current_user.favorites.where(favoritable_type: "User", favoritable_id: @user.id).empty?
       @star = "active"
