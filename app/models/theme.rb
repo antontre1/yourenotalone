@@ -1,5 +1,5 @@
 class Theme < ApplicationRecord
-  searchkick searchable: [:title, :description]
+  searchkick searchable: [:title, :description],  language: "french"
   has_many :articles
   has_many :favorites, as: :favoritable
 

@@ -1,5 +1,5 @@
 class Favorite < ApplicationRecord
-  searchkick
+  searchkick language: "french"
   belongs_to :user
   belongs_to :favoritable, polymorphic: true
 end
