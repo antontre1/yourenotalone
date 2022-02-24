@@ -120,11 +120,13 @@ class PagesController < ApplicationController
     @array_ranked_users.each do |item|
       @users << item.favoritable
     end
+
   end
 
   def search_bookmarks
     @scope = "favoris"
     @currentpath = search_bookmarks_path
+    @article = Article.new
 
     if params[:query].present?
 
