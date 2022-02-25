@@ -112,3 +112,42 @@ PUT _all/_settings
 }
 ```
 <img src="./app/assets/images/postman-elastic1.png" alt="Elastic setting" width="100%"/>
+
+
+We faced several issues, solved, regarding the use of bootstrap modal and select2 in simple_form :
+- issue with bootstrap : https://select2.org/troubleshooting/common-problems
+  the main objective is to define in the stimulus controller, select2 reference as the modal itself avoiding to take body as default
+```bash
+      $('#mySelect2').select2({
+        dropdownParent: $('#myModal')
+    });
+```
+- second problem was the size and color (black box with inapropriate size)
+for the size, we used a specific function to be add in the stimulus select2 controller too : https://select2.org/appearance
+```bash
+  width: '100%',
+  background: 'white'
+```
+
+so the final select2_controller.js is :
+```bash
+import { Controller } from "@hotwired/stimulus";
+import $ from "jquery";
+import "select2";
+import 'select2/dist/css/select2.min.css';
+
+export default class extends Controller {
+  connect() {
+    //  $(this.element).select2();
+     $('#mySelect').select2({
+       dropdownParent: $('#my-modal-body'),
+       width: '100%',
+       background: 'white'
+   });
+  $(document).on('select2:open', () => {
+    document.querySelector('.select2-search__field').focus();
+  });
+
+  }
+}
+```

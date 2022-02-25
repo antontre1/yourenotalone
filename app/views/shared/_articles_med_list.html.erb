@@ -37,9 +37,11 @@
         </div>
       </div>
       <% end %>
+      <a href=<%= theme_path(article.theme) %>>
       <div class="article-card-details-theme art-theme">
         <%= article.theme.title %>
       </div>
+      </a>
       <div class="article-card-details-rounded">
          <%= image_tag('ellipse.svg', class: 'ellipse-th') %>
       </div>
@@ -51,9 +53,11 @@
           <% end %>
       </div>
     </div>
+    <a href=<%= article_path(article) %>>
     <div class="article-card-details-content">
        <%= article.content %>
     </div>
+    </a>
   </div>
   <% end %>
 </div>

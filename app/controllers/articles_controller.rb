@@ -48,6 +48,18 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def create_art_selectedth
+    @article = Article.new(article_params)
+    # @article = Article.new(title: article_params[:title], content: article_params[:content])
+    @article.user_id = current_user.id
+    authorize @article
+    if @article.save
+      redirect_to theme_path(@article.theme)
+    else
+      render :new
+    end
+  end
+
   def edit
     @article = Article.find(params[:id])
     authorize @article

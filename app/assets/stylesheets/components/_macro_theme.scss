@@ -1,3 +1,26 @@
+#theme_show {
+  .theme {
+    width: 100%;
+    max-height: 20rem;
+  }
+
+  .theme_image {
+    height: 12.5rem;
+    img {
+      border-radius: 4px;
+    }
+  }
+
+  p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: 20rem;
+  }
+}
+
+
 .macro-themes-list {
   display: flex;
   flex-direction: row;

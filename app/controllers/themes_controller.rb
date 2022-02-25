@@ -6,8 +6,11 @@ class ThemesController < ApplicationController
   end
 
   def show
+    @scope_last = "récents sur ce thème"
     @theme = Theme.find(params[:id])
     authorize @theme
+    @article = Article.new
+    @articles = policy_scope(Article).all.order(updated_at: :desc)
   end
 
   def new

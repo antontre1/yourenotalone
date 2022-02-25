@@ -21,6 +21,11 @@ class ArticlePolicy < ApplicationPolicy
     return true
   end
 
+  def create_art_selectedth?
+    return true
+  end
+
+
   def edit?
     return true
   end
