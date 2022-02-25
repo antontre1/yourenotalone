@@ -222,12 +222,12 @@ class PagesController < ApplicationController
   end
 
   def pub_profile
-    @article = Article.new
     @scope = "d'intérêts"
     @scope_last = "récents"
     @user = User.find(params[:id])
 
 
+    @article = Article.new
     @themes_list = Array.new
     themes_all = Theme.all
     themes_all.each do |item|
@@ -269,6 +269,13 @@ class PagesController < ApplicationController
   end
 
   def home_first
+    @article = Article.new
+    @themes_list = Array.new
+    themes_all = Theme.all
+    themes_all.each do |item|
+      @themes_list << item.title
+    end
+
     @home_active = "activated-logo"
     @scope_last = 'récents'
     @scope = 'récents'
