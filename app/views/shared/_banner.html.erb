@@ -3,7 +3,7 @@
     <h1><strong> <span class="strong-title">UAreNotAlone</span> </strong> apporte des réponses à vos questions !</h1>
     <p>Rejoignez la communauté! </p>
     <% if user_signed_in? %>
-    <%= link_to "Accueil", wall_path, class: "btn purple white"%>
+    <%= link_to "Accueil", home_path, class: "btn purple white"%>
     <% else %>
     <%= link_to "Connexion", 'users/sign_in', class: "btn purple white"%>
     <% end %>

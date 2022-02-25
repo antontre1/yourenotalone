@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/search", to: "pages#search"
   get "/search_bookmarks", to: "pages#search_bookmarks"
   get "/bookmarks", to: "pages#bookmarks"
+  get "/home", to: "pages#home_first"
   get "/profiles/:id", to: "pages#pub_profile", as: 'profiles'
   patch "/profiles/:id", to: "pages#toggle_fav"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -1,0 +1,47 @@
+<div class="favorites-title">
+  <div class="favorites-title-col">
+    <%= image_tag('bookmark-alone-purple.svg') %>
+    <span>Nouveaux Utilisateurs</span>
+  </div>
+</div>
+<div class="user-med-cards">
+<% users.each do |user| %>
+  <div class="user-med-card">
+    <div class="user-med-card-col1">
+      <div class="profile-background">
+        <%= link_to profiles_path(user.id) do %>
+          <% if user.picture.attached? %>
+          <%=  cl_image_tag user.picture.key, class: "mon-avatar", alt: "avatar-large" %>
+          <%  else %>
+          <%= image_tag('avatar.png', class: "mon-avatar")%>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="profile-description">
+        <%= user.username %>
+      </div>
+      <div class="creation-date">
+        <% if TimeDifference.between(user.created_at, Time.now).in_days.round >0 %>
+            Il y a <%= TimeDifference.between(user.created_at, Time.now).in_days.round %> jours
+        <% else %>
+            aujourd'hui
+        <% end %>
+      </div>
+    </div>
+    <div class="user-med-card-col2">
+      <div class="box-state">
+        <span><%= user.state.text %></span>
+      </div>
+      <div class="biography">
+        <p>
+          <% if user.biography %>
+            <%= user.biography %>
+          <% else %>
+            Je suis une personne qui partagera quelques mots plus tard sur qui je suis...
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
