@@ -10,14 +10,13 @@
  <div class="micro-themes-list">
   <% themes.each do |theme| %>
     <a href="<%= theme_path(theme) %>">
-      <div class="micro-theme-card">
-      style="background: url(
+      <div class="micro-theme-card" style="background: url(
         <% if (theme.picture.attached?) %>
             <%= cl_image_path(theme.picture.key) %>
           <% else %>
             <%= image_path('frontlorem.jpg') %>
           <% end %>
-       ); background-repeat: no-repeat; background-size: 100% 45%; background-position: 50% 0%;">
+            ); background-repeat: no-repeat; background-size: 100% 45%; background-position: 50% 0%;">
         <span><%= theme.title %></span>
         <div class="counter">
           <%= image_tag('eye.svg') %>

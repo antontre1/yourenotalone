@@ -72,3 +72,5 @@ gem 'cloudinary'
 gem 'time_difference'
 gem 'elasticsearch', "< 7.14" # to use a supported version of the Elasticsearch Ruby client
 gem 'searchkick', '~> 4.0'
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
