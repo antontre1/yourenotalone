@@ -4,7 +4,7 @@
     <span>Articles <%= scope %></span>
   </div>
 </div>
-<div class="article-cards">
+<div class="article-cards-col">
   <% articles.each do |article| %>
   <div class="article-card">
     <a href=<%= article_path(article) %>>
@@ -14,7 +14,7 @@
               <% else %>
                 <%= image_path('frontlorem.jpg') %>
               <% end %>
-                ), #F4EAF8; background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; ">
+                ), #F4EAF8; background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; width: 100%;">
       </div>
       <div class="article-card-title art-title">
         <%= article.title %>

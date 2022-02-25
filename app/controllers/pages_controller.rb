@@ -268,5 +268,14 @@ class PagesController < ApplicationController
     redirect_to action: :pub_profile
   end
 
+  def home_first
+    @home_active = "activated-logo"
+    @scope_last = 'récents'
+    @scope = 'récents'
+    # liste des derniers users, themes, articles
+    @users = User.all.order(created_at: :desc).limit(15)
+    @themes = Theme.all.order(created_at: :desc).limit(15)
+    @articles = Article.all.order(updated_at: :desc).limit(15)
+  end
 
 end
