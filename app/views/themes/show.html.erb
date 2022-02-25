@@ -13,7 +13,9 @@
     <div class="theme_title">
       <h4 class="purple-text"><%= @theme.title %></h4>
       <p><%= @theme.description %></p>
-      <%= link_to "+ Article", new_article_path %>
     </div>
   </div>
+   <%= render partial: "shared/articles_med_list_col", locals: { articles: @articles, avatar_visible: true, scope: @scope_last} %>
+   <%= render partial: "shared/modal_article_th_new", locals: { article: @article, themes_list: @theme } %>
+
 </div>

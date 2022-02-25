@@ -39,6 +39,14 @@
   align-items: center;
 
 }
+.article-card-details-content {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 2.8rem;
+
+}
 .article-card-details-avatar {
     display: flex;
     flex-direction: column;
@@ -48,7 +56,7 @@
 
 .article-card-title {
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }

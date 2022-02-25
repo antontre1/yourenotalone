@@ -1,8 +1,8 @@
 <div id="page-bookmarks" class="container-general">
   <div class="spacer">
   </div>
-  <%= render partial: "shared/user_med_card", locals: { users: @users, themes_list: @themes_list, add_arrow: true, arrowthemepath: favorites_th_path } %>
-  <%= render partial: "shared/micro_theme_list", locals: { themes: @themes, scope: @scope, add_arrow: true, arrowthemepath: favorites_th_path } %>
+  <%= render partial: "shared/user_med_card", locals: { users: @users, themes_list: @themes_list, add_arrow: false, arrowthemepath: favorites_th_path } %>
+  <%= render partial: "shared/micro_theme_list", locals: { themes: @themes, scope: @scope, add_arrow: false, arrowthemepath: favorites_th_path } %>
   <%= render partial: "shared/articles_med_list_col", locals: { articles: @articles, avatar_visible: true, scope: @scope_last} %>
   <%= render partial: "shared/modal_article_new", locals: { article: @article, themes_list: @themes_list } %>
 </div>

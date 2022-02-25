@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post '/favorites/:id/create_fav_th', to: 'favorites#create_fav_th', as: 'create_fav_th'
   post '/favorites/:id/create_fav_art', to: 'favorites#create_fav_art', as: 'create_fav_art'
   post '/favorites/:id/create_fav_user', to: 'favorites#create_fav_user', as: 'create_fav_user'
+  post '/articles_selectedth', to: 'articles#create_art_selectedth', as: 'create_art_selectedth'
   resources :articles
   resources :articles do
     resources :comments, only: [ :new, :create, :index, :destroy ]
