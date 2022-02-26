@@ -35,19 +35,20 @@ Faker::Config.locale = 'fr'
 # Create 10 users
 i = 0
 urls = [
-  'https://images.unsplash.com/photo-1627484641213-1fa23ed245af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80',
   'https://images.unsplash.com/photo-1605993439219-9d09d2020fa5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80',
   'https://images.unsplash.com/photo-1618780179533-870736eaea58?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
   'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
   'https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OHxZTk91b1gtU0gxQXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60',
   'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  'https://images.unsplash.com/photo-1508474722893-c3ccb8918d39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80', 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80']
+  'https://images.unsplash.com/photo-1508474722893-c3ccb8918d39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80',
+  'https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80']
 urls.each do |url|
   i = i + 1
   new_user = User.new(email: "monmail#{i}@a.com",
                       password: '123456',
                       username: Faker::Name.name,
                       state: State.all.sample, biography: "Hello")
+  username = (username)
   file = URI.open(url)
   new_user.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   new_user.save!
@@ -104,13 +105,13 @@ C’est pourquoi une alimentation bonne pour le coeur est particulièrement impo
     Article1.theme = Theme2
     Article1.save!
     Article2 = Article.new(title: "Comment gérer la perte de poids liée au Lupus ? ", content: 'Il est fréquent que le lupus fasse perdre l appétit, sachant aussi que les ulcères buccaux ne sont pas rares. Il est néanmoins important de manger suffisamment pour maintenir un poids de forme. Si vos médicaments provoquent des maux d’estomac, fractionnez les repas, mangez chaque fois des petites quantités d’aliments faciles à digérer et évitez les plats trop épicés ou acides. Les conseils d’un diététicien seront utiles.', user_id: User.all.sample.id)
-    file = URI.open('https://images.unsplash.com/photo-1447688812233-3dbfff862778?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=691&q=80')
-    Article3.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    file = URI.open('https://images.unsplash.com/photo-1617807482294-cc43d29c5ac4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
+    Article.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     Article2.theme = Theme2
     Article2.save!
     Article3 = Article.new(title: "Comment gérer les prises de poids liée au Lupus ?", content: 'Les stéroïdes, habituellement prescrit dans ce cas, peuvent faire grossir. Pour compenser, évitez les boissons alcoolisées, limitez les sucreries et veillez à faire suffisamment d’exercice pour maintenir votre poids de forme. Les enfants doivent faire particulièrement attention aux excès.', user_id: User.all.sample.id)
-    file = URI.open('https://images.unsplash.com/photo-1591384640699-9a85bd036da2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
-    Article3.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    file = URI.open('https://images.unsplash.com/photo-1579705744772-f26014b5e084?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
+    Article.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     Article3.theme = Theme2
     Article3.save!
     Article4 = Article.new(title: "Quels sont les aliments à éviter?", content: 'En principe, vous pouvez manger de tout. Il y a cependant deux produits que vous devriez éviter.
@@ -150,6 +151,8 @@ C’est pourquoi une alimentation bonne pour le coeur est particulièrement impo
   Theme6.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   Theme6.save
     Article1 = Article.new(title: "Quels sont les symptômes d'un Lupus à atteinte Rénale?", content: 'Elle est présente chez 30 à 40% des patients. Elle consiste en une inflammation des glomérules du rein (glomérulonéphrite). Le glomérule est la partie du rein contenant le filtre qui nettoie le sang. Différentes formes d’atteintes sont possibles, des formes non graves sans aucune conséquence aux formes graves pouvant évoluer vers la destruction plus ou moins rapide du rein (une insuffisance rénale). L’atteinte rénale doit toujours être recherchée car elle n’est pas ressentie par le patient alors qu’un diagnostic précoce permet d’améliorer fortement les chances de guérison. L’inflammation élargit les mailles du filtre et un peu de sang passe dans les urines. Cette présence de sang se détecte à l’examen des urines par une bandelette urinaire dont les résultats sont obtenus en une minute, mais pour des résultats plus précis, une analyse des urines au laboratoire doit être demandée. Seront recherchées dans les urines : la présence de protéines d’origine sanguine (protéinurie), la présence de globules rouges (hématurie) ou de globules blancs d’origine sanguine (leucocyturie). La présence d’une protéinurie ou d’une hématurie justifie une ponction-biopsie rénale pour préciser le degré d’inflammation du glomérule ce qui conditionnera la prise en charge thérapeutique qui va de la simple surveillance à un traitement par fortes doses de corticoïdes et d’immunosuppresseurs.', user_id: User.all.sample.id)
+    file = URI.open('https://images.unsplash.com/photo-1618914241652-ff0a094b5a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
+    Article1.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     Article1.theme = Theme6
     Article1.save!
   Theme7 = Theme.new(title: "La grossesse et le Lupus", description: "Quels sont les implications du Lupus sur la grossesse? ")
