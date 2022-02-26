@@ -118,11 +118,13 @@ C’est pourquoi une alimentation bonne pour le coeur est particulièrement impo
 
 - L’ail. Certaines substances continues dans l’ail peuvent stimuler l’activité immunitaire et provoquer des poussées de lupus. Il n’y a cependant pas de consensus scientifique à ce sujet.
 - La luzerne et les germes de haricots mungo (souvent appelés erronément pousses ou germes de soja), qui pourraient provoquer des poussées de lupus.', user_id: User.all.sample.id)
+    file = URI.open('https://images.unsplash.com/photo-1579705744772-f26014b5e084?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
+    Article4.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     Article4.theme = Theme2
     Article4.save!
     Article5 = Article.new(title: "L’ail : Très mauvaise idée donc évitez ! ", content: 'J’ai été mangé chez ma Grand-Mère il y a 2 jours, et j’ai tout de suite senti après le repas que je faisais une poussée. J’avais déjà eu la même réaction 2 fois par le passé. Et j’ai tout de suite fat la connexion : les 3 plats contenaient de l’ail.
       Je sais que l’ail peut relever vos plats les plus fades, mais évitez pour votre propre bien.', user_id: User.all.sample.id)
-    file = URI.open('https://images.unsplash.com/photo-1579705744772-f26014b5e084?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
+    file = URI.open('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
     Article5.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     Article5.theme = Theme2
     Article5.save!
