@@ -99,6 +99,14 @@ user_params =
     username: 'Rose Peuplier',
     state: State.all.sample,
     biography: 'Fan de mécanique, toujours les mains dans le cambouis'
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1485893086445-ed75865251e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80',
+    email: 'sara50@gmail.com',
+    password: '123456',
+    username: 'Sara',
+    state: State.all.sample,
+    biography: 'Amoureuse de botanique et de beaux paysages'
   }
 ]
 
@@ -236,7 +244,18 @@ puts "articles created"
 comments = [
   'Super article',
   'Merci pour ces infos',
-  'Cooooool'
+  'Article très intéressant!',
+  'Merci pour ton aide',
+  'Courage!',
+  'You are not alone!',
+  'Tiens bon!',
+  'Je suis de tout coeur avec toi!',
+  'Tu as tout mon soutien!',
+  'Allez, tiens bon!',
+  'Merci!',
+  'Je te remercie pour ce bel article',
+  'Article bien écrit et très limpide',
+  'Très clair!',
 ]
 
 Article.all.each do |article|
