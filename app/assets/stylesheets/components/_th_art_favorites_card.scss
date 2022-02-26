@@ -24,16 +24,54 @@
   overflow-x: auto;
 }
 
-
-.micro-theme-card {
-  position: relative;
-  flex: 0 0 auto;
+.macro-themes-list {
   display: flex;
+  flex-direction: column;
+  // align-items: center;
+  margin-top: 1.5rem;
+  // flex-wrap: nowrap;
+  // overflow-x: auto;
+}
+
+.macro-theme-card {
+  // position: relative;
+  // flex: 0 0 auto;
+  // display: flex;
   border-radius: 8px;
   border: 2px $purple-background2 solid;
   margin-right: 3px;
   padding: 0 4px;
   height: 10rem;
+  // background-color: $purple-background2;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 22px;
+  width: 16rem;
+  height: 17rem;
+  color: $purple2;
+  border-radius: 8px;
+
+  span {
+    font-size: 0.9rem;
+    margin-top: 2.5rem;
+    // margin-left:10%;
+    // margin-right: 10%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.micro-theme-card {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 2px $purple-background2 solid;
+  margin-right: 3px;
+  padding: 0 4px;
   // background-color: $purple-background2;
   justify-content: center;
   align-items: center;
@@ -43,6 +81,8 @@
   color: $purple2;
 
   span {
+    position: absolute;
+    top: 31%;
     font-size: 0.9rem;
     margin-top: 2.5rem;
     margin-left:10%;
@@ -54,16 +94,43 @@
   }
 }
 
-.micro-theme-card > img {
+.micro-theme-card-img {
+    width: 100%;
+    height: 50%;
+    top: 0%;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+    position: absolute;
+    object-fit: cover;
+}
+
+
+.micro-theme-card-img > img {
+    object-fit: cover;
+    padding: 0px;
+    width: 8rem;
+    height: 8rem;
+}
+
+.counter-macro {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 75px;
-  width: 75px;
-  object-fit: cover;
-  padding: 4px;
-  opacity: 0.5;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   border-radius: 8px;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  padding: 0 4px 0 4px;
+  width: 4rem;
+  height: 2rem;
+  background-color: $purple-intense;
+  color: white;
+  img {
+    height: 1.4rem;
+  }
 }
 
 .counter {

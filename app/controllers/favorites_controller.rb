@@ -15,7 +15,14 @@ class FavoritesController < ApplicationController
 
   def index_art
     # @favorites = FavoritePolicy::Scope.new(current_user, Favorite).resolve
-    @favorites = policy_scope(Favorite)
+
+    @scope = "favoris"
+    # @favorites = policy_scope(Favorite)  current_user.favorites
+    @array_ranked_articles = policy_scope(Favorite).where(user_id: current_user.id, favoritable_type: "Article")
+    @articles = Array.new
+    @array_ranked_articles.each do |item|
+      @articles << item.favoritable
+    end
     # @favorites = Favorite.all
   end
 

@@ -12,7 +12,9 @@
 
 const animNavbar = () => {
   const mon_avatar = document.querySelector('.me-logo');
-  mon_avatar.addEventListener('click', toggleClassPopUp );
+  if (mon_avatar) {
+    mon_avatar.addEventListener('click', toggleClassPopUp );
+  }
 }
 
 function toggleClassPopUp() {

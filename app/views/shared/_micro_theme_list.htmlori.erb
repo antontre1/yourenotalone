@@ -1,0 +1,28 @@
+  <div class="favorites-title">
+    <div class="favorites-title-col">
+      <%= image_tag('bookmark-alone-purple.svg') %>
+      <span>Thèmes <%= scope %></span>
+    </div>
+    <% if add_arrow %>
+      <%= link_to  image_tag('arrow-double-fat.svg'), arrowthemepath %>
+    <% end %>
+  </div>
+ <div class="micro-themes-list">
+  <% themes.each do |theme| %>
+    <a href="<%= theme_path(theme) %>">
+      <div class="micro-theme-card" style="background: url(
+        <% if (theme.picture.attached?) %>
+            <%= cl_image_path(theme.picture.key) %>
+          <% else %>
+            <%= image_path('frontlorem.jpg') %>
+          <% end %>
+            ); background-repeat: no-repeat; background-size: 100% 45%; background-position: 50% 0%;">
+        <span><%= theme.title %></span>
+        <div class="counter">
+          <%= image_tag('eye.svg') %>
+          <%= Favorite.where(favoritable_id: theme.id).count %>
+        </div>
+      </div>
+    </a>
+  <% end %>
+</div>

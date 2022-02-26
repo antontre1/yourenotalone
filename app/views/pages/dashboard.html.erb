@@ -2,6 +2,7 @@
   <div class="spacer">
   </div>
   <%= render partial: "shared/user_profile", locals: { user: @user_profile, follow_users_nb: @follow_users_nb, follower_users_nb: @follower_users_nb, likes: @likes, star: false } %>
+  <%= render partial: "shared/articles_med_list", locals: { articles: @articles_last, avatar_visible: false, scope: @scope_last} %>
   <%= render partial: "shared/users_list", locals: { users: @users, scope: @scope, add_arrow: false} %>
   <div class="cards-favorites">
     <div class="favorites-th-art">
@@ -9,5 +10,5 @@
       <%= render partial: "shared/articles_list", locals: { articles: @articles, scope: @scope, add_arrow: false} %>
     </div>
   </div>
-  <%= render partial: "shared/modal_article_new", locals: { article: @article } %>
+  <%= render partial: "shared/modal_article_new", locals: { article: @article, themes_list: @themes_list } %>
 </div>
