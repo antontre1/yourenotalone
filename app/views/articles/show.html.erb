@@ -6,11 +6,13 @@
     <h2 class="title-main"><%= @article.title %></h2>
     <div class="container-icons">
       <div class="image-avatar">
+        <a href=<%= profiles_path(@article.user) %>>
         <% if @article.user.picture.attached? %>
           <%=  cl_image_tag @article.user.picture.key, height: 50, width: 50, class: "user-img-circle" %>
           <% else %>
           <%= image_tag('avatar.png', class: "avatar-mini") %>
         <% end %>
+        </a>
         <div class="plus-icon">
           <%= link_to create_fav_user_path(@article.id), method: :post do %>
             <% if current_user.favorites.find_by(favoritable: @article.user)%>

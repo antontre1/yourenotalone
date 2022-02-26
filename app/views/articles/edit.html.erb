@@ -10,7 +10,7 @@
         <%= f.submit "Soumettre le post", class: "btn purple white" %>
       <% end %>
 
-      <%= link_to "Delete #{@article.title}",
+      <%= link_to "Supprimer #{@article.title}",
                   article_path(@article),
                   method: :delete,
                   data: { confirm: "Etes vous sur?" } %>

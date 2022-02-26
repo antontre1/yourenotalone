@@ -34,22 +34,22 @@
           <%= f.association :state, :include_blank => false, :label_method => lambda { |state| "#{state.text}" } %>
           <%= f.input :picture, as: :file %>
           <%= f.input :current_password,
-                      hint: "Nous avonc besoin de votre ancien mdp pour tout changement",
+                      hint: "Nous avons besoin de votre ancien mdp pour tout changement",
                       required: true,
                       input_html: { autocomplete: "current-password" } %>
         </div>
 
 
         <div class="form-actions btn purple">
-          <%= f.button :submit, "Update", class:"white" %>
+          <%= f.button :submit, "MAJ", class:"white" %>
         </div>
       <% end %>
 
       <p>Cancel my account</p>
 
-      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Etes vous sur?" }, method: :delete %></p>
 
-      <%= link_to "Back", :back %>
+      <%= link_to "Retour", :back %>
     </div>
   </div>
 </div>
