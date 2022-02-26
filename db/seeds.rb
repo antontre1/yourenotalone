@@ -37,18 +37,68 @@ Faker::Config.locale = 'fr'
 user_params = [
   {
     url: 'https://images.unsplash.com/photo-1627484641213-1fa23ed245af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80',
-    email: 'uneadresse@gmail.com',
+    email: 'pauldurand@gmail.com',
     password: '123456',
     username: 'Paul Durand',
     state: State.all.sample,
-    biography: 'Hello'
+    biography: 'Jeune étudiant en droit, fan de tennis et de littérature'
   }
-  # 'https://images.unsplash.com/photo-1605993439219-9d09d2020fa5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80',
-  # 'https://images.unsplash.com/photo-1618780179533-870736eaea58?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  # 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  # 'https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OHxZTk91b1gtU0gxQXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60',
-  # 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  # 'https://images.unsplash.com/photo-1508474722893-c3ccb8918d39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80', 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80'
+  {
+    url: 'https://images.unsplash.com/photo-1605993439219-9d09d2020fa5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80',
+    email: 'elisawindsor@gmail.com',
+    password: '123456',
+    username: 'Elisa Windsor',
+    state: State.all.sample,
+    biography: '“La vertu est le courage du bien.”'
+  }
+  {
+    url: 'https://images.unsplash.com/photo-1618780179533-870736eaea58?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    email: 'emmaho@gmail.com',
+    password: '123456',
+    username: 'Emma Ho',
+    state: State.all.sample,
+    biography: '“La résilience: art de naviguer dans les torrents.” Boris Cyrulnik'
+  }
+  {
+    url: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    email: 'corinnemichel@gmail.com',
+    password: '123456',
+    username: 'Corinne Michel',
+    state: State.all.sample,
+    biography: 'Fière maman de 3 chats: Ronron, Chouchou et Garfield'
+  }
+  {
+    url: 'https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OHxZTk91b1gtU0gxQXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60',
+    email: 'jeannejohn@gmail.com',
+    password: '123456',
+    username: 'Jeanne John',
+    state: State.all.sample,
+    biography: 'Jeune Entrepreneuse, travailleuse acharnée'
+  }
+  {
+    url: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    email: 'celinedurand@gmail.com',
+    password: '123456',
+    username: 'Celine Durand',
+    state: State.all.sample,
+    biography: 'Mes parents étaient fans de Céline Dion'
+  }
+  {
+    url: 'https://images.unsplash.com/photo-1508474722893-c3ccb8918d39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80',
+    email: 'claraboulleau@gmail.com',
+    password: '123456',
+    username: 'Clara Boulleau',
+    state: State.all.sample,
+    biography: 'Photographe et peintre'
+  }
+  {
+    url: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80',
+    email: 'rosepeuplier@gmail.com',
+    password: '123456',
+    username: 'Rose Peuplier',
+    state: State.all.sample,
+    biography: 'Fan de mécanique, toujours les mains dans le cambouis'
+  }
 ]
 user_params.each do |params|
   new_user = User.new(email: params[:email],
@@ -69,6 +119,7 @@ puts "Users created"
   # theme_2.save
   # theme_3 = Theme.new(title: "Blagues", description: "Pour rire et parler avec humour du quotidien")
   # theme_3.save
+
 
     theme_1 = Theme.new(title: "Découverte du Lupus", description: "Toutes les questions que peuvent se poser ceux et celles qui découvrent le Lupus")
       file = URI.open('https://images.unsplash.com/photo-1596510743279-b354a760e5d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80')
@@ -117,7 +168,7 @@ C’est pourquoi une alimentation bonne pour le coeur est particulièrement impo
     article_2.theme = theme_2
     article_2.save!
     article_3 = Article.new(title: "Comment gérer les prises de poids liée au Lupus ?", content: 'Les stéroïdes, habituellement prescrit dans ce cas, peuvent faire grossir. Pour compenser, évitez les boissons alcoolisées, limitez les sucreries et veillez à faire suffisamment d’exercice pour maintenir votre poids de forme. Les enfants doivent faire particulièrement attention aux excès.', user_id: User.all.sample.id)
-    file = URI.open('https://images.unsplash.com/photo-1579705744772-f26014b5e084?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
+    file = URI.open('https://images.unsplash.com/photo-1522844990619-4951c40f7eda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
     article_3.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     article_3.theme = theme_2
     article_3.save!
@@ -125,13 +176,13 @@ C’est pourquoi une alimentation bonne pour le coeur est particulièrement impo
 
 - L’ail. Certaines substances continues dans l’ail peuvent stimuler l’activité immunitaire et provoquer des poussées de lupus. Il n’y a cependant pas de consensus scientifique à ce sujet.
 - La luzerne et les germes de haricots mungo (souvent appelés erronément pousses ou germes de soja), qui pourraient provoquer des poussées de lupus.', user_id: User.all.sample.id)
-    file = URI.open('https://images.unsplash.com/photo-1579705744772-f26014b5e084?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
+    file = URI.open('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
     article_4.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     article_4.theme = theme_2
     article_4.save!
     article_5 = Article.new(title: "L’ail : Très mauvaise idée donc évitez ! ", content: 'J’ai été mangé chez ma Grand-Mère il y a 2 jours, et j’ai tout de suite senti après le repas que je faisais une poussée. J’avais déjà eu la même réaction 2 fois par le passé. Et j’ai tout de suite fat la connexion : les 3 plats contenaient de l’ail.
       Je sais que l’ail peut relever vos plats les plus fades, mais évitez pour votre propre bien.', user_id: User.all.sample.id)
-    file = URI.open('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
+    file = URI.open('https://images.unsplash.com/photo-1579705744772-f26014b5e084?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
     article_5.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     article_5.theme = theme_2
     article_5.save!
