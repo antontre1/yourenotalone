@@ -34,7 +34,8 @@ Faker::Config.locale = 'fr'
   puts "States created"
 # Create 10 users
 
-user_params = [
+user_params =
+[
   {
     url: 'https://images.unsplash.com/photo-1627484641213-1fa23ed245af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80',
     email: 'pauldurand@gmail.com',
@@ -42,7 +43,7 @@ user_params = [
     username: 'Paul Durand',
     state: State.all.sample,
     biography: 'Jeune étudiant en droit, fan de tennis et de littérature'
-  }
+  },
   {
     url: 'https://images.unsplash.com/photo-1605993439219-9d09d2020fa5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80',
     email: 'elisawindsor@gmail.com',
@@ -50,7 +51,7 @@ user_params = [
     username: 'Elisa Windsor',
     state: State.all.sample,
     biography: '“La vertu est le courage du bien.”'
-  }
+  },
   {
     url: 'https://images.unsplash.com/photo-1618780179533-870736eaea58?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
     email: 'emmaho@gmail.com',
@@ -58,7 +59,7 @@ user_params = [
     username: 'Emma Ho',
     state: State.all.sample,
     biography: '“La résilience: art de naviguer dans les torrents.” Boris Cyrulnik'
-  }
+  },
   {
     url: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
     email: 'corinnemichel@gmail.com',
@@ -66,7 +67,7 @@ user_params = [
     username: 'Corinne Michel',
     state: State.all.sample,
     biography: 'Fière maman de 3 chats: Ronron, Chouchou et Garfield'
-  }
+  },
   {
     url: 'https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OHxZTk91b1gtU0gxQXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60',
     email: 'jeannejohn@gmail.com',
@@ -74,7 +75,7 @@ user_params = [
     username: 'Jeanne John',
     state: State.all.sample,
     biography: 'Jeune Entrepreneuse, travailleuse acharnée'
-  }
+  },
   {
     url: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
     email: 'celinedurand@gmail.com',
@@ -82,7 +83,7 @@ user_params = [
     username: 'Celine Durand',
     state: State.all.sample,
     biography: 'Mes parents étaient fans de Céline Dion'
-  }
+  },
   {
     url: 'https://images.unsplash.com/photo-1508474722893-c3ccb8918d39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80',
     email: 'claraboulleau@gmail.com',
@@ -90,7 +91,7 @@ user_params = [
     username: 'Clara Boulleau',
     state: State.all.sample,
     biography: 'Photographe et peintre'
-  }
+  },
   {
     url: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80',
     email: 'rosepeuplier@gmail.com',
@@ -100,6 +101,7 @@ user_params = [
     biography: 'Fan de mécanique, toujours les mains dans le cambouis'
   }
 ]
+
 user_params.each do |params|
   new_user = User.new(email: params[:email],
                       password: params[:password],
