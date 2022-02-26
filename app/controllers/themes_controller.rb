@@ -10,7 +10,7 @@ class ThemesController < ApplicationController
     @theme = Theme.find(params[:id])
     authorize @theme
     @article = Article.new
-    @articles = policy_scope(Article).all.order(updated_at: :desc)
+    @articles = policy_scope(Article).all.order(created_at: :desc)
   end
 
   def new

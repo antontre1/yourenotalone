@@ -18,8 +18,8 @@
                 <span class="art-theme"><%= article.theme.title %></span>
                 <%= image_tag('ellipse.svg', class: 'ellipse-th') %>
                 <span class="art-created">
-                  <% if TimeDifference.between(article.updated_at, Time.now).in_days.round >0 %>
-                      Il y a <%= TimeDifference.between(article.updated_at, Time.now).in_days.round %> jours
+                  <% if TimeDifference.between(article.created_at, Time.now).in_days.round >0 %>
+                      Il y a <%= TimeDifference.between(article.created_at, Time.now).in_days.round %> jours
                   <% else %>
                       aujourd'hui
                   <% end %>
