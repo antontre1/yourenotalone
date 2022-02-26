@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
   def index
-    @placeholder_value = "ex: article sur 'comment annoncer'..."
+    @placeholder_value = "ex: post sur 'comment annoncer'..."
     @scope_popular = "les plus populaires"
     @scope_last = "récents"
     @current_path = search_path
