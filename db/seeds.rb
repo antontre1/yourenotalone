@@ -129,7 +129,7 @@ puts "Users created"
       theme_1.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
       theme_1.save
 
-    article_1 = Article.new(title: "Comment reconnaitre une poussée de Lupus ?", content: 'Toutes les questions que peuvent se poser ceux et celles qui découvrent le Lupus', user_id: User.all.sample.id, created_at: DateTime.now - (0..1000).to_a.sample.hours, created_at: DateTime.now - (0..1000).to_a.sample.hours)
+    article_1 = Article.new(title: "Comment reconnaitre une poussée de Lupus ?", content: 'Toutes les questions que peuvent se poser ceux et celles qui découvrent le Lupus', user_id: User.all.sample.id, created_at: DateTime.now - (0..1000).to_a.sample.hours)
     file = URI.open('https://images.unsplash.com/photo-1618311522704-b4ac7f811c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')
     article_1.picture.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     article_1.theme = theme_1
@@ -233,13 +233,22 @@ puts "articles created"
 
 # Create 10 comments
 
-10.times {
-  new_comment = Comment.new(content: Faker::Hipster.words(number: 4),
-                      article: Article.all.sample,
-                      user: User.all.sample,
-                      created_at: DateTime.now - (0..500).to_a.sample.hours)
-  new_comment.save
-}
+comments = [
+  'Super article',
+  'Merci pour ces infos',
+  'Cooooool'
+]
+
+Article.all.each do |article|
+  comments.sample(3).each do |comment_content|
+    new_comment = Comment.new(content: comment_content,
+                        article: article,
+                        user: User.all.sample,
+                        created_at: DateTime.now - (0..500).to_a.sample.hours)
+    new_comment.save
+  end
+end
+
 puts "comments created"
 
 # Create 2 votes per user
