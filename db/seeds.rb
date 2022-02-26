@@ -37,7 +37,7 @@ Faker::Config.locale = 'fr'
 user_params =
 [
   {
-    url: 'https://images.unsplash.com/photo-1627484641213-1fa23ed245af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80',
+    url: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWFufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=600&q=60',
     email: 'pauldurand@gmail.com',
     password: '123456',
     username: 'Paul Durand',
@@ -45,7 +45,7 @@ user_params =
     biography: 'Jeune étudiant en droit, fan de tennis et de littérature'
   },
   {
-    url: 'https://images.unsplash.com/photo-1605993439219-9d09d2020fa5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80',
+    url: 'https://images.unsplash.com/photo-1534126416832-a88fdf2911c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80',
     email: 'elisawindsor@gmail.com',
     password: '123456',
     username: 'Elisa Windsor',
@@ -53,7 +53,7 @@ user_params =
     biography: '“La vertu est le courage du bien.”'
   },
   {
-    url: 'https://images.unsplash.com/photo-1618780179533-870736eaea58?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    url: 'https://images.unsplash.com/photo-1534126416832-a88fdf2911c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80',
     email: 'emmaho@gmail.com',
     password: '123456',
     username: 'Emma Ho',
@@ -61,7 +61,7 @@ user_params =
     biography: '“La résilience: art de naviguer dans les torrents.” Boris Cyrulnik'
   },
   {
-    url: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    url: 'https://images.unsplash.com/photo-1567336273898-ebbf9eb3c3bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8d29tYW58ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60',
     email: 'corinnemichel@gmail.com',
     password: '123456',
     username: 'Corinne Michel',
@@ -69,7 +69,7 @@ user_params =
     biography: 'Fière maman de 3 chats: Ronron, Chouchou et Garfield'
   },
   {
-    url: 'https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OHxZTk91b1gtU0gxQXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60',
+    url: 'https://images.unsplash.com/photo-1508153460964-48ffffcb0829?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80',
     email: 'jeannejohn@gmail.com',
     password: '123456',
     username: 'Jeanne John',
@@ -77,7 +77,7 @@ user_params =
     biography: 'Jeune Entrepreneuse, travailleuse acharnée'
   },
   {
-    url: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    url: 'https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHdvbWFufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=600&q=60',
     email: 'celinedurand@gmail.com',
     password: '123456',
     username: 'Celine Durand',
@@ -85,7 +85,7 @@ user_params =
     biography: 'Mes parents étaient fans de Céline Dion'
   },
   {
-    url: 'https://images.unsplash.com/photo-1508474722893-c3ccb8918d39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80',
+    url: 'https://images.unsplash.com/photo-1512548438457-4c9584d3766b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80',
     email: 'claraboulleau@gmail.com',
     password: '123456',
     username: 'Clara Boulleau',
