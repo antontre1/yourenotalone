@@ -106,7 +106,7 @@ user_params =
     password: '123456',
     username: 'Sara',
     state: State.all.sample,
-    biography: 'Amoureuse de botanique et de beaux paysages'
+    biography: 'J’ai appris récemment que j’étais atteinte de lupus. Je suis contente de rejoindre la communauté UAreNotAlone pour échanger avec vous et parler de l’évolution de ma maladie.'
   }
 ]
 
