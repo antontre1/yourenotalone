@@ -57,30 +57,39 @@ class FavoritesController < ApplicationController
 
 
   def create_fav_art
-    @favorite = Favorite.new
-    if current_user.favorites.where(favoritable_type: "Article").where(favoritable_id: params[:id]).count == 0
+    @article = Article.find(params[:id])
+    @favorite = current_user.favorites.where(favoritable_type: "Article").find_by(favoritable_id: params[:id])
+    if @favorite
+      authorize @favorite
+      @favorite.destroy
+    else
       @article = Article.find(params[:id])
+      @favorite = Favorite.new
       authorize @favorite
       @favorite.user = current_user
       @favorite.favoritable = @article
       @favorite.save
     end
-    authorize @favorite
-    redirect_to favorites_art_path
+    redirect_to article_path(@article)
   end
 
   def create_fav_user
-    @favorite = Favorite.new
-    if current_user.favorites.where(favoritable_type: "User").where(favoritable_id: params[:id]).count == 0
-      @user = Article.find(params[:id]).user
-      authorize @favorite
-      @favorite.user = current_user
-      @favorite.favoritable = @user
-      @favorite.save
-    end
-    authorize @favorite
-    redirect_to favorites_user_path
+    @article = Article.find(params[:id])
+    @user = @article.user
+    @favorite = current_user.favorites.where(favoritable_type: "User").find_by(favoritable_id: @user.id)
+      if @favorite
+        authorize @favorite
+        @favorite.destroy
+      else
+        @favorite = Favorite.new
+        authorize @favorite
+        @favorite.user = current_user
+        @favorite.favoritable = @user
+        @favorite.save
+      end
+    redirect_to article_path(@article)
   end
+
 
   def destroy
     @favorite = Favorite.find(params[:id])
