@@ -47,15 +47,6 @@
 
   <h2 class="title-h2"><%= @article.description %></h2>
   <p><%= @article.content %></p>
-  <ul>
-    <%= link_to "Ajouter en favori l'article",  create_fav_art_path(@article.id), method: :post  %>
-  </ul>
-  <ul>
-    <%= link_to "Ajouter en favori le rédacteur",  create_fav_user_path(@article.id), method: :post %>
-  </ul>
-  <ul>
-    <%= link_to "Ajouter en favori le thème", create_fav_th_path(@article.id), method: :post  %>
-  </ul>
 
   <% if policy(@article).destroy? %>
     <%= link_to("delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }) %>
