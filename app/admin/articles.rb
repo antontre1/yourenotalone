@@ -5,7 +5,7 @@ ActiveAdmin.register Article do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :title, :description, :content, :user_id, :theme_id, :updated_at
+  permit_params :title, :description, :content, :user_id, :theme_id, :updated_at, :created_at
   #
   # or
   #

@@ -282,7 +282,7 @@ class PagesController < ApplicationController
     # liste des derniers users, themes, articles
     @users = User.all.order(created_at: :desc).limit(15)
     @themes = Theme.all.order(created_at: :desc).limit(15)
-    @articles = Article.all.order(updated_at: :desc).limit(15)
+    @articles = Article.all.order(created_at: :desc).limit(15)
   end
 
 end
