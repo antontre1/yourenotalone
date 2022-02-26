@@ -4,7 +4,7 @@
 <div class="container-smaller" id="articles-show">
   <div class="header-content">
     <h2 class="title-main"><%= @article.title %></h2>
-    <div class="container-icons d-flex">
+    <div class="container-icons">
       <div class="image-avatar">
         <% if @article.user.picture.attached? %>
           <%=  cl_image_tag @article.user.picture.key, height: 50, width: 50, class: "user-img-circle" %>

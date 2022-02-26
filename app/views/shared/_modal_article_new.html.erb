@@ -11,7 +11,7 @@
       <div class="modal-body" id="my-modal-body">
         <%= simple_form_for article, url: articles_path, method: :post do |f| %>
           <%= f.input :title, label: "Titre" %>
-          <%= f.association :theme, label: "Thème", input_html: { id: 'mySelect', data: { controller: 'select2'}} %>
+          <%= f.association :theme, label: "Thème", input_html: { id: 'mySelect'} %>
           <%= f.input :content, label: "Message", placeholder: "ce que vous voulez partager..." %>
            <div class="button-div">
               <label for="file-input">
