@@ -13,9 +13,6 @@
 @import "pages/index";
 
 // https://stackoverflow.com/questions/58006895/select2-css-is-not-loading-via-yarn-or-assets-precompile/58007621#58007621
-// in case of issue in prod heroku with select2, there are two options
-// 1- to add "<%= stylesheet_pack_tag 'application' %>" in view application
-// 2 - or add the below sentence:
 @import 'select2/dist/css/select2';
 
 
