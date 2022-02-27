@@ -48,7 +48,7 @@
   </div>
 
   <h2 class="title-h2"><%= @article.description %></h2>
-  <p><%= @article.content %></p>
+  <p class="article-content"><%= @article.content %></p>
 
   <% if policy(@article).destroy? %>
     <%= link_to("delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }) %>
