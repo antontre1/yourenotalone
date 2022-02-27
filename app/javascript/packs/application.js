@@ -24,7 +24,6 @@ require('jquery')
 import "bootstrap";
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
 import { animNavbar } from '../components/navbar';
 import { select2startup } from '../components/select2startup';
 
