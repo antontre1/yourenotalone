@@ -15,4 +15,5 @@ ActiveAdmin.register Article do
   #   permitted
   # end
 
+
 end
