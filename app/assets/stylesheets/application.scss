@@ -16,7 +16,7 @@
 // in case of issue in prod heroku with select2, there are two options
 // 1- to add "<%= stylesheet_pack_tag 'application' %>" in view application
 // 2 - or add the below sentence:
-// @import 'select2/dist/css/select2';
+@import 'select2/dist/css/select2';
 
 
 * { box-sizing: border-box; }
