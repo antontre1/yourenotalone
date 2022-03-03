@@ -286,29 +286,22 @@ class PagesController < ApplicationController
   end
 
   def create_ajax
-    puts "hello c'est ici !"
-    # @hug = Hug.find(params[:hug_id])
-    # @booking = Booking.new(booking_params)
-    # @booking.hug = @hug
-    # @booking.user_id = current_user.id
-    # @booking.status = "planned"
-    # authorize @booking
     article = Article.last
 
-    decoded_image = Base64.decode64(record_image_params[22..])
-    byebug
-    file = Tempfile.new
-    file.binmode
-    file.write(decoded_image)
-    file.rewind
+   # obliged to convert the base64 image in a file via this way, otherxwise we have to record it locally to have the format recognized by activestorage
+
+    blob = ActiveStorage::Blob.create_after_upload!(
+        io: StringIO.new((Base64.decode64(record_image_params.split(",")[1]))),
+        filename: "user.png",
+        content_type: "image/png",
+      )
+
+
 
     respond_to do |format|
       if article.picture.attach(
-            io: file,
-            filename: "post.png"
+          blob
         )
-        file.close
-        file.unlink
         format.json
       else
         format.json
