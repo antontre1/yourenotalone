@@ -26,12 +26,12 @@ import "bootstrap";
 // Internal imports, e.g:
 import { animNavbar } from '../components/navbar';
 import { select2startup } from '../components/select2startup';
+import { monimage } from '../components/htmltoimage';
 
-console.log("ici application.js");
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
   animNavbar();
   select2startup();
+  monimage();
 });

@@ -4,7 +4,6 @@ import "select2";
 
 
 const select2startup = () => {
-  console.log("ici select2startup");
   $('#mySelect').select2({
   dropdownParent: $('#my-modal-body'),
   width: '100%',

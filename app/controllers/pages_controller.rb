@@ -285,4 +285,42 @@ class PagesController < ApplicationController
     @articles = Article.all.order(created_at: :desc).limit(15)
   end
 
+  def create_ajax
+    puts "hello c'est ici !"
+    # @hug = Hug.find(params[:hug_id])
+    # @booking = Booking.new(booking_params)
+    # @booking.hug = @hug
+    # @booking.user_id = current_user.id
+    # @booking.status = "planned"
+    # authorize @booking
+    article = Article.last
+
+    decoded_image = Base64.decode64(record_image_params[22..])
+    byebug
+    file = Tempfile.new
+    file.binmode
+    file.write(decoded_image)
+    file.rewind
+
+    respond_to do |format|
+      if article.picture.attach(
+            io: file,
+            filename: "post.png"
+        )
+        file.close
+        file.unlink
+        format.json
+      else
+        format.json
+      end
+    end
+  end
+
+private
+
+  def record_image_params
+    params.require(:image)
+  end
+
+
 end

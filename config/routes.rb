@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get "/bookmarks", to: "pages#bookmarks"
   get "/home", to: "pages#home_first"
   get "/profiles/:id", to: "pages#pub_profile", as: 'profiles'
+
+  post '/pages/ajax', to: 'pages#create_ajax'
+
   patch "/profiles/:id", to: "pages#toggle_fav"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :favorites

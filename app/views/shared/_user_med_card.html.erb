@@ -5,8 +5,10 @@
   </div>
 </div>
 <div class="user-med-cards">
+<% i=0 %>
 <% users.each do |user| %>
-  <div class="user-med-card">
+  <% i = i+1 %>
+  <div class="user-med-card" id="monid<%=i%>">
     <div class="user-med-card-col1">
       <div class="profile-background">
         <%= link_to profiles_path(user.id) do %>
