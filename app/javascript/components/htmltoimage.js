@@ -1,5 +1,5 @@
 import * as htmlToImage from 'html-to-image';
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+// import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 import { csrfToken } from "@rails/ujs";
 
 const monimage = () => {
@@ -15,13 +15,10 @@ const obtainImage = (message) => {
     htmlToImage.toPng(message)
 
     .then( (dataUrl) => {
+      console.log("ok pour image")
       var img = new Image();
       img.src = dataUrl;
       document.body.appendChild(img);
-      return img;
-    })
-    .then( (img) => {
-      console.log("tout va bien");
       return img;
     })
     .then ( (img) => {

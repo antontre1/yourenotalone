@@ -302,7 +302,7 @@ class PagesController < ApplicationController
       if article.picture.attach(
           blob
         )
-        format.json
+        format.json { "<h1>Hello</h1>"}
       else
         format.json
       end
