@@ -51,3 +51,22 @@ a, a:hover {
 .poppins-font {
   font-family: 'Poppins', sans-serif;
 }
+
+.btn-other {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px auto;
+  width: 5em;
+  height: 2em;
+  background: white;
+  color: #902CB8;
+  border: 2px solid #902CB8;
+  border-radius: 8px;
+
+}
+
+.btn-full {
+  display: flex;
+  justify-content: center;
+}
