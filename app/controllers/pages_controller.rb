@@ -315,5 +315,4 @@ private
     params.require(:image)
   end
 
-
 end

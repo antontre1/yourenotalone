@@ -2,20 +2,23 @@ import * as htmlToImage from 'html-to-image';
 // import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 import { csrfToken } from "@rails/ujs";
 
+
 const monimage = () => {
   const node = document.getElementById('monid1');
   node.addEventListener('click', obtainImage(node));
   console.log("connecté à  monid")
+  $('#myModal').modal('show');
 }
 
 
 const obtainImage = (message) => {
   return(e) => {
+
     console.log("node repéré");
     htmlToImage.toPng(message)
 
     .then( (dataUrl) => {
-      console.log("ok pour image")
+      console.log("ok pour image");
       var img = new Image();
       img.src = dataUrl;
       document.body.appendChild(img);
@@ -28,15 +31,13 @@ const obtainImage = (message) => {
       fd.append("image", img.src);
       const url = "/pages/ajax";
       fetch(url, {
-          method: 'POST',
+        method: 'POST',
           headers: { 'Accept': "application/json", 'X-CSRF-Token': csrfToken() },
           body: fd
         })
         .then( ()=> {
           const nodes = document.getElementsByClassName("article-card-image")
           nodes[0].style = "background: url(https://cdn.futura-sciences.com/buildsv6/images/wide1920/5/5/a/55ac82ee41_50178246_cartographie-3d-forets.jpg), #F4EAF8; background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; width: 100%;";
-
-          console.log('nous sommes ici !');
         })
       .then(response => response.json())
       .then(data => {
