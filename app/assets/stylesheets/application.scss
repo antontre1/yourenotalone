@@ -12,6 +12,10 @@
 @import "components/index";
 @import "pages/index";
 
+// max size constraint
+
+
+
 * { box-sizing: border-box; }
 *,
 ::before,
@@ -23,6 +27,9 @@
 
 body {
   background-color: snow;
+  max-width: 390px;
+  max-height: 900px;
+  margin: auto;
 }
 
 a, a:hover {
